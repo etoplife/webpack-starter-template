@@ -12,14 +12,16 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const environment = require('./configuration/environment');
 
-const templateFiles = fs.readdirSync(path.resolve(__dirname, environment.paths.source, 'templates'));
+const templateFiles = fs.readdirSync(path.resolve(__dirname, environment.paths.source, 'templates/pages'));
 const htmlPluginEntries = templateFiles.map((template) => new HTMLWebpackPlugin({
   inject: true,
   hash: false,
-  filename: template,
-  template: path.resolve(environment.paths.source, 'templates', template),
+  filename: template.replace(/\.pug/, '.html'),
+  template: path.resolve(environment.paths.source, 'templates/pages', template),
   favicon: path.resolve(environment.paths.source, 'images', 'favicon.ico'),
 }));
+
+const svgSpriteDir = path.resolve(__dirname, 'src/images/svg-sprite');
 
 module.exports = {
   entry: {
@@ -32,6 +34,17 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.pug$/,
+        use: 'pug-loader',
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-sprite-loader',
+        include: [
+          svgSpriteDir,
+        ],
+      },
+      {
         test: /\.((c|sa|sc)ss)$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
       },
@@ -42,6 +55,9 @@ module.exports = {
       },
       {
         test: /\.(png|gif|jpe?g|svg)$/i,
+        exclude: [
+          svgSpriteDir,
+        ],
         use: [
           {
             loader: 'url-loader',
@@ -55,6 +71,9 @@ module.exports = {
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
+        exclude: [
+          svgSpriteDir,
+        ],
         use: [
           {
             loader: 'url-loader',
@@ -110,6 +129,7 @@ module.exports = {
         },
       ],
     }),
-  ].concat(htmlPluginEntries),
+    ...htmlPluginEntries,
+  ],
   target: 'web',
 };
