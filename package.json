@@ -8,9 +8,18 @@
     "last 2 versions",
     "> 5%"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "@fancyapps/fancybox": "^3.5.7",
+    "jquery": "^3.5.1",
+    "lodash.throttle": "^4.1.1",
+    "selectize": "^0.12.6"
+  },
   "devDependencies": {
     "@babel/core": "^7.12.10",
+    "@babel/eslint-parser": "^7.12.17",
+    "@babel/plugin-proposal-class-properties": "^7.12.13",
+    "@babel/plugin-transform-runtime": "^7.12.15",
+    "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.12.11",
     "ajv": "^7.0.3",
     "autoprefixer": "^10.2.3",
@@ -40,6 +49,7 @@
     "sass": "^1.32.5",
     "sass-lint": "^1.13.1",
     "sass-loader": "^10.1.1",
+    "style-loader": "^2.0.0",
     "svg-sprite-loader": "^5.2.1",
     "terser-webpack-plugin": "^5.1.1",
     "url-loader": "^4.1.1",

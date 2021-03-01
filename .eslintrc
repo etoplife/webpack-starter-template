@@ -5,6 +5,7 @@
     "jasmine": true,
     "jquery": true
   },
+  "parser": "@babel/eslint-parser",
   "rules": {
     "no-use-before-define": 0,
     "func-names": 0,
@@ -20,7 +21,11 @@
     "jsx-a11y/href-no-hash": "off",
     "jsx-a11y/anchor-is-valid": ["warn", { "aspects": ["invalidHref"] }],
     "import/no-unresolved": 0,
-    "import/extensions": 0
+    "import/extensions": 0,
+    "no-trailing-spaces": "off",
+    "no-param-reassign": "off",
+    "no-nested-ternary": "off",
+    "prefer-destructuring": "off"
   },
   "globals": {
     "browser": false,

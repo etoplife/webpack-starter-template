@@ -1,0 +1,378 @@
+$listPaddingsXl: pixel-to-vh(96) 15px pixel-to-vh(96) 100px;
+.menu {
+  $self: &;
+  z-index: 20;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+
+  &.active {
+    visibility: visible;
+  }
+
+  &__bg {
+    z-index: 22;
+    background: $color-dark;
+    border-radius: 50%;
+    backface-visibility: hidden;
+    transition: 0.6s cubic-bezier(0, 0.55, 0.45, 1);
+  }
+
+  &__content {
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    z-index: 23;
+    position: relative;
+    opacity: 0;
+    color: #fff;
+
+    #{$self}.active & {
+      opacity: 1;
+      transition: opacity 0.3s 0.4s linear;
+    }
+  }
+
+  &__header {
+    z-index: 1;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 0 0 $headerHeightLg;
+    padding: 0 $headerPaddingsXl;
+
+    @include tablet {
+      padding: 0 $headerPaddingsMd;
+    }
+
+    @include mobile {
+      flex: 0 0 $headerHeightXl;
+      padding: 0 $headerPaddingsSm;
+    }
+  }
+
+  &__about {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    display: block;
+    width: $headerLogoLgWidth;
+    fill: #fff;
+    margin: 0 50px 0 0;
+
+    @include mobile {
+      width: $headerLogoSmWidth;
+    }
+  }
+
+  &__address {
+    font-size: 16px;
+    color: $color-lightgray;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    margin-right: $burgerSizeLg + $burgerOffsetLg;
+  }
+
+  &__socials {
+    margin: 0 50px 0 0;
+    padding: 5px 0 0;
+
+    @include tablet {
+      margin: 0 70px 0 0;
+    }
+
+    @include mobile {
+      margin: 15px 0 0;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-end;
+  }
+
+  &__email {
+    margin: 0 50px 0 0;
+
+    @include tablet {
+      font-size: 14px;
+      margin: 0 70px 0 0;
+    }
+
+    @include mobile {
+      width: 50%;
+      font-size: 12px;
+      margin: 15px 0 0;
+    }
+  }
+
+  &__tel {
+    display: block;
+    font-size: 16px;
+
+    @include adaptive {
+      font-size: 14px;
+    }
+
+    @include mobile {
+      width: 50%;
+    }
+  }
+
+  &__address {
+    @include tablet {
+      font-size: 14px;
+    }
+
+    @include mobile {
+      width: 100%;
+      font-size: 12px;
+      margin: 15px 0 0;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex: 1 1 auto;
+    background: url('../images/content/menu-background.svg') no-repeat 100% 100% / contain;
+
+    @include adaptive {
+      overflow: auto;
+    }
+  }
+
+  &__main,
+  &__additional {
+    flex: 0 0 50%;
+  }
+
+  &__main {
+    @include adaptive {
+      flex: 1 1 100%;
+    }
+  }
+
+  &__additional {
+    position: relative;
+    background: rgba(#fff, 0.07);
+    padding: $listPaddingsXl;
+    opacity: 0;
+    transition: opacity 0.2s linear 0.2s;
+
+    &.active {
+      opacity: 1;
+      transition: opacity 0.2s linear;
+    }
+
+    @include adaptive {
+      display: none;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(#fff, 0.07);
+    }
+  }
+
+  &__list {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    padding: $listPaddingsXl;
+    font-size: pixel-to-vh(46);
+
+    @include tablet {
+      font-size: pixel-to-vh(36, 1024);
+      padding: pixel-to-vh(30, 1024) 15px pixel-to-vh(85, 1024) 50px;
+    }
+
+    @include mobile {
+      font-size: 18px;
+      padding: pixel-to-vh(20, 568) 15px pixel-to-vh(40, 568) 20px;
+    }
+  }
+
+  &__item {
+    flex: 1 1 auto;
+    fill: #fff;
+    transition: 0.3s linear;
+
+    @media (min-width: 1200px) {
+      &:hover,
+      &.active {
+        color: $color-green;
+        fill: $color-green;
+        transform: translateX(30px);
+      }
+    }
+  }
+
+  &__link {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  &__item-angle {
+    width: pixel-to-vh(19);
+    height: pixel-to-vh(10);
+    opacity: 0.2;
+    margin: 8px 0 0 25px;
+
+    @include tablet {
+      width: pixel-to-vh(14, 1024);
+      height: pixel-to-vh(8, 1024);
+    }
+
+    @include mobile {
+      width: 9px;
+      height: 5px;
+
+      margin: 1px 0 0 12px;
+    }
+  }
+
+  &__submenu-wrapper {
+    z-index: 1;
+    position: relative;
+  }
+
+  &__submenu {
+    display: flex;
+    align-items: flex-start;
+    flex-flow: column nowrap;
+    font-size: pixel-to-vh(30);
+    font-weight: 300;
+
+    @include desktop {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    @include adaptive {
+      height: 100%;
+      font-size: 18px;
+    }
+  }
+
+  &__submenu-item {
+    color: $color-lightgray;
+    overflow: hidden;
+    margin-bottom: pixel-to-vh(20);
+    transition: color 0.3s linear;
+
+    @include adaptive {
+      margin-bottom: 15px;
+      color: #fff;
+      fill: #fff;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &:hover {
+      color: #fff;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__submenu-main-link {
+    display: block;
+    margin: 0 0 22px;
+  }
+
+  &__submenu-link {
+    display: flex;
+    align-items: center;
+    transition: 0.3s linear;
+
+    @include desktop {
+      transform: translateY(100%);
+
+      #{$self}__submenu.active & {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  &__submenu-body {
+    overflow: auto;
+
+    @include adaptive {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__submenu-list {
+    padding: 0 0 15px 20px;
+  }
+
+  &__submenu-back {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    line-height: 1;
+    border: 0;
+    background: none;
+    color: $color-lightgray;
+    fill: $color-lightgray;
+    padding: 5px;
+    margin: auto 0 0 -5px;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:hover {
+      color: #fff;
+    }
+
+    @include adaptive {
+      font-size: 11px;
+    }
+  }
+
+  &__submenu-back-angle {
+    width: 7px;
+    height: 4px;
+    margin: 0 6px 0 0;
+  }
+
+  &__decoration {
+    width: 610px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    fill: $color-dark;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 0 50px 50px;
+
+    @include mobile {
+      padding: 0 20px 25px;
+    }
+  }
+}

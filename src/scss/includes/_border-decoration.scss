@@ -1,0 +1,61 @@
+.border-decoration {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 3px;
+    height: 100%;
+  }
+
+  &_position_right {
+    padding-right: 16px;
+
+    &::after {
+      right: 0;
+      background: linear-gradient(
+        225deg,
+        var(--decoration-color) 0,
+        var(--decoration-color) 21px,
+        $color-green 21px,
+        $color-green 24px,
+        var(--decoration-color) 24px,
+        var(--decoration-color) 27px,
+        $color-green 27px,
+        $color-green calc(100% - 3px),
+        transparent calc(100% - 3px),
+        transparent 100%
+      );
+    }
+  }
+
+  &_position_left {
+    padding-left: 16px;
+
+    &::after {
+      left: 0;
+      background: linear-gradient(
+        135deg,
+        var(--decoration-color) 0,
+        var(--decoration-color) 21px,
+        $color-green 21px,
+        $color-green 24px,
+        var(--decoration-color) 24px,
+        var(--decoration-color) 27px,
+        $color-green 27px,
+        $color-green calc(100% - 3px),
+        transparent calc(100% - 3px),
+        transparent 100%
+      );
+    }
+  }
+
+  &_theme_dark {
+    --decoration-color: #{$color-dark};
+  }
+
+  &_theme_light {
+    --decoration-color: #{$color-light};
+  }
+}

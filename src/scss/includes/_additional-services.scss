@@ -1,0 +1,103 @@
+@import '../mixins';
+
+.additional-services {
+  background: #fff;
+
+  &__row {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &__prolog {
+    flex: 0 0 370px;
+    text-align: right;
+    padding: 132px 0 0;
+  }
+
+  &__content-wrapper {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -100px;
+      width: 100vw;
+      height: 100%;
+      background: $color-lightgreen;
+      transform: skewX(-7deg);
+    }
+  }
+
+  &__content {
+    z-index: 1;
+    position: relative;
+    flex: 1 1 auto;
+    padding: 152px 100px 120px 0;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -38px -23px;
+  }
+
+  &__item {
+    flex: 0 0 50%;
+    padding: 38px 23px;
+  }
+}
+
+.additional-service {
+  $self: &;
+
+  &__title {
+    position: relative;
+    @include card-title;
+    white-space: nowrap;
+    background: transparent;
+    transition: 0.3s linear;
+    padding: 1px 8px 1px 0;
+
+    #{$self}:hover & {
+      color: #fff;
+      background: $color-green;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 100%;
+      width: 12px;
+      height: 100%;
+      transition: background 0.3s linear;
+
+      #{$self}:hover & {
+        background: $color-green;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: calc(100% + 6px);
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 6px 0 6px 6px;
+      border-color: transparent transparent transparent $color-green;
+      transition: border-color 0.3s linear;
+
+      #{$self}:hover & {
+        border-color: transparent transparent transparent $color-lightgreen;
+      }
+    }
+  }
+
+  &__text {
+    @include card-text;
+  }
+}

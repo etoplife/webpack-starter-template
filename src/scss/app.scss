@@ -1,11 +1,29 @@
-/* Core variables */
-@import 'base/vars';
+// fix fancybox css import bug
+@function max($numbers...) {
+  @return m#{a}x(#{$numbers});
+}
+
+@function min($numbers...) {
+  @return m#{i}n(#{$numbers});
+}
+
+@import '@fancyapps/fancybox/dist/jquery.fancybox';
 
 /* CSS Reset */
-@import 'base/reset';
+@import 'reset';
 
 /* Fonts */
-@import 'base/fonts';
+@import 'fonts';
 
 /* Mixins, helpers and functions */
-@import 'base/mixins';
+@import 'mixins';
+
+@import 'global';
+
+@import 'modules/modules';
+
+@import 'includes/includes';
+
+@import './forms/form';
+
+@import './UI/UI';

@@ -1,0 +1,61 @@
+@import '../mixins';
+@import 'input';
+@import 'select';
+
+.form {
+
+  &__row {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include mobile {
+      display: block;
+    }
+  }
+
+  &__field {
+    flex: 1 1 auto;
+
+    & + & {
+      margin: 0 0 0 40px;
+
+      @include mobile {
+        margin: 30px 0;
+      }
+    }
+  }
+
+  &__footer {
+
+    &_align_right {
+      text-align: right;
+
+      @include mobile {
+        text-align: center;
+      }
+    }
+  }
+
+  &__agreement {
+    font-size: 11px;
+    color: $color-lightgray;
+
+    > a {
+      display: block;
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__submit {
+    margin-bottom: 10px;
+  }
+}

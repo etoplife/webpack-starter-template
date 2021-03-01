@@ -1,0 +1,213 @@
+.footer {
+  $self: &;
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 40px 0 52px;
+
+    @include adaptive {
+
+    }
+  }
+
+  &__about {
+    display: flex;
+    flex-flow: column nowrap;
+    margin-top: -11px;
+
+    @include mobile {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__logo {
+    width: 170px;
+    margin: 0 0 28px;
+    fill: $color-dark;
+
+    @include adaptive {
+      width: 157px;
+      margin: 0 0 12px;
+    }
+
+    @include mobile {
+      width: 134px;
+    }
+  }
+
+  &__copyright,
+  &__dev-text {
+    font-size: 14px;
+    font-weight: 300;
+
+    @include adaptive {
+      font-size: 12px;
+    }
+  }
+
+  &__dev {
+    margin-top: auto;
+
+    @include adaptive {
+      margin-top: 90px;
+    }
+
+    @include mobile {
+      margin-top: 30px;
+    }
+  }
+
+  &__dev-text {
+    margin: 0 0 8px;
+  }
+
+  &__dev-logo {
+    width: 61px;
+  }
+
+  &__nav {
+    white-space: nowrap;
+    column-count: 2;
+    font-size: 16px;
+    margin: -20px 0;
+
+    @include adaptive {
+      font-size: 14px;
+    }
+
+    @include mobile {
+      column-count: initial;
+      margin: -10px 0 25px;
+    }
+  }
+
+  &__nav-section {
+    break-inside: avoid;
+    padding: 20px 0;
+
+    @include mobile {
+      padding: 10px 0;
+    }
+  }
+  
+  &__nav-title {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    color: $color-dark;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+
+  &__nav-list {
+    color: $color-gray;
+  }
+
+  &__nav-item {
+    margin-bottom: 7px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__nav-section-angle {
+    display: inline-block;
+    width: 10px;
+    height: 5px;
+    fill: $color-lightgray;
+    vertical-align: middle;
+    margin: 0 0 0 5px;
+
+    #{$self}__nav-section.active & {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__contacts {
+    text-align: right;
+
+    @include adaptive {
+      text-align: left;
+    }
+
+    @include tablet {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+    }
+  }
+
+  &__tel-column {
+    margin: 0 0 18px;
+
+    @include adaptive {
+      text-align: left;
+      margin: 0;
+    }
+
+    @include mobile {
+      margin: 0 0 15px;
+    }
+  }
+
+  &__tel {
+    display: block;
+    color: $color-dark;
+    margin: 0 0 5px;
+  }
+
+  &__callback {
+    display: block;
+    margin-left: auto;
+
+    @include adaptive {
+      font-size: 14px;
+    }
+  }
+
+  &__email {
+    display: block;
+    font-size: 16px;
+    color: $color-dark;
+    margin: 0 0 36px;
+
+    @include adaptive {
+      font-size: 14px;
+    }
+
+    @include mobile {
+      margin: 0 0 18px;
+    }
+  }
+
+  &__address {
+    max-width: 290px;
+    font-size: 16px;
+    margin: 0 0 32px;
+
+    @include adaptive {
+      font-size: 14px;
+    }
+
+    @include mobile {
+      margin: 0 0 30px;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: flex-end;
+
+    @include adaptive {
+      justify-content: flex-start;
+    }
+  }
+}
+
+body {
+  height: 20000px;
+}

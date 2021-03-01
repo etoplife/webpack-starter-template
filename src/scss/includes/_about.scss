@@ -1,0 +1,131 @@
+.about {
+  display: flex;
+  height: 750px;
+  background: #4B4F5C;
+
+  &__preview-wrapper {
+    position: relative;
+    z-index: 1;
+    flex: 0 0 45%;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -47px;
+      bottom: 0;
+      width: 100vw;
+      background: #4B4F5C;
+      transform: skewX(-7deg);
+    }
+  }
+
+  &__preview {
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    position: relative;
+  }
+
+  &__video {
+    height: 360px;
+    background: red;
+  }
+
+  &__preview-body {
+    position: relative;
+    flex: 1 1 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    overflow: hidden;
+    background: #4B4F5C;
+  }
+
+  &__quote {
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: #fff;
+
+    p {
+      margin-bottom: 10px;
+
+      &:first-child {
+        &::before {
+          display: inline-block;
+          content: url('../images/content/svg/text-quote.svg');
+          width: 17px;
+          height: 15px;
+          margin: 0 11px 0 0;
+          vertical-align: text-top;
+        }
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__content {
+    z-index: 0;
+    flex: 0 0 55%;
+    position: relative;
+    color: #fff;
+    background: $color-dark;
+    padding-left: 138px;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -20px;
+      bottom: -20px;
+      left: 68px;
+      display: block;
+      width: 20px;
+      transform: rotate(7deg);
+      background: $color-green;
+      opacity: 0.5;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -20px;
+      bottom: -20px;
+      left: 102px;
+      display: block;
+      width: 11px;
+      transform: rotate(7deg);
+      background: $color-green;
+    }
+  }
+
+  &__content-title {
+    font-size: 36px;
+    line-height: 1.3;
+    font-weight: 500;
+    text-align: right;
+    letter-spacing: 0.05em;
+    margin: 0 0 57px;
+  }
+
+  &__main-row {
+    background: $color-green;
+    transform: skewX(-7deg);
+    padding: 18px 0 18px 40px;
+    margin: 0 0 80px 5px;
+  }
+
+  &__content-subtitle {
+    position: relative;
+    font-size: 44px;
+    line-height: 1.35;
+    font-weight: 700;
+    transform: skewX(7deg);
+    letter-spacing: 0.05em;
+  }
+}

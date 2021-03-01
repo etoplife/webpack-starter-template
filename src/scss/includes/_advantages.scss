@@ -1,0 +1,154 @@
+.advantages {
+  display: flex;
+
+  @include adaptive {
+    display: block;
+  }
+
+  &__prolog {
+    flex: 0 0 45%;
+    position: relative;
+
+    @include adaptive {
+      width: 79%;
+    }
+
+    @include mobile {
+      width: 100%;
+      background: $color-dark;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: $color-darkgray;
+      transform: skewX(-7deg);
+
+      @include mobile {
+        content: none;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 210px;
+      height: 100%;
+      background: $color-dark;
+      transform: skewX(-7deg);
+
+      @include mobile {
+        content: none;
+      }
+    }
+  }
+
+  &__prolog-body {
+    height: 100%;
+    z-index: 1;
+    position: relative;
+    color: #fff;
+    padding: 120px 0 0;
+
+    @include adaptive {
+      padding: 91px 0 31px 15px;
+    }
+
+    @include mobile {
+      padding: 50px 10px 30px;
+    }
+
+    &::before {
+      content: "";
+      background: $color-darkgray;
+      position: absolute;
+      top: 0;
+      right: calc(100% - 50px);
+      width: 100vw;
+      height: 100%;
+      transform: skewX(-7deg);
+
+      @include mobile {
+        content: none;
+      }
+    }
+  }
+
+  &__text {
+    max-width: 340px;
+    font-weight: 300;
+  }
+
+  &__content {
+    flex: 1 1 auto;
+    background: $color-lightgreen;
+    padding: 110px 0 110px 90px;
+
+    @include adaptive {
+      padding: 37px 75px 0 75px;
+    }
+
+    @include mobile {
+      padding: 20px 10px 0;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -25px;
+
+    @include mobile {
+      margin: 0;
+    }
+  }
+
+  &__item {
+    flex: 0 0 50%;
+    padding: 0 25px;
+
+    &:nth-child(n + 3) {
+      margin-top: 45px;
+    }
+
+    @include mobile {
+      flex: 1 1 100%;
+      padding: 0;
+
+      &:nth-child(n + 2) {
+        margin-top: 30px;
+      }
+    }
+  }
+}
+
+.advantages-item {
+  &__icon {
+    display: flex;
+    align-items: flex-end;
+    height: 93px;
+    margin: 0 0 20px;
+
+    @include mobile {
+      max-width: 67px;
+    }
+  }
+
+  &__title {
+    @include card-title;
+  }
+
+  &__text {
+    margin: 0 0 0 12px;
+    padding: 0 0 0 5px;
+    border-left: 3px solid #E9EBEF;
+
+    @include card-text;
+  }
+}

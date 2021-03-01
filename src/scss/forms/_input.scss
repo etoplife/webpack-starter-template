@@ -1,0 +1,41 @@
+.input {
+  width: 100%;
+  display: block;
+  border: 0;
+  background: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  border-bottom: 1px solid;
+  font-size: 16px;
+  padding: 0 0 8px;
+  transition: color 0.3s linear, border-color 0.3s linear;
+
+  &_theme_dark {
+    color: $color-dark;
+    border-color: $color-lightgray;
+
+    &:hover,
+    &:focus {
+      border-color: $color-gray;
+    }
+
+    &::placeholder {
+      color: $color-gray;
+    }
+  }
+
+  &_theme_light {
+    color: #fff;
+    border-color: rgba(#fff, 0.2);
+
+    &:hover,
+    &:focus {
+      border-color: rgba(#fff, 0.5);
+    }
+
+    &::placeholder {
+      color: $color-lightgray;
+    }
+  }
+
+}

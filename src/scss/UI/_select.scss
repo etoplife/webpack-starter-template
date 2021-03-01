@@ -1,0 +1,20 @@
+.dropdown {
+  $self: &;
+  position: relative;
+
+  &__list {
+    z-index: 1;
+    position: absolute;
+    display: none;
+    list-style: none;
+    margin: 0;
+
+    #{$self}.active & {
+      display: block;
+    }
+  }
+
+  &__item {
+    cursor: pointer;
+  }
+}

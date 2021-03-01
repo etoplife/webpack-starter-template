@@ -70,7 +70,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        test: /\.(eot|ttf|woff|woff2)$/,
         exclude: [
           svgSpriteDir,
         ],
@@ -97,9 +97,9 @@ module.exports = {
         // Lossless optimization with custom option
         // Feel free to experiment with options for better result for you
         plugins: [
-          ['gifsicle', { interlaced: true }],
-          ['jpegtran', { progressive: true }],
-          ['optipng', { optimizationLevel: 5 }],
+          ['gifsicle', {interlaced: true}],
+          ['jpegtran', {progressive: true}],
+          ['optipng', {optimizationLevel: 5}],
           [
             'svgo',
             {
@@ -123,6 +123,13 @@ module.exports = {
           from: path.resolve(environment.paths.source, 'images', 'content'),
           to: path.resolve(environment.paths.output, 'images', 'content'),
           toType: 'dir',
+          globOptions: {
+            ignore: ['*.DS_Store', 'Thumbs.db'],
+          },
+        },
+        {
+          from: path.resolve(environment.paths.source, 'js/data'),
+          to: path.resolve(environment.paths.output, 'js/data'),
           globOptions: {
             ignore: ['*.DS_Store', 'Thumbs.db'],
           },
