@@ -85,6 +85,27 @@ $breakpoints: (
   font-weight: 300;
 }
 
+@mixin containerPaddings() {
+  padding-right: $containerXlPadding;
+  padding-left: $containerXlPadding;
+
+  @include mobile {
+    padding-right: $containerSmPadding;
+    padding-left: $containerSmPadding;
+  }
+}
+
+@mixin customScroll() {
+  &::-webkit-scrollbar {
+    width: 4px;
+    background: #CDD1DF;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $color-lightgray;
+  }
+}
+
 @function pixel-to-vw($pixelSize, $screenWidth: 1903) {
   $vw: $pixelSize / $screenWidth * 100;
   @return #{$vw}vw;

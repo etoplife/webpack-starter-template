@@ -4,6 +4,8 @@ import cssTimeToMilliseconds from '../utils/cssTimeToMilliseconds';
 import { toggleFixedBody } from '../utils/window-fixed';
 import svgSprite from '../utils/svgSprite';
 
+window.$ = $;
+
 const getMaxScreenOffset = (x, y) => {
   const screenWidth = document.documentElement.clientWidth;
   const screenHeight = window.innerHeight;
@@ -183,7 +185,13 @@ $(() => {
       const depth = $this.data('depth');
       const isParent = !!$this.data('children');
 
-      if (!isParent || depth === undefined || $this.hasClass('active')) {
+      if ($this.hasClass('active')) {
+        return;
+      }
+
+      if (!isParent || depth === undefined) {
+        resetSubmenu();
+        $menu.find('.js-menu-item').removeClass('active');
         return;
       }
 

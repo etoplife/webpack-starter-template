@@ -1,17 +1,37 @@
 @import '../mixins';
 
 .additional-services {
-  background: #fff;
+  background: #fff url('../images/content/additional-services-bg.svg') no-repeat 100% 100%;
+
+  &__container {
+    @include adaptive {
+      padding: 0;
+    }
+  }
 
   &__row {
     display: flex;
     align-items: flex-start;
+
+    @include adaptive {
+      flex-flow: column nowrap;
+    }
   }
 
   &__prolog {
     flex: 0 0 370px;
     text-align: right;
     padding: 132px 0 0;
+
+    @include adaptive {
+      flex: 1 1 auto;
+      max-width: 470px;
+      order: -1;
+      padding: 90px 0 45px;
+      margin-left: auto;
+
+      @include containerPaddings;
+    }
   }
 
   &__content-wrapper {
@@ -26,6 +46,16 @@
       height: 100%;
       background: $color-lightgreen;
       transform: skewX(-7deg);
+
+      @include adaptive {
+        content: none;
+      }
+    }
+
+    @include adaptive {
+      background: $color-lightgreen;
+
+      @include containerPaddings;
     }
   }
 
@@ -34,22 +64,45 @@
     position: relative;
     flex: 1 1 auto;
     padding: 152px 100px 120px 0;
+
+    @include adaptive {
+      padding: 40px 0 100px;
+    }
   }
 
   &__list {
     display: flex;
     flex-wrap: wrap;
     margin: -38px -23px;
+
+    @include adaptive {
+      margin: -38px -15px;
+    }
+
+    @include mobile {
+      margin: -12px 0;
+    }
   }
 
   &__item {
     flex: 0 0 50%;
     padding: 38px 23px;
+
+    @include adaptive {
+      padding: 38px 15px;
+    }
+
+    @include mobile {
+      flex: 0 0 100%;
+      padding: 12px 0;
+    }
   }
 }
 
 .additional-service {
   $self: &;
+  display: block;
+  padding: 0 0 0 12px;
 
   &__title {
     position: relative;
@@ -58,6 +111,10 @@
     background: transparent;
     transition: 0.3s linear;
     padding: 1px 8px 1px 0;
+
+    @include mobile {
+      font-size: 14px;
+    }
 
     #{$self}:hover & {
       color: #fff;
@@ -99,5 +156,9 @@
 
   &__text {
     @include card-text;
+
+    @include mobile {
+      font-size: 12px;
+    }
   }
 }

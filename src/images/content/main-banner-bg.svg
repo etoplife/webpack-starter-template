@@ -1,0 +1,38 @@
+<svg version="1.1" width="354" height="652" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 354 652" style="enable-background:new 0 0 354 652;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#C4C4C4;filter:url(#Adobe_OpacityMaskFilter);}
+	.st1{mask:url(#mask0);}
+	.st2{opacity:0.7;}
+	.st3{fill:#FFFFFF;}
+	.st4{opacity:0.7;fill:#FFFFFF;enable-background:new    ;}
+	.st5{fill:#F0F5EF;}
+	.st6{opacity:0.8;fill:#FFFFFF;enable-background:new    ;}
+</style>
+<defs>
+	<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="-81" y="0" width="435.4" height="652">
+		<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+	</filter>
+</defs>
+<mask maskUnits="userSpaceOnUse" x="-81" y="0" width="435.4" height="652" id="mask0">
+	<rect class="st0" width="354" height="652"/>
+</mask>
+<g class="st1">
+	<g class="st2">
+		<path class="st3" d="M-71,651.6H45.1l-96-82.6L-71,651.6z"/>
+		<path class="st4" d="M17,526l123.2,117.4l-95.5-16.1L17,526z"/>
+		<path class="st3" d="M-26.1,468.9l64.5-62.9l-48.8,120.5L-26.1,468.9z"/>
+		<path class="st5" d="M-70,352.9l3.2-86.9l112,23.9L-70,352.9z"/>
+		<path class="st3" d="M161.6,652h125l-131.2-62.5L161.6,652z"/>
+		<path class="st3" d="M162.2,568.1L39,322l117,183.5L162.2,568.1z"/>
+		<path class="st5" d="M38.4,405.9l20.1,140.3L161.6,652L38.4,405.9z"/>
+		<path class="st3" d="M129.9,143l-29.2,172.9L65,260L129.9,143z"/>
+		<path class="st6" d="M238,451l79,146.2l-96-45.8L238,451z"/>
+		<path class="st5" d="M100,83.3L201.7,0l-66.5,100.1L100,83.3z"/>
+		<path class="st5" d="M159.3,425L134,342l93.3,83H159.3z"/>
+		<path class="st3" d="M202,326l152.4,83h-59.2L202,326z"/>
+		<path class="st4" d="M155,233l109.2,46.9l-93.3,5.4L155,233z"/>
+		<path class="st3" d="M65.2,113.6L-81,103l113.2,70.1L65.2,113.6z"/>
+	</g>
+</g>
+</svg>

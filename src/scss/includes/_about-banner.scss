@@ -1,8 +1,20 @@
 @import '../mixins';
 
 .about-banner {
+  position: relative;
   padding: 120px 0 110px;
-  background: #fff url('../images/content/mountain-left.svg') no-repeat 0 0 / contain;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3500px;
+    height: 100%;
+    background: $color-lightgreen url('../images/content/mountain-left.svg') no-repeat 0 0 / 100% 100%;
+  }
 
   @include adaptive {
     padding: 80px 0;

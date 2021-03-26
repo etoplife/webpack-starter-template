@@ -11,17 +11,16 @@
   }
 
   &__content-wrapper {
-    flex: 0 0 calc(45% - 76px);
+    flex: 0 0 calc(45.3% - 76px);
     position: relative;
     z-index: 1;
     padding: 78px 0 25px 0;
 
     @include adaptive {
-      padding: 60px 15px 30px;
-    }
+      padding-top: 60px;
+      padding-bottom: 30px;
 
-    @include mobile {
-
+      @include containerPaddings;
     }
 
     &::after {
@@ -99,14 +98,7 @@
       padding: 20px;
       overflow: auto;
 
-      &::-webkit-scrollbar {
-        width: 4px;
-        background: #CDD1DF;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background: $color-lightgray;
-      }
+      @include customScroll;
     }
 
     .dropdown__item {

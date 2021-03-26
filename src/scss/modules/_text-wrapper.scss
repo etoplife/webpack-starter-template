@@ -1,0 +1,10 @@
+.text-wrapper {
+
+  p {
+    margin-bottom: 13px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

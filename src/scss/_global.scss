@@ -14,12 +14,16 @@ body {
   }
 }
 
+* {
+  font-family: $font-base;
+}
+
 .container {
   max-width: 1200px;
-  padding-right: 15px;
-  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+
+  @include containerPaddings;
 }
 
 a {
@@ -41,6 +45,11 @@ button {
   }
 }
 
+.rouble {
+  font-family: 'ALSRubl', sans-serif;
+  font-weight: 400;
+}
+
 .border-link {
   line-height: 1;
   white-space: nowrap;
@@ -51,6 +60,11 @@ button {
   margin: 0;
   cursor: pointer;
   letter-spacing: 0.06em;
+
+  &:hover {
+    color: $color-green;
+    border-color: transparent;
+  }
 
   &_theme_gray {
     color: $color-gray;

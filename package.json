@@ -10,6 +10,7 @@
   ],
   "dependencies": {
     "@fancyapps/fancybox": "^3.5.7",
+    "imask": "^6.0.7",
     "jquery": "^3.5.1",
     "lodash.throttle": "^4.1.1",
     "selectize": "^0.12.6"

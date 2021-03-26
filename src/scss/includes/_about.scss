@@ -1,12 +1,15 @@
 .about {
   display: flex;
-  height: 750px;
   background: #4B4F5C;
+
+  @include adaptive {
+    display: block;
+  }
 
   &__preview-wrapper {
     position: relative;
     z-index: 1;
-    flex: 0 0 45%;
+    flex: 0 0 45.3%;
 
     &::before {
       content: "";
@@ -17,6 +20,10 @@
       width: 100vw;
       background: #4B4F5C;
       transform: skewX(-7deg);
+
+      @include adaptive {
+        content: none;
+      }
     }
   }
 
@@ -29,8 +36,62 @@
   }
 
   &__video {
+    position: relative;
     height: 360px;
-    background: red;
+    transform: skewX(-7deg);
+    margin: 0 -71px 0 -25px;
+    cursor: pointer;
+
+    @include adaptive {
+      transform: none;
+      margin: 0;
+    }
+
+    @include mobile {
+      height: 200px;
+    }
+
+    &::before {
+      z-index: 1;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: $color-dark;
+      opacity: 0.7;
+      transition: opacity 0.3s linear;
+    }
+
+    &:hover::before {
+      opacity: 0;
+    }
+  }
+
+  &__video-placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__video-play-button {
+    z-index: 2;
+    position: absolute;
+    width: 118px;
+    top: 0;
+    right: 37px;
+    bottom: 0;
+    margin: auto 0;
+    transform: skewX(7deg);
+
+    @include adaptive {
+      transform: none;
+    }
+
+    @include mobile {
+      width: 65px;
+    }
   }
 
   &__preview-body {
@@ -40,7 +101,14 @@
     flex-flow: column nowrap;
     justify-content: center;
     overflow: hidden;
-    background: #4B4F5C;
+    background: #4B4F5C url('../images/content/about-bg.svg') no-repeat 0 100%;
+
+    @include adaptive {
+      padding: 30px 0;
+      background-image: none;
+
+      @include containerPaddings;
+    }
   }
 
   &__quote {
@@ -48,6 +116,10 @@
     font-weight: 500;
     letter-spacing: 0.06em;
     color: #fff;
+
+    @include mobile {
+      font-size: 16px;
+    }
 
     p {
       margin-bottom: 10px;
@@ -59,7 +131,7 @@
           width: 17px;
           height: 15px;
           margin: 0 11px 0 0;
-          vertical-align: text-top;
+          vertical-align: baseline;
         }
       }
 
@@ -71,12 +143,20 @@
 
   &__content {
     z-index: 0;
-    flex: 0 0 55%;
+    flex: 0 0 54.7%;
     position: relative;
     color: #fff;
     background: $color-dark;
-    padding-left: 138px;
     overflow: hidden;
+    padding: 60px 0 109px 138px;
+
+    @include tablet {
+      padding: 50px 0;
+    }
+
+    @include mobile {
+      padding: 30px 0;
+    }
 
     &::before {
       content: "";
@@ -89,6 +169,10 @@
       transform: rotate(7deg);
       background: $color-green;
       opacity: 0.5;
+
+      @include adaptive {
+        content: none;
+      }
     }
 
     &::after {
@@ -101,6 +185,10 @@
       width: 11px;
       transform: rotate(7deg);
       background: $color-green;
+
+      @include adaptive {
+        content: none;
+      }
     }
   }
 
@@ -111,13 +199,51 @@
     text-align: right;
     letter-spacing: 0.05em;
     margin: 0 0 57px;
+
+    @include adaptive {
+      @include containerPaddings;
+    }
+
+    @include mobile {
+      font-size: 26px;
+      margin: 0 0 30px;
+    }
   }
 
   &__main-row {
+    position: relative;
     background: $color-green;
     transform: skewX(-7deg);
     padding: 18px 0 18px 40px;
-    margin: 0 0 80px 5px;
+    margin: 0 0 80px -5px;
+
+    @include adaptive {
+      transform: none;
+      padding: 10px 0;
+      margin: 0 0 30px;
+
+      @include containerPaddings;
+    }
+  }
+
+  &__mountain-decoration {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 100%;
+    width: 370px;
+    fill: rgba($color-lightgray, 0.1);
+
+    @include adaptive {
+      width: 312px;
+      left: 0;
+      right: unset;
+    }
+
+    @include mobile {
+      width: 190px;
+    }
   }
 
   &__content-subtitle {
@@ -126,6 +252,22 @@
     line-height: 1.35;
     font-weight: 700;
     transform: skewX(7deg);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.03em;
+
+    @include adaptive {
+      transform: none;
+    }
+
+    @include mobile {
+      font-size: 30px;
+    }
+  }
+
+  &__content-text {
+    padding-left: 40px;
+
+    @include adaptive {
+      @include containerPaddings;
+    }
   }
 }

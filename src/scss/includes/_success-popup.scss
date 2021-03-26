@@ -1,0 +1,36 @@
+.success-popup {
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  padding: 126px 30px;
+
+  @include mobile {
+    padding: 40px 0;
+
+    @include containerPaddings;
+  }
+
+  &__img-wrapper {
+    margin: 0 0 30px;
+
+    @include mobile {
+      margin: 0 0 15px;
+    }
+  }
+
+  &__img {
+    width: 130px;
+    stroke: rgba($color-green, 0.2);
+  }
+
+  &__title {
+    font-size: 36px;
+    line-height: 1.3;
+    font-weight: 500;
+    color: $color-dark;
+
+    @include mobile {
+      font-size: 26px;
+    }
+  }
+}

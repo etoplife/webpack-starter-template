@@ -3,21 +3,33 @@
   background: $color-dark;
   overflow: hidden;
 
+  &__container {
+    @include adaptive {
+      padding: 0;
+    }
+  }
+
   &__row {
     display: flex;
     z-index: 1;
     position: relative;
+
+    @include adaptive {
+      display: block;
+    }
   }
 
   &__preview {
     z-index: 2;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
     width: 48%;
     position: relative;
     color: #fff;
     padding: 40px 0;
+
+    @include adaptive {
+      width: 100%;
+      padding: 30px 0 25px;
+    }
 
     &::before {
       z-index: -1;
@@ -29,6 +41,11 @@
       height: 100%;
       transform: skewX(-7deg);
       background: $color-green;
+
+      @include adaptive {
+        right: 0;
+        transform: none;
+      }
     }
   }
 
@@ -40,6 +57,14 @@
     background: $color-dark;
     padding: 19px 0;
     margin: 0 0 18px;
+
+    @include adaptive {
+      font-size: 26px;
+      text-align: center;
+      padding: 10px 0;
+
+      @include containerPaddings;
+    }
 
     &::before {
       content: "";
@@ -54,11 +79,16 @@
 
   &__description {
     padding-right: 125px;
+
+    @include adaptive {
+      @include containerPaddings;
+    }
   }
 
   &__content {
     z-index: 1;
     flex: 1 1 auto;
+    padding: 0 0 35px;
   }
 
   &__header {
@@ -74,6 +104,20 @@
     margin: 0 0 65px -30px;
     padding: 0 0 0 #{30px + 17px};
 
+    @include adaptive {
+      margin: 0 0 30px;
+      height: auto;
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      @include containerPaddings;
+    }
+
+    @include mobile {
+      display: block;
+      text-align: center;
+    }
+
     &::after {
       content: "";
       position: absolute;
@@ -85,9 +129,72 @@
     }
   }
 
+  &__header-item {
+    margin-bottom: 2px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
   &__header-icon {
     max-width: 18px;
     max-height: 12px;
     margin: 0 10px 0 0;
+  }
+
+  &__body {
+    margin-bottom: 47px;
+
+    @include adaptive {
+      margin-bottom: 30px;
+
+      @include containerPaddings;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include adaptive {
+      @include containerPaddings;
+    }
+
+    @include mobile {
+      display: block;
+      text-align: center;
+    }
+  }
+
+  &__result {
+    font-size: 16px;
+
+    @include mobile {
+      margin: 0 0 28px;
+    }
+  }
+
+  &__result-description {
+    color: $color-lightgray;
+    text-transform: uppercase;
+  }
+
+  &__result-value {
+    color: #fff;
+    font-weight: 500;
+  }
+
+  &__agreement {
+    text-align: right;
+
+    @include adaptive {
+      @include containerPaddings;
+    }
+
+    @include mobile {
+      text-align: center;
+    }
   }
 }

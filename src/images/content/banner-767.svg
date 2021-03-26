@@ -1,0 +1,41 @@
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 767 400" style="enable-background:new 0 0 767 400;" xml:space="preserve">
+<style type="text/css">
+	.st0{clip-path:url(#SVGID_2_);}
+	.st1{fill:#FFFFFF;}
+	.st2{fill:#373C4A;}
+	.st3{fill:#F8FBF8;}
+	.st4{opacity:0.5;fill:#FFFFFF;enable-background:new    ;}
+	.st5{fill:#7AA95D;}
+</style>
+<g>
+	<defs>
+		<rect id="SVGID_1_" width="767" height="400"/>
+	</defs>
+	<clipPath id="SVGID_2_">
+		<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+	</clipPath>
+	<g class="st0">
+		<rect x="223.5" class="st1" width="320" height="400"/>
+		<path class="st2" d="M523.743042,0H767v400H472L523.743042,0z"/>
+		<g>
+			<defs>
+				<rect id="SVGID_3_" x="282.5" width="484.5" height="400"/>
+			</defs>
+			<clipPath id="SVGID_4_">
+				<use xlink:href="#SVGID_3_"  style="overflow:visible;"/>
+			</clipPath>
+			<g style="clip-path:url(#SVGID_4_);">
+				
+					<image class="js-main-banner-image" style="overflow:visible;" width="957" height="500" xlink:href=""  transform="matrix(0.8087775 0 0 0.8087775 90.1189194 0)">
+				</image>
+			</g>
+		</g>
+		<path class="st3" d="M308.6959839,400H0V0.307587h359.3930054L308.6959839,400z"/>
+		<path class="st4" d="M304.4979858,400h164.2330322l50.6589966-399.999939L355.1569824,0.0000305L304.4979858,400z"/>
+		<path class="st3" d="M284.2070007,400H472.289978L523.5,0.0000305L518.8449707,0l-51.210968,400H284.2070007z"/>
+		<path class="st2" d="M481.8309937,324L472,400h295l-0.9500122-76H481.8309937z"/>
+		<path class="st5" d="M482.3599854,320h302.2878418v4.0979919H481.8599854L482.3599854,320z"/>
+	</g>
+</g>
+</svg>

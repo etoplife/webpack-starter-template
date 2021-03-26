@@ -1,0 +1,29 @@
+<svg version="1.1" id="Слой_1" width="328.3" height="363.9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 311 378" style="enable-background:new 0 0 311 378;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#C4C4C4;filter:url(#Adobe_OpacityMaskFilter);}
+	.st1{mask:url(#mask0);}
+	.st2{opacity:0.1;}
+	.st3{fill:#FFFFFF;}
+	.st4{fill:#E9EBEF;fill-opacity:0.4;}
+	.st5{opacity:0.7;fill:#FFFFFF;enable-background:new    ;}
+</style>
+<defs>
+	<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="-17.2" y="0.3" width="328.3" height="363.9">
+		<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+	</filter>
+</defs>
+<mask maskUnits="userSpaceOnUse" x="-17.2" y="0.3" width="328.3" height="363.9" id="mask0">
+	<rect class="st0" width="311" height="378"/>
+</mask>
+<g class="st1">
+	<g class="st2">
+		<path class="st3" d="M-5.8,363.2l75.8-13.7l-72.4-42.8L-5.8,363.2z"/>
+		<path class="st4" d="M249.6,263.9l61.5,38.1l-103.4-14.8L249.6,263.9z"/>
+		<path class="st3" d="M88.1,0.3L-6.2,148.1l-11-65.3L88.1,0.3z"/>
+		<path class="st4" d="M25.3,245.3l9-86.3l53.6,112.8L25.3,245.3z"/>
+		<path class="st3" d="M99.6,228.4l108,135.8l-54.5-23L99.6,228.4z"/>
+		<path class="st5" d="M88.4,72l82.3,85.8l-88-31.4L88.4,72z"/>
+	</g>
+</g>
+</svg>

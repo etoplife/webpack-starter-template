@@ -1,16 +1,21 @@
 import $ from 'jquery';
 import openPopup from '../utils/openPopup';
+import svgSprite from '../utils/svgSprite';
 
-const successPopup = `
+const getSuccessPopup = async () => {
+  const icon = await svgSprite('success', {}, 'success-popup__img');
+
+  return `
     <div class="success-popup">
       <div class="success-popup__container">
-        <div class="success-popup">
-          <img src="/local/frontend/dist/static/img/svg-img/success-bg.svg" alt="Заявка отправлена">
+        <div class="success-popup__img-wrapper">
+          ${icon}
         </div>
-        <div class="g-modal__title g-modal-success__title form__title">Заявка отправлена</div>
+        <div class="success-popup__title">Заявка отправлена</div>
       </div>
     </div>
-`;
+  `;
+};
 
 $(function() {
   $('[data-fancybox]').fancybox({
@@ -26,7 +31,8 @@ $(document).on('click', '[data-popup]', function() {
 });
 
 // показ при успешной отправке
-window.successSend = () => {
+window.successSend = async () => {
   $.fancybox.close();
+  const successPopup = await getSuccessPopup();
   openPopup(successPopup);
 };

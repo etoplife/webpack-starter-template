@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 const svgSprite = async (id, css, className = '') => {
-  const svg = await import('../../images/svg-sprite/angle-down.svg');
+  const svg = await import(`../../images/svg-sprite/${id}.svg`);
   const { viewBox } = await svg.default;
 
   const $svg = $(`
@@ -10,9 +10,11 @@ const svgSprite = async (id, css, className = '') => {
     </svg>
   `);
 
-  $svg.css(css);
+  if (css) {
+    $svg.css(css);
+  }
 
-  return $svg.css(css)[0].outerHTML;
+  return $svg[0].outerHTML;
 };
 
 export default svgSprite;

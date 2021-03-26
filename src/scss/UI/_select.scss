@@ -2,6 +2,27 @@
   $self: &;
   position: relative;
 
+  &__title {
+    color: $color-green;
+    cursor: pointer;
+
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 15px;
+      height: 9px;
+      background: url('../images/content/svg/angle-down--dark.svg') no-repeat;
+      margin-left: 8px;
+      vertical-align: middle;
+      opacity: 0.2;
+      transition: opacity 0.3s linear;
+
+      #{$self}.active & {
+        opacity: 0.5;
+      }
+    }
+  }
+
   &__list {
     z-index: 1;
     position: absolute;

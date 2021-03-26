@@ -1,7 +1,9 @@
-body .selectize-control {
+.select.selectize-control {
   .selectize-input {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    display: block !important;
     border: 0;
     background: none;
     box-shadow: none;
@@ -9,12 +11,23 @@ body .selectize-control {
     border-bottom: 1px solid;
     border-radius: 0;
     font-size: 16px;
-    padding: 0 0 8px;
+    padding: 0;
     cursor: pointer !important;
     transition: 0.3s linear;
 
     &::before {
       content: none !important;
+    }
+
+    &::after {
+      position: static !important;
+      top: 0 !important;
+      margin: 0 0 8px !important;
+    }
+
+    .item {
+      width: 100%;
+      padding: 0 0 8px;
     }
   }
 
@@ -24,10 +37,15 @@ body .selectize-control {
 
   .selectize-dropdown {
     border: 0 !important;
-    padding: 10px 0;
     border-radius: 0;
-    background: rgba($color-darkgray, 0.95);
     margin-top: 0 !important;
+
+    > .selectize-dropdown-content {
+      padding: 10px 0;
+      background: rgba($color-darkgray, 0.95);
+
+      @include customScroll;
+    }
   }
 
   &.select_theme_light {
@@ -35,6 +53,14 @@ body .selectize-control {
       color: #fff;
       border-color: rgba(#fff, 0.2);
       background: none;
+
+      &::after {
+        border-color: rgba(#fff, 0.2) transparent transparent transparent !important;
+      }
+
+      &.dropdown-active::after {
+        border-color: transparent transparent rgba(#fff, 0.2) transparent !important;
+      }
 
       &:hover,
       &:focus,
@@ -47,9 +73,13 @@ body .selectize-control {
       }
     }
 
+    .item {
+      color: $color-lightgray;
+    }
+
     .option {
       color: $color-lightgray;
-      background: rgba($color-darkgray, 0.95);
+      background: none;
       cursor: pointer;
 
       &:hover {
@@ -60,7 +90,41 @@ body .selectize-control {
 
   &.select_theme_dark {
     .selectize-input {
+      color: $color-dark;
+      border-color: $color-lightgray;
+      background: none;
 
+      &::after {
+        border-color: rgba($color-dark, 0.2) transparent transparent transparent !important;
+      }
+
+      &.dropdown-active::after, {
+        border-color: transparent transparent rgba($color-dark, 0.2) transparent !important;
+      }
+
+      &:hover,
+      &:focus,
+      &.focus {
+        border-color: $color-gray;
+      }
+
+      &.input-active {
+        background: none;
+      }
+    }
+
+    .item {
+      color: $color-gray;
+    }
+
+    .option {
+      color: $color-lightgray;
+      background: none;
+      cursor: pointer;
+
+      &:hover {
+        color: #fff;
+      }
     }
   }
 }

@@ -108,6 +108,10 @@
   &__nav-item {
     margin-bottom: 7px;
 
+    &:hover {
+      color: $color-dark;
+    }
+
     &:last-child {
       margin-bottom: 0;
     }
@@ -162,7 +166,10 @@
 
   &__callback {
     display: block;
-    margin-left: auto;
+
+    @include desktop {
+      margin-left: auto;
+    }
 
     @include adaptive {
       font-size: 14px;
@@ -206,8 +213,4 @@
       justify-content: flex-start;
     }
   }
-}
-
-body {
-  height: 20000px;
 }
