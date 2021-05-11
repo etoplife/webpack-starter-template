@@ -39,7 +39,7 @@
     position: relative;
     height: 360px;
     transform: skewX(-7deg);
-    margin: 0 -71px 0 -25px;
+    margin: 0 -72px 0 -25px;
     cursor: pointer;
 
     @include adaptive {
@@ -127,11 +127,18 @@
       &:first-child {
         &::before {
           display: inline-block;
-          content: url('../images/content/svg/text-quote.svg');
+          content: "";
+          background: url('../images/content/svg/text-quote.svg') no-repeat;
           width: 17px;
           height: 15px;
-          margin: 0 11px 0 0;
-          vertical-align: baseline;
+          margin: 7px 11px 0 0;
+          vertical-align: top;
+
+          @include mobile {
+            width: 12px;
+            height: 10px;
+            margin: 5px 6px 0 0;
+          }
         }
       }
 
@@ -264,6 +271,7 @@
   }
 
   &__content-text {
+    font-weight: 300;
     padding-left: 40px;
 
     @include adaptive {

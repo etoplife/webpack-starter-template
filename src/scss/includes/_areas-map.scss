@@ -56,10 +56,36 @@
     }
   }
 
+  &__form-rows {
+    margin: 0 0 30px;
+
+    @include tablet {
+      display: flex;
+
+      .form__row {
+        flex: 1 1 1px;
+        margin: 0 30px 0 0;
+
+        &:first-child {
+          flex: 0 1 66.6666%;
+        }
+
+        &:last-child {
+          flex: 0 1 33.3333%;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
   &__el {
     height: 600px;
     z-index: 0;
     flex: 1 1 auto;
+
+    [class$="ground-pane"] {
+      filter: grayscale(1);
+    }
   }
 
   &__footer {

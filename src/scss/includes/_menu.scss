@@ -148,6 +148,7 @@ $listPaddingsXl: pixel-to-vh(96) 15px pixel-to-vh(96) 100px;
 
     @include adaptive {
       overflow: auto;
+      background: none;
     }
   }
 
@@ -233,7 +234,7 @@ $listPaddingsXl: pixel-to-vh(96) 15px pixel-to-vh(96) 100px;
     width: pixel-to-vh(19);
     height: pixel-to-vh(10);
     opacity: 0.2;
-    margin: 8px 0 0 25px;
+    margin: pixel-to-vh(5) 0 0 pixel-to-vh(25);
 
     @include tablet {
       width: pixel-to-vh(14, 1024);
@@ -244,7 +245,7 @@ $listPaddingsXl: pixel-to-vh(96) 15px pixel-to-vh(96) 100px;
       width: 9px;
       height: 5px;
 
-      margin: 1px 0 0 12px;
+      margin: -1px 0 0 12px;
     }
   }
 
@@ -354,8 +355,9 @@ $listPaddingsXl: pixel-to-vh(96) 15px pixel-to-vh(96) 100px;
 
   &__submenu-back-angle {
     width: 7px;
-    height: 4px;
-    margin: 0 6px 0 0;
+    height: 7px;
+    margin: -1px 6px 0 0;
+    transform-origin: center;
   }
 
   &__decoration {

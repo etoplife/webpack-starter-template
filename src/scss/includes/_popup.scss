@@ -2,16 +2,25 @@
   display: none;
   padding: 50px 60px 70px;
 
+  @include mobile {
+    padding: 30px 15px;
+  }
+
   &__title {
     color: $color-dark;
     font-size: 36px;
     font-weight: 500;
     margin: 0 0 30px;
     text-align: center;
+
+    @include mobile {
+      font-size: 24px;
+    }
   }
 
 }
 
 #export-popup {
+  width: 100%;
   max-width: 500px;
 }

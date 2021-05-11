@@ -9,13 +9,7 @@ const openPopup = (src) => {
     src,
     type: 'inline',
     autoFocus: device === 'desktop',
-    touch:
-      device === 'desktop'
-        ? false
-        : {
-          vertical: true,
-          momentum: true,
-        },
+    touch: false,
   });
 };
 

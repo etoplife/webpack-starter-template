@@ -16,6 +16,6 @@ $(() => {
   const $selects = $('.js-select');
 
   $selects.each((i, item) => $(item).selectize({
-    plugins: ['hidden_textfield'],
+    // plugins: ['hidden_textfield'],
   }));
 });

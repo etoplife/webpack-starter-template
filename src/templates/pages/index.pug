@@ -158,7 +158,7 @@ body
                     ul.socials.menu__socials.d-none.d-xl-block
                         li.socials__item
                             a.socials__link(href="javascript:void(0)")
-                                img(src="images/content/svg/socials-vk.svg")
+                                include ../../images/content/svg/socials-vk.svg
                     .menu__contacts.d-none.d-md-flex
                         a.menu__tel(href="tel:+78129613538") +7 (812) 961-35-38
                         button.border-link.border-link_theme_gray(type="button" data-popup="#export-popup") Заказать звонок
@@ -184,7 +184,7 @@ body
                 ul.socials.menu__socials.d-xl-none
                     li.socials__item
                         a.socials__link(href="javascript:void(0)")
-                            img(src="images/content/svg/socials-vk.svg")
+                            include ../../images/content/svg/socials-vk.svg
                 address.menu__address.d-xl-none!= "188641, Россия, Ленинградская область <br> г. Всеволожск, пр. Гоголя, д. 1"
     .header
         a.header__logo(href="/")
@@ -239,16 +239,18 @@ body
                 include ../../images/content/banner-767.svg
         .container.main-banner__container
             .main-banner__content
-                .main-banner__body
-                    h1.main-banner__title
-                        .main-banner__title-decoration.js-main-banner-title-main Прием макулатуры
-                        span.main-banner__title-text.js-main-banner-title-description!= `по выгодной цене до <span class="main-banner__price">12 000 <span class="rouble">o</span>/т111</span>`
-                    .main-banner__subtitle
-                        .js-main-banner-subtitle Бесплатный вывоз от 100 кг.
-                        .main-banner__muted.js-main-banner-subtitle-description заплатим за вывоз от 300 кг.
-                    .main-banner__order
-                        .btn.btn_size_xl.btn_theme_dark(data-popup="#export-popup")
-                            .btn__text Заказать вывоз
+                .main-banner__slider.js-main-banner-slider
+                    each item in mainBanner
+                        .main-banner__slide(data-image=item.image)
+                            h1.main-banner__title
+                                .main-banner__title-decoration.js-main-banner-title-main= item.titleMain
+                                span.main-banner__title-text.js-main-banner-title-description!= item.titleDescription
+                            .main-banner__subtitle
+                                .js-main-banner-subtitle= item.subtitleMain
+                                .main-banner__muted.js-main-banner-subtitle-description= item.subtitleDescription
+                            .main-banner__order
+                                .btn.btn_size_xl.btn_theme_dark(data-popup="#export-popup")
+                                    .btn__text Заказать вывоз
                 .main-banner__footer
                     .main-banner__linking
                         .main-banner__linking-item
@@ -265,9 +267,7 @@ body
                                 .additional-service__text Сохраняем конфиденциальность и выдаем документы об уничтожении
                     .main-banner__status
                         .main-banner__current.js-main-banner-current!= "01"
-                        .main-banner__nav
-                            .main-banner__arrow.main-banner__arrow_direction_prev.js-main-banner-prev
-                            .main-banner__arrow.main-banner__arrow_direction_next.js-main-banner-next
+                        .main-banner__nav.js-main-banner-nav
 
     .about-banner.inner-section
         .container
@@ -355,29 +355,43 @@ body
                             +svg('wallet')(class="inline-banner__header-icon")
                             span Платим вам при вывозе от 300 кг
                     .inline-banner__body
-                        .inline-banner__form
-                            .form__row
-                                .form__field
-                                    select.select.select_theme_light.js-select
-                                        each item, i in Array(5)
-                                            option(value=i)= `Тип макулатуры ${i}`
-                                .form__field
-                                    input.input.input_theme_light(name="weight" placeholder="Примерный вес, кг")
-                                .form__field
-                                    select.select.select_theme_light.js-select
-                                        each item, i in Array(5)
-                                            option(value=i)= `Тип макулатуры ${i}`
+                        form.inline-banner__form(action="#")
+                            .form__body
+                                .form__row
+                                    .form__field
+                                        select.select.select_theme_light.js-select
+                                            each item, i in Array(5)
+                                                if (i === 0)
+                                                    option(value="")= `Тип макулатуры:`
+                                                else
+                                                    option(value=i)= `Тип макулатуры ${i}`
+                                    .form__field
+                                        input.input.input_theme_light(name="weight" placeholder="Примерный вес, кг")
+                                    .form__field
+                                        select.select.select_theme_light.js-select
+                                            each item, i in Array(5)
+                                                if (i === 0)
+                                                    option(value="")= `Тип макулатуры:`
+                                                else
+                                                    option(value=i)= `Тип макулатуры ${i}`
+                                .form__row
+                                    .form__field
+                                        input.input.input_theme_light(type="text" placeholder="Имя")
+                                    .form__field
+                                        input.input.input_theme_light(type="tel" inputmode="number" required placeholder="Телефон*")
+                                    .form__field
                     .inline-banner__footer
                         .inline-banner__result
                             span.inline-banner__result-description= "Итоговая стоимость: "
                             span.inline-banner__result-value
                                 | 0
-                                span.rouble o
+                                span.rouble!= "&#8239;o"
                         button.btn.btn_size_lg.btn_theme_light.form__submit(type="submit")
                             .btn__text Отправить
-                    .inline-banner__agreement.form__agreement
-                        | Отправляя форму, Вы соглашаетесь с
-                        a(href="/agreement/") обработкой персональных данных
+                    .inline-banner__agreement
+                        .form__agreement.form__agreement_inline.form__agreement_justify_end
+                            | Отправляя форму, Вы соглашаетесь с
+                            a(href="/agreement/") обработкой персональных данных
 
 
     .additional-services
@@ -487,20 +501,27 @@ body
                     span районе
                 .areas-map__form
                     form.form(action="#")
-                        .form__row
-                            .form__field
-                                input.input.input_theme_dark(type="text" placeholder="Имя")
-                            .form__field
-                                input.input.input_theme_dark(type="tel" inputmode="number" required placeholder="Телефон*")
-                        .form__row
-                            .form__field
-                                input.input.input_theme_dark(type="text" placeholder="Вид макулатуры")
-                        .form__footer.form__footer_align_right
-                            button.btn.btn_size_lg.btn_theme_dark.form__submit(type="submit")
-                                .btn__text Отправить
-                            .form__agreement
-                                | Отправляя форму, Вы соглашаетесь с
-                                a(href="/agreement/") обработкой персональных данных
+                        .form__body
+                            .areas-map__form-rows
+                                .form__row
+                                    .form__field
+                                        input.input.input_theme_dark(type="text" placeholder="Имя")
+                                    .form__field
+                                        input.input.input_theme_dark(type="tel" inputmode="number" required placeholder="Телефон*")
+                                .form__row
+                                    .form__field
+                                        select.select.select_theme_dark.js-select
+                                            each item, i in Array(5)
+                                                if (i === 0)
+                                                    option(value="")= `Тип макулатуры:`
+                                                else
+                                                    option(value=i)= `Тип макулатуры ${i}`
+                            .form__footer.form__footer_align_right
+                                button.btn.btn_size_lg.btn_theme_dark.form__submit(type="submit")
+                                    .btn__text Отправить
+                                .form__agreement
+                                    | Отправляя форму, Вы соглашаетесь с
+                                    a(href="/agreement/") обработкой персональных данных
                 .areas-map__footer
                     a.areas-map__tel(href="tel:+78129613538") +7 (812) 961-35-38
                     button.border-link.border-link_size_sm.border-link_theme_gray(type="button" data-popup="#export-popup") Заказать звонок
@@ -550,7 +571,7 @@ body
                     .footer__copyright © 1992 – 2021, ООО "Синай"
                     a.footer__dev(href="//toplife.agency/" target="_blank")
                         .footer__dev-text!= "Создание<br> и продвижение сайта"
-                            img.footer__dev-logo(src="images/content/svg/toplife.svg")
+                        img.footer__dev-logo(src="images/content/svg/toplife.svg")
                 .footer__nav
                     each section in footerNav
                         .footer__nav-section.js-footer-section
@@ -564,33 +585,40 @@ body
                         a.footer__tel(href="tel:+78129613538") +7 (812) 961-35-38
                         button.border-link.border-link_size_md.border-link_theme_gray.footer__callback(type="button" data-popup="#export-popup") Заказать звонок
                     a.footer__email(href="mailto:info@sinay-paper.ru") info@sinay-paper.ru
-                    address.footer__address!= "188641, Россия, Ленинградская область г. Всеволожск, пр. Гоголя, д. 1"
+                    address.footer__address!= "188641, Россия, <br> Ленинградская область <br> г. Всеволожск, пр. Гоголя, д. 1"
                     ul.socials.footer__socials
                         li.socials__item
                             a.socials__link(href="javascript:void(0)")
-                                img(src="images/content/svg/socials-vk.svg")
+                                include ../../images/content/svg/socials-vk.svg
 
     #export-popup.popup
         form(action="#")
             .popup__title Заказать вывоз
-            .form__row
-                .form__field
-                    input.input.input_theme_dark(type="text" placeholder="Имя")
-                .form__field
-                    input.input.input_theme_dark(type="tel" inputmode="number" required placeholder="Телефон*")
-            .form__row
-                .form__field
-                    select.select.select_theme_dark.js-select
-                        each item, i in Array(8)
-                            option(value=`Вид макулатуры ${i}`)= `Вид макулатуры ${i}`
-            .form__row
-                .form__field
-                    select.select.select_theme_dark.js-select
-                        each item, i in Array(8)
-                            option(value=`Вид макулатуры ${i}`)= `Вид макулатуры ${i}`
-            .form__footer.form__footer_align_right
-                button.btn.btn_size_lg.btn_theme_dark.form__submit(type="submit")
-                    .btn__text Отправить
-                .form__agreement
-                    | Отправляя форму, Вы соглашаетесь с
-                    a(href="/agreement/") обработкой персональных данных
+            .form__body
+                .form__row
+                    .form__field
+                        input.input.input_theme_dark(type="text" placeholder="Имя")
+                    .form__field
+                        input.input.input_theme_dark(type="tel" inputmode="number" required placeholder="Телефон*")
+                .form__row
+                    .form__field
+                        select.select.select_theme_dark.js-select
+                            each item, i in Array(8)
+                                if (i === 0)
+                                    option(value="")= `Тип макулатуры:`
+                                else
+                                    option(value=i)= `Тип макулатуры ${i}`
+                .form__row
+                    .form__field
+                        select.select.select_theme_dark.js-select
+                            each item, i in Array(8)
+                                if (i === 0)
+                                    option(value="")= `Тип макулатуры:`
+                                else
+                                    option(value=i)= `Тип макулатуры ${i}`
+                .form__footer.form__footer_align_right
+                    button.btn.btn_size_lg.btn_theme_dark.form__submit(type="submit")
+                        .btn__text Отправить
+                    .form__agreement
+                        | Отправляя форму, Вы соглашаетесь с
+                        a(href="/agreement/") обработкой персональных данных

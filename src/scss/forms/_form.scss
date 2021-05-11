@@ -1,6 +1,6 @@
 @import '../mixins';
 @import 'input';
-@import 'select';
+@import 'dropdown';
 
 .form {
 
@@ -22,11 +22,18 @@
     flex: 1 1 1px;
 
     & + & {
-      margin: 0 0 0 40px;
+      margin: 0 0 0 30px;
 
       @include mobile {
         margin: 30px 0;
       }
+    }
+  }
+
+  &__body {
+    @include mobile {
+      padding-right: 10%;
+      padding-left: 10%;
     }
   }
 
@@ -44,6 +51,22 @@
   &__agreement {
     font-size: 11px;
     color: $color-lightgray;
+
+    @include mobile {
+      font-size: 10px;
+    }
+
+    &_inline {
+      display: flex;
+
+      @include mobile {
+        display: block;
+      }
+    }
+
+    &_justify_end {
+      justify-content: flex-end;
+    }
 
     > a {
       display: block;

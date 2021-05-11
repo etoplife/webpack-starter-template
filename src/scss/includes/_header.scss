@@ -51,7 +51,7 @@ $burgerOffsetLg: 32px;
     margin-bottom: -3px;
 
     &:hover {
-      color: $color-dark;
+      color: $color-green;
     }
 
     &:last-child {
@@ -102,7 +102,7 @@ $burgerOffsetLg: 32px;
     color: #72788E;
 
     li:hover > & {
-      color: $color-dark;
+      color: $color-green;
     }
   }
 
@@ -111,6 +111,7 @@ $burgerOffsetLg: 32px;
     height: 3px;
     fill: $color-lightgray;
     margin: 0 0 0 3px;
+    transform: translateY(-1px);
   }
 
   &__submenu-angle {

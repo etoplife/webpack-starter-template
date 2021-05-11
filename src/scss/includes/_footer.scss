@@ -8,7 +8,12 @@
     padding: 40px 0 52px;
 
     @include adaptive {
+      padding: 40px 0 30px;
+    }
 
+    @include mobile {
+      display: block;
+      padding: 30px 0 25px;
     }
   }
 
@@ -18,7 +23,7 @@
     margin-top: -11px;
 
     @include mobile {
-      margin-bottom: 30px;
+      margin: 0 0 30px;
     }
   }
 
@@ -49,6 +54,12 @@
 
   &__dev {
     margin-top: auto;
+    opacity: 0.7;
+    transition: opacity 0.3s linear;
+
+    &:hover {
+      opacity: 1;
+    }
 
     @include adaptive {
       margin-top: 90px;
@@ -75,17 +86,22 @@
 
     @include adaptive {
       font-size: 14px;
+      margin: -16px 0;
     }
 
     @include mobile {
       column-count: initial;
-      margin: -10px 0 25px;
+      margin: -10px 0 15px;
     }
   }
 
   &__nav-section {
     break-inside: avoid;
     padding: 20px 0;
+
+    @include adaptive {
+      padding: 16px 0;
+    }
 
     @include mobile {
       padding: 10px 0;
@@ -99,17 +115,22 @@
     color: $color-dark;
     text-transform: uppercase;
     margin: 0 0 10px;
+
+    &:hover {
+      color: $color-green;
+    }
   }
 
   &__nav-list {
     color: $color-gray;
+    font-weight: 300;
   }
 
   &__nav-item {
     margin-bottom: 7px;
 
     &:hover {
-      color: $color-dark;
+      color: $color-green;
     }
 
     &:last-child {
@@ -134,6 +155,7 @@
     text-align: right;
 
     @include adaptive {
+      align-items: flex-start;
       text-align: left;
     }
 
@@ -184,6 +206,7 @@
 
     @include adaptive {
       font-size: 14px;
+      margin: 0;
     }
 
     @include mobile {
@@ -198,6 +221,7 @@
 
     @include adaptive {
       font-size: 14px;
+      margin: 0;
     }
 
     @include mobile {

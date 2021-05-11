@@ -63,6 +63,10 @@
       text-align: center;
       padding: 10px 0;
 
+      > br {
+        display: none;
+      }
+
       @include containerPaddings;
     }
 
@@ -81,6 +85,7 @@
     padding-right: 125px;
 
     @include adaptive {
+      text-align: center;
       @include containerPaddings;
     }
   }
@@ -101,7 +106,7 @@
     background: $color-darkgray;
     color: rgba(#fff, 0.3);
     fill: rgba(#fff, 0.3);
-    margin: 0 0 65px -30px;
+    margin: 0 0 40px -30px;
     padding: 0 0 0 #{30px + 17px};
 
     @include adaptive {
@@ -144,11 +149,9 @@
   }
 
   &__body {
-    margin-bottom: 47px;
+    margin-bottom: 30px;
 
     @include adaptive {
-      margin-bottom: 30px;
-
       @include containerPaddings;
     }
   }

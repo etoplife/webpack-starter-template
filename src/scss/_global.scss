@@ -37,9 +37,27 @@ a {
 svg {
   max-width: 100%;
   transition: fill 0.3s linear;
+
+  &:only-child {
+    display: block;
+  }
+}
+
+input {
+  -webkit-appearance: none;
 }
 
 button {
+  background: none;
+  border: 0;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.slick-slide {
   &:focus {
     outline: none;
   }

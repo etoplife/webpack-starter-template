@@ -101,7 +101,7 @@ const getSubmenu = async ($item, depth) => {
   const $backButton = $(`
     <button type="button" class="menu__submenu-back js-menu-back">
       ${backIcon}
-      Назад
+      <span>Назад</span>
     </button>
   `);
 
@@ -118,6 +118,8 @@ let isTransitionPassed = true;
 $(() => {
   const $burger = $('.js-menu-toggle');
   const $menu = $('.js-menu');
+  const $menuList = $menu.find('.js-menu-list');
+  const $additional = $menu.find('.js-menu-additional');
   const $menuBg = $menu.find('.js-menu-bg');
   const $submenuContainer = $menu.find('.js-menu-submenu-container');
 
@@ -156,8 +158,6 @@ $(() => {
   let prevState = null;
   const history = [];
   if (device === 'desktop') {
-    const $additional = $menu.find('.js-menu-additional');
-
     const resetSubmenu = () => {
       const $existingSubmenus = $additional.find('.js-menu-submenu');
       $additional.removeClass('active');
@@ -184,12 +184,13 @@ $(() => {
       const $this = $(this);
       const depth = $this.data('depth');
       const isParent = !!$this.data('children');
+      const isClickInMenu = $this.closest($menuList).length || $this.closest($additional).length;
 
       if ($this.hasClass('active')) {
         return;
       }
 
-      if (!isParent || depth === undefined) {
+      if (!isParent || depth === undefined || !isClickInMenu) {
         resetSubmenu();
         $menu.find('.js-menu-item').removeClass('active');
         return;
@@ -219,8 +220,6 @@ $(() => {
       showSubmenu($prevMenu);
     });
   } else {
-    const $menuList = $menu.find('.js-menu-list');
-
     $menu.on('click', '.js-menu-item[data-children]', async function (e) {
       e.preventDefault();
 

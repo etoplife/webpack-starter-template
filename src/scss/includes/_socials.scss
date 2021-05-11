@@ -1,0 +1,16 @@
+.socials {
+  display: inline-flex;
+  align-items: center;
+
+  &__item {
+    fill: #B2B6C4;
+
+    &:hover {
+      fill: $color-green
+    }
+  }
+
+  &__icon {
+    transition: fill 0.3s linear;
+  }
+}
