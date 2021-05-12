@@ -170,9 +170,11 @@ mixin headerSubmenu(item)
             each subitem in item.children
                 li.header__submenu-item(class=`${subitem.children ? 'header__submenu-item_parent' : ''}`)
                     a.header__submenu-link(href=subitem.url)= subitem.name
-                    if (subitem.children)
-                        +svg('angle-down')(class="header__submenu-angle" style="transform: rotate(-90deg)")
+                        if (subitem.children)
+                            +svg('angle-down')(class="header__submenu-angle" style="transform: rotate(-90deg)")
                     +headerSubmenu(subitem)
+
+block variables
 
 doctype html
 html
@@ -228,8 +230,8 @@ body
                 each item in headerMenu
                     li.header__nav-list-item(class=`${item.children ? 'header__nav-list-item_parent' : ''}`)
                         a.header__nav-list-link(href=item.url)= item.name
-                        if (item.children)
-                            +svg('angle-down')(class="header__nav-angle")
+                            if (item.children)
+                                +svg('angle-down')(class="header__nav-angle")
                         if (item.children)
                             +headerSubmenu(item)
         .header__actions
