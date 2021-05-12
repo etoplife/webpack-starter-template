@@ -1,0 +1,302 @@
+include ../mixins
+
+-
+    const menuChildren = [
+        {
+            name: 'Шредирование',
+            url: 'javascript:void(0)',
+            children: [
+                {
+                    name: 'Прием книг',
+                    url: 'javascript:void(0)',
+                },
+                {
+                    name: 'Прием бумаги',
+                    url: 'javascript:void(0)',
+                },
+                {
+                    name: 'Прием газет',
+                    url: 'javascript:void(0)',
+                },
+                {
+                    name: 'Прием картона',
+                    url: 'javascript:void(0)',
+                },
+            ],
+        },
+        {
+            name: 'Варка',
+            url: 'javascript:void(0)',
+        },
+        {
+            name: 'Кипование',
+            url: 'javascript:void(0)',
+        },
+        {
+            name: 'Архивные документы',
+            url: 'javascript:void(0)',
+            children: [
+                {
+                    name: 'Прием книг',
+                    url: 'javascript:void(0)',
+                },
+                {
+                    name: 'Прием бумаги',
+                    url: 'javascript:void(0)',
+                },
+                {
+                    name: 'Прием газет',
+                    url: 'javascript:void(0)',
+                },
+                {
+                    name: 'Прием картона',
+                    url: 'javascript:void(0)',
+                },
+            ],
+        },
+        {
+            name: 'Бухгалтерские документы',
+            url: 'javascript:void(0)',
+        },
+        {
+            name: 'Кадровые документы',
+            url: 'javascript:void(0)',
+        },
+        {
+            name: 'Секретные документы',
+            url: 'javascript:void(0)',
+        },
+        {
+            name: 'Конфиденциальное уничтожение',
+            url: 'javascript:void(0)',
+        },
+        {
+            name: 'Архивное хранение документов',
+            url: 'javascript:void(0)',
+        },
+    ];
+
+-
+    const menu = [
+        {
+            id: 1,
+            name: 'Прием вторсырья',
+            url: 'javascript:void(0)',
+            children: menuChildren,
+        },
+        {
+            id: 2,
+            name: 'Продажа вторсырья',
+            url: 'javascript:void(0)',
+            children: menuChildren,
+        },
+        {
+            id: 3,
+            name: 'Уничтожение документов',
+            url: 'javascript:void(0)',
+            children: menuChildren,
+        },
+        {
+            id: 4,
+            name: 'Пункты приема',
+            url: 'javascript:void(0)',
+        },
+        {
+            id: 5,
+            name: 'Стоимость',
+            url: 'javascript:void(0)',
+        },
+        {
+            id: 6,
+            name: 'О компании',
+            url: 'javascript:void(0)',
+        },
+        {
+            id: 7,
+            name: 'Контакты',
+            url: 'javascript:void(0)',
+        },
+    ];
+
+-
+    const headerMenu = menu.slice(0, 4);
+
+-
+    const prices = Array.from(Array(8), () => ({
+        name: '5б',
+        text: 'Гофро картон, картонные коробки,',
+        price: 4000,
+        pricePreposition: 'от',
+        img: 'images/content/price-table-item.jpg',
+    }));
+
+-
+    const footerNav = [
+        {
+            title: 'Прием вторсырья',
+            children: [
+                'Покупка макулатуры',
+                'Вывоз макулатуры',
+                'Аренда контейнеров',
+                'Прием полиэтилена',
+            ],
+        },
+        {
+            title: 'Продажа вторсырья',
+            children: [
+                'Продажа макулатуры',
+                'Продажа полиэтилена',
+            ],
+        },
+        {
+            title: 'Уничтожение документов',
+            children: [
+                'Шредирование',
+                'Варка',
+                'Кипование',
+                'Архивные документы',
+                'Бухгалтерские документы',
+                'Кадровые документы',
+                'Секретные документы',
+                'Конфиденциальное уничтожение',
+                'Архивное хранение документов',
+            ],
+        },
+    ];
+
+mixin headerSubmenu(item)
+    if (item.children)
+        ul.header__submenu
+            each subitem in item.children
+                li.header__submenu-item(class=`${subitem.children ? 'header__submenu-item_parent' : ''}`)
+                    a.header__submenu-link(href=subitem.url)= subitem.name
+                    if (subitem.children)
+                        +svg('angle-down')(class="header__submenu-angle" style="transform: rotate(-90deg)")
+                    +headerSubmenu(subitem)
+
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+body
+    .menu.js-menu
+        .menu__bg.js-menu-bg
+        .menu__content
+            .menu__header
+                .menu__about
+                    a.menu__logo(href="/")
+                        +svg('logo')(viewBox="0 0 170 34")
+                    address.menu__address.d-none.d-xl-block!= "188641, Россия, Ленинградская область <br> г. Всеволожск, пр. Гоголя, д. 1"
+                .menu__actions
+                    ul.socials.menu__socials.d-none.d-xl-block
+                        li.socials__item
+                            a.socials__link(href="javascript:void(0)")
+                                include ../../images/content/svg/socials-vk.svg
+                    .menu__contacts.d-none.d-md-flex
+                        a.menu__tel(href="tel:+78129613538") +7 (812) 961-35-38
+                        button.border-link.border-link_theme_gray(type="button" data-popup="#export-popup") Заказать звонок
+
+            .menu__body
+                .menu__main
+                    ul.menu__list.js-menu-list
+                        each item in menu
+                            if (item.children)
+                                li.menu__item.menu__item_has_children.js-menu-item(data-depth=0 data-children=JSON.stringify(item.children))
+                                    a.menu__link(href=item.url)= item.name
+                                        +svg('angle-down')(class="menu__item-angle" style="transform: rotate(-90deg);")
+                            else
+                                li.menu__item.js-menu-item
+                                    a.menu__link(href=item.url)= item.name
+                .menu__additional.js-menu-additional
+                    .menu__submenu-wrapper.js-menu-submenu-container
+                    +svg('mountain')(class="menu__decoration" viewBox="0 0 610 291")
+            .menu__footer.d-xl-none
+                a.menu__tel.d-md-none(href="tel:+78129613538") +7 (812) 961-35-38
+                button.border-link.border-link_size_sm.border-link_theme_gray.d-md-none(type="button" data-popup="#export-popup") Заказать звонок
+                a.menu__email.d-xl-none(href="mailto:info@sinay-paper.ru") info@sinay-paper.ru
+                ul.socials.menu__socials.d-xl-none
+                    li.socials__item
+                        a.socials__link(href="javascript:void(0)")
+                            include ../../images/content/svg/socials-vk.svg
+                address.menu__address.d-xl-none!= "188641, Россия, Ленинградская область <br> г. Всеволожск, пр. Гоголя, д. 1"
+    .header
+        a.header__logo(href="/")
+            +svg('logo')(viewBox="0 0 170 34")
+        nav.header__nav.d-none.d-xl-block
+            ul.header__nav-list
+                each item in headerMenu
+                    li.header__nav-list-item(class=`${item.children ? 'header__nav-list-item_parent' : ''}`)
+                        a.header__nav-list-link(href=item.url)= item.name
+                        if (item.children)
+                            +svg('angle-down')(class="header__nav-angle")
+                        if (item.children)
+                            +headerSubmenu(item)
+        .header__actions
+            .header__contacts.d-none.d-md-flex
+                a.header__tel(href="tel:+78129613538") +7 (812) 961-35-38
+                button.border-link.border-link_size_sm.border-link_theme_gray(type="button" data-popup="#export-popup") Заказать звонок
+            .burger.header__burger.js-menu-toggle
+                .burger__wrapper
+                    .burger__bar
+    block content
+    .footer
+        .container
+            .footer__row
+                .footer__about
+                    a.logo.footer__logo(href="/")
+                        +svg('logo')(viewBox="0 0 170 34")
+                    .footer__copyright © 1992 – 2021, ООО "Синай"
+                    a.footer__dev(href="//toplife.agency/" target="_blank")
+                        .footer__dev-text!= "Создание<br> и продвижение сайта"
+                        img.footer__dev-logo(src="images/content/svg/toplife.svg")
+                .footer__nav
+                    each section in footerNav
+                        .footer__nav-section.js-footer-section
+                            a.footer__nav-title.js-footer-section-title(href="javascript:void(0)")= section.title
+                            ul.footer__nav-list.js-footer-section-list
+                                each item in section.children
+                                    li.footer__nav-item
+                                        a.footer__nav-link(href="javascript:void(0)")= item
+                .footer__contacts
+                    .footer__tel-column
+                        a.footer__tel(href="tel:+78129613538") +7 (812) 961-35-38
+                        button.border-link.border-link_size_md.border-link_theme_gray.footer__callback(type="button" data-popup="#export-popup") Заказать звонок
+                    a.footer__email(href="mailto:info@sinay-paper.ru") info@sinay-paper.ru
+                    address.footer__address!= "188641, Россия, <br> Ленинградская область <br> г. Всеволожск, пр. Гоголя, д. 1"
+                    ul.socials.footer__socials
+                        li.socials__item
+                            a.socials__link(href="javascript:void(0)")
+                                include ../../images/content/svg/socials-vk.svg
+
+    #export-popup.popup
+        form(action="#")
+            .popup__title Заказать вывоз
+            .form__body
+                .form__row
+                    .form__field
+                        input.input.input_theme_dark(type="text" placeholder="Имя")
+                    .form__field
+                        input.input.input_theme_dark(type="tel" inputmode="number" required placeholder="Телефон*")
+                .form__row
+                    .form__field
+                        select.select.select_theme_dark.js-select
+                            each item, i in Array(8)
+                                if (i === 0)
+                                    option(value="")= `Тип макулатуры:`
+                                else
+                                    option(value=i)= `Тип макулатуры ${i}`
+                .form__row
+                    .form__field
+                        select.select.select_theme_dark.js-select
+                            each item, i in Array(8)
+                                if (i === 0)
+                                    option(value="")= `Тип макулатуры:`
+                                else
+                                    option(value=i)= `Тип макулатуры ${i}`
+                .form__footer.form__footer_align_right
+                    button.btn.btn_size_lg.btn_theme_dark.form__submit(type="submit")
+                        .btn__text Отправить
+                    .form__agreement
+                        | Отправляя форму, Вы соглашаетесь с
+                        a(href="/agreement/") обработкой персональных данных
