@@ -122,15 +122,6 @@ include ../mixins
     const headerMenu = menu.slice(0, 4);
 
 -
-    const prices = Array.from(Array(8), () => ({
-        name: '5б',
-        text: 'Гофро картон, картонные коробки,',
-        price: 4000,
-        pricePreposition: 'от',
-        img: 'images/content/price-table-item.jpg',
-    }));
-
--
     const footerNav = [
         {
             title: 'Прием вторсырья',
@@ -194,7 +185,7 @@ body
                     ul.socials.menu__socials.d-none.d-xl-block
                         li.socials__item
                             a.socials__link(href="javascript:void(0)")
-                                include ../../images/content/svg/socials-vk.svg
+                                +svg('socials-vkontakte')
                     .menu__contacts.d-none.d-md-flex
                         a.menu__tel(href="tel:+78129613538") +7 (812) 961-35-38
                         button.border-link.border-link_theme_gray(type="button" data-popup="#export-popup") Заказать звонок
@@ -241,6 +232,22 @@ body
             .burger.header__burger.js-menu-toggle
                 .burger__wrapper
                     .burger__bar
+    if (breadcrumbs)
+        .page__breadcrumbs
+            .container
+                .breadcrumbs
+                    .breadcrumbs__item
+                        a.breadcrumbs__link(href="javascript:void(0)") Главная
+                    each breadcrumb in breadcrumbs
+                        .breadcrumbs__item
+                            +svg('empty-angle-right')(class="breadcrumbs__angle")
+                            a.breadcrumbs__link(href="javascript:void(0)")
+                                span= breadcrumb
+
+    if (h1)
+        .container
+            h1.h1= h1
+
     block content
     .footer
         .container

@@ -83,6 +83,10 @@
     z-index: 0;
     flex: 1 1 auto;
 
+    @include mobile {
+      height: 94vw;
+    }
+
     [class$="ground-pane"] {
       filter: grayscale(1);
     }

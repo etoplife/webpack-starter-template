@@ -1,0 +1,25 @@
+.tabs {
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 7px -20px 13px;
+    cursor: pointer;
+    font-size: 16px;
+
+    @include mobile {
+      font-size: 14px;
+    }
+  }
+
+  &__item {
+    color: $color-lightgray;
+    transition: color 0.3s linear;
+    padding: 7px 20px;
+
+    &:hover,
+    &.active {
+      color: $color-green;
+    }
+  }
+}

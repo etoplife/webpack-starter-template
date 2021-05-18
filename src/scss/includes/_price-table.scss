@@ -17,6 +17,10 @@
   &__row {
     height: 80px;
     background: #fff;
+
+    #{$self}_theme_green & {
+      background: $color-lightgreen;
+    }
   }
 
   &__img-wrapper {
@@ -148,6 +152,10 @@
 .price-table-item {
   padding: 10px;
   background: #fff;
+
+  .price-table_theme_green & {
+    background: $color-lightgreen;
+  }
 
   &__row {
     display: flex;

@@ -143,6 +143,20 @@
 }
 
 .advantages-item {
+  $self: &;
+
+  @include desktop {
+    &_flex_row {
+      display: flex;
+      align-items: center;
+    }
+
+    &_flex_row #{$self}__icon {
+      flex: 0 0 auto;
+      margin-right: 32px;
+    }
+  }
+
   &__icon {
     display: flex;
     align-items: flex-end;

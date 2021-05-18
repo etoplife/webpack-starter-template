@@ -60,6 +60,12 @@ $breakpoints: (
   }
 }
 
+@mixin adaptiveMin() {
+  @include media ('min', 'xl') {
+    @content;
+  }
+}
+
 @mixin tablet() {
   @include media ('within', 'xl') {
     @content;
@@ -68,6 +74,12 @@ $breakpoints: (
 
 @mixin mobile() {
   @include media ('max', 'md') {
+    @content;
+  }
+}
+
+@mixin mobileMin() {
+  @include media ('min', 'md') {
     @content;
   }
 }
@@ -114,4 +126,28 @@ $breakpoints: (
 @function pixel-to-vh($pixelSize, $screenWidth: 980) {
   $vh: $pixelSize / $screenWidth * 100;
   @return #{$vh}vh;
+}
+
+@function base64($code) {
+  @return url("data:image/svg+xml;base64,#{$code}");
+}
+
+@mixin centered($axis: 'both') {
+  position: absolute;
+
+  @if ($axis == 'both') {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @if $axis == 'x' {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @if $axis == 'y' {
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }

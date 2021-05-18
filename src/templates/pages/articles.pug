@@ -1,0 +1,26 @@
+extends ../layouts/main
+
+block variables
+    - const h1 = 'Статьи';
+    - const breadcrumbs = ['Статьи'];
+
+block content
+    .default-page
+        .container
+            .catalog-section
+                .catalog-section__list
+                    .articles-list
+                        each item, i in Array(11)
+                            .articles-list__item(class=`${i === 0 ? 'articles-list__item_size_xl' : ''}`)
+                                a.article-item(href="/article-detail.html")(class=`${i === 0 ? 'article-item_size_xl' : ''}`)
+                                    .article-item__preview
+                                        img.article-item__img.lazy-image(data-src="images/content/article-img.jpg")
+                                    .article-item__content
+                                        .article-item__name Раздельный сбор вторсырья в Санкт-Петербурге
+                                        .article-item__text 24 октября 2019 года прошел Российский День без бумаги
+                                        .article-item__footer
+                                            .article-item__date 11 ноября 2019
+                                            .article-item__views.views-counter 5 100
+                .catalog-section__pagination
+                    include ../includes/pagination
+

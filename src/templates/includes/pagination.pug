@@ -1,0 +1,16 @@
+ol.pagination
+    .pagination__list
+        each item, i in Array(3)
+            li.pagination__item(class=`${i === 0 ? 'pagination__item_current' : ''}`)
+                a.pagination__link(href="javascript:void(0)")= i + 1
+        li.pagination__item.pagination__item_empty
+            a.pagination__link(href="javascript:void(0)") ...
+        each item, i in Array(2)
+            li.pagination__item
+                a.pagination__link(href="javascript:void(0)")= 87 + i
+    .pagination__show-more
+        .pagination__show-more-button
+            button.btn.btn_theme_transparent-dark.btn_size_xl(type="button") Показать еще
+        .pagination__status
+            span.pagination__status-value= "1 "
+            span.pagination__status-description из 89

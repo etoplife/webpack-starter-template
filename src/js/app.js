@@ -9,6 +9,12 @@ import './includes/footer';
 import './includes/popup';
 import './includes/select';
 import './includes/phone-mask';
+import './includes/lazy-image';
+import './includes/article';
+import './includes/share-buttons';
+import './includes/anchor';
+import './includes/gallery-grid';
+import './includes/tabs';
 
 // import all svg from svg-sprite folder
 const importAll = (r) => r.keys().map(r);

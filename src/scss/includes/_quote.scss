@@ -1,0 +1,33 @@
+.quote {
+  color: $color-dark;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 0 70px;
+
+  @include tablet {
+    padding: 0 40px;
+  }
+
+  @include mobile {
+    font-size: 18px;
+    padding: 0 10px;
+  }
+
+  > p:first-child {
+    display: inline;
+
+    & + p {
+      margin-top: 13px;
+    }
+  }
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 13px;
+    height: 12px;
+    margin: 0.6ch 9px 0 0;
+    background: url('../images/content/quote--green.svg') no-repeat 0 0 / cover;
+    vertical-align: top;
+  }
+}

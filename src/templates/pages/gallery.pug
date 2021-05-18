@@ -1,0 +1,24 @@
+extends ../layouts/main
+
+block variables
+    - const h1 = 'Фотогалерея';
+    - const breadcrumbs = ['Фотогалерея'];
+
+block content
+    .default-page
+        .container
+            .js-tabs
+                ul.tabs
+                    .tabs__list
+                        li.tabs__item.js-tabs-switch ПРОИЗВОДСТВЕННАЯ ПЛОЩАДКА
+                        li.tabs__item.js-tabs-switch УНИЧТОЖЕНИЕ АРХИВА
+                    each gallery, i in Array(2)
+                        .js-tabs-content
+                            .gallery-grid.slider.slider_theme_default.js-gallery-grid(
+                                data-desktop-gallery-items="5"
+                                data-tablet-gallery-items="5"
+                                data-mobile-gallery-items="3")
+                                each item in Array(20)
+                                    .gallery-grid__item(data-name="Накопительные контейнеры ООО «Синай»" data-fancybox=`gallery-${i}` data-src="images/content/gallery-image.jpg")
+                                        img.gallery-grid__img(data-lazy="images/content/gallery-image.jpg")
+

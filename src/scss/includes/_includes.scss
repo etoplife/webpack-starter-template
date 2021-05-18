@@ -1,8 +1,15 @@
 @import 'header';
 @import 'menu';
+@import 'breadcrumbs';
+@import 'border-decoration';
+@import 'article-item';
+@import 'article';
+@import 'quote';
+@import 'inline-form';
+@import 'gallery-grid';
+@import 'tabs';
 @import 'main-banner';
 @import 'about-banner';
-@import 'border-decoration';
 @import 'advantages';
 @import 'price-table';
 @import 'additional-services';
@@ -11,6 +18,7 @@
 @import 'about';
 @import 'areas-map';
 @import 'socials';
+@import 'pagination';
 @import 'footer';
 @import 'popup';
 @import 'success-popup';

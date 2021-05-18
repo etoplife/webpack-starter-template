@@ -1,0 +1,153 @@
+.gallery-grid {
+
+  &__items {
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      padding: calc((33.333% - 10px) * 1.4) 0 0;
+
+      @include tablet {
+        padding: calc((50% - 5px) * 1.4 + (50% - 5px) * 0.87) 0 0;
+      }
+
+      @include mobile {
+        padding: calc((50% - 3px) * 1.4) 0 0;
+      }
+    }
+  }
+
+  &__item {
+    width: calc(33.333% - (20px / 3));
+    position: absolute;
+
+    &::after {
+      content: attr(data-name);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: rgba(#fff, 0);
+      font-size: 18px;
+      text-align: center;
+      padding: 0 30px;
+      background: rgba($color-dark, 0);
+      transition: 0.3s linear;
+    }
+
+    &:hover::after {
+      color: rgba(#fff, 1);
+      background: rgba($color-dark, 0.7);
+    }
+
+    @include tablet {
+      width: calc(50% - 5px);
+    }
+
+    @include mobile {
+      width: calc(50% - 3px);
+    }
+
+    &::before {
+      content: "";
+      display: block;
+    }
+
+    &:nth-child(1) {
+      top: 0;
+      left: 0;
+
+      &::before {
+        padding: calc(58% - 5px) 0 0;
+
+        @include mobile {
+          padding: calc(58% - 3px) 0 0;
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      bottom: 0;
+      left: 0;
+
+      @include tablet {
+        top: 0;
+        bottom: unset;
+        margin: calc((58% + 5px) * 0.5) 0 0;
+      }
+
+      &::before {
+        padding: calc(82% - 10px) 0 0;
+
+        @include tablet {
+          padding: calc(82% - 5px) 0 0;
+        }
+
+        @include mobile {
+          padding: calc(82% - 3px) 0 0;
+        }
+      }
+    }
+
+    &:nth-child(3) {
+      top: 0;
+      left: calc(33.3333% + 3px);
+
+      @include adaptive {
+        right: 0;
+        left: unset;
+      }
+
+      &::before {
+        padding: 140% 0 0;
+      }
+    }
+
+    &:nth-child(4) {
+      top: 0;
+      right: 0;
+
+      @include tablet {
+        top: unset;
+        right: unset;
+        bottom: 0;
+        left: 0;
+      }
+
+      &::before {
+        padding: calc(82% - 5px) 0 0;
+
+        @include tablet {
+          padding: calc(87% - 10px) 0 0;
+        }
+      }
+    }
+
+    &:nth-child(5) {
+      right: 0;
+      bottom: 0;
+
+      &::before {
+        padding: calc(58% - 10px) 0 0;
+
+        @include tablet {
+          padding: calc(87% - 10px) 0 0;
+        }
+      }
+    }
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

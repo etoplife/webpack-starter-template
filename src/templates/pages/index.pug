@@ -1,4 +1,5 @@
 extends ../layouts/main
+include ../components/price-table
 
 block content
     -
@@ -88,48 +89,35 @@ block content
                         .advantages-item
                             .advantages-item__icon
                                 img.advantages-item__icon-img(src="images/content/svg/advantages-delivery.svg")
-                            .advantages-item__title Доставка
-                            .advantages-item__text Вам не обязательно привлекать свой персонал и транспорт
+                            .advantages-item__content
+                                .advantages-item__title Доставка
+                                .advantages-item__text Вам не обязательно привлекать свой персонал и транспорт
                     .advantages__item
                         .advantages-item
                             .advantages-item__icon
                                 img.advantages-item__icon-img(src="images/content/svg/advantages-weight.svg")
-                            .advantages-item__title От 1 кг
-                            .advantages-item__text Принимаем макулатуру от 1 кг., вывозим бесплатно 100 кг.
+                            .advantages-item__content
+                                .advantages-item__title От 1 кг
+                                .advantages-item__text Принимаем макулатуру от 1 кг., вывозим бесплатно 100 кг.
                     .advantages__item
                         .advantages-item
                             .advantages-item__icon
                                 img.advantages-item__icon-img(src="images/content/svg/advantages-accuracy.svg")
-                            .advantages-item__title Точность
-                            .advantages-item__text Взвешивание с минимальной погрешностью
+                            .advantages-item__content
+                                .advantages-item__title Точность
+                                .advantages-item__text Взвешивание с минимальной погрешностью
                     .advantages__item
                         .advantages-item
                             .advantages-item__icon
                                 img.advantages-item__icon-img(src="images/content/svg/advantages-control.svg")
-                            .advantages-item__title Контроль
-                            .advantages-item__text Прозрачный механизм работы и контроль на любом этапе
+                            .advantages-item__content
+                                .advantages-item__title Контроль
+                                .advantages-item__text Прозрачный механизм работы и контроль на любом этапе
 
     .inner-section.prices
         .container
             .prices__row
-                .prices__table
-                    table.price-table.js-price-table(data-source=prices)
-                        thead.price-table__header
-                            tr
-                                td
-                                td Марка (MC)
-                                td Описание
-                                td Цена, ₽
-                        tbody.price-table__body
-                            each item in prices
-                                tr.price-table__row
-                                    td.price-table__img-wrapper
-                                        img.price-table__img(src=item.img)
-                                    td.price-table__name= item.name
-                                    td.price-table__text= item.text
-                                    td
-                                        span.price-table__description= `${item.pricePreposition} `
-                                        span.price-table__value= item.price.toLocaleString('ru-RU')
+                +price-table()
                 .prices__preview.border-decoration.border-decoration_position_right.border-decoration_theme_dark
                     h2.h2!= "Цены на прием <br> макулатуры"
                     .text-wrapper.prices__text Держим руку на пульсе рынка вторсырья, поэтому всегда предлагаем своим клиентам справедливое вознаграждение. При больших объемах готовы обсуждать цены индивидуально.
@@ -285,37 +273,4 @@ block content
                     p Более четверти века мы развиваем отрасль переработки мусора в Санкт-Петербурге, делая ее ориентированной на сознательное общество.
                     p Ежегодно мы отправляем на переработку 25 тысяч тонн бумажных отходов, и это далеко не предел. Мы и дальше будем принимать все усилия, чтобы сделать отрасль переработки отходов производства и потребления цивилизованной.
 
-    .areas-map.js-areas
-        .areas-map__content-wrapper
-            .areas-map__content.js-container
-                .h2.areas-map__title
-                    span Прием макулатуры в
-                    div.areas-map__select.js-areas-select
-                    span районе
-                .areas-map__form
-                    form.form(action="#")
-                        .form__body
-                            .areas-map__form-rows
-                                .form__row
-                                    .form__field
-                                        input.input.input_theme_dark(type="text" placeholder="Имя")
-                                    .form__field
-                                        input.input.input_theme_dark(type="tel" inputmode="number" required placeholder="Телефон*")
-                                .form__row
-                                    .form__field
-                                        select.select.select_theme_dark.js-select
-                                            each item, i in Array(5)
-                                                if (i === 0)
-                                                    option(value="")= `Тип макулатуры:`
-                                                else
-                                                    option(value=i)= `Тип макулатуры ${i}`
-                            .form__footer.form__footer_align_right
-                                button.btn.btn_size_lg.btn_theme_dark.form__submit(type="submit")
-                                    .btn__text Отправить
-                                .form__agreement
-                                    | Отправляя форму, Вы соглашаетесь с
-                                    a(href="/agreement/") обработкой персональных данных
-                .areas-map__footer
-                    a.areas-map__tel(href="tel:+78129613538") +7 (812) 961-35-38
-                    button.border-link.border-link_size_sm.border-link_theme_gray(type="button" data-popup="#export-popup") Заказать звонок
-        .areas-map__el.js-areas-map
+    include ../includes/areas-map

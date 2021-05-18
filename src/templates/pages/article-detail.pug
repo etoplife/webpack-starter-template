@@ -1,0 +1,142 @@
+extends ../layouts/main
+include ../components/price-table
+
+block variables
+    - const h1 = 'Куда сдавать макулатуру за деньги';
+    - const breadcrumbs = ['Статьи', h1];
+
+block content
+    .article-page
+        .article.js-article
+            .container
+                .article__header
+                    .article__header-info
+                        .article__date 10 сентября 2019
+                        .article__views-counter
+                            .views-counter 10 092
+                    .article__rating-counter
+                        +svg('star')(class="article__rating-counter-star")
+                        span 3.5
+                .article__body
+                    .article__preview
+                        img.article__img(alt="" src="images/content/article-detail-img.jpg")
+                    .article__section
+                        .article__announcement
+                            .article__announcement-header
+                                .article__section-title.article__announcement-title Содержание
+                                .article__reading-duration
+                                    .article__reading-duration-description Время чтения:&nbsp;
+                                    .article__reading-duration-value 14 минут
+                            ul.article__announcement-list.js-article-announcement-list
+                                li.article__announcement-item.js-anchor(data-anchor-target="test")
+                                    span Пункты приема на карте
+                                li.article__announcement-item.js-anchor(data-anchor-target="test")
+                                    span Цены на приём макулатуры
+                                li.article__announcement-item.js-anchor(data-anchor-target="test")
+                                    span Что нужно сделать, чтобы сдать макулатуру?
+                                li.article__announcement-item.js-anchor(data-anchor-target="test")
+                                    span Есть вопросы?
+                                li.article__announcement-item.js-anchor(data-anchor-target="test")
+                                    span Почему Вам следует сдать макулатуру в компанию “Синай”
+                                li.article__announcement-item.js-anchor(data-anchor-target="test")
+                                    span Ответим на все вопросы
+                    .article__section.text-wrapper
+                        p Старые книги, газеты, картон, архивы офисных документов — весь этот мусор является ценным сырьем для изготовления бумаги, упаковочных материалов и другой востребованной продукции. У каждой организации и у любого жителя Северной столицы сегодня есть возможность сдать бумажный хлам на переработку и получить за него денежное вознаграждение.
+                        p Где сдать макулатуру в Санкт-Петербурге? Прием макулатуры — основная специализация компании Синай. За 25 лет активной деятельности наша организация заняла лидирующие позиции на рынке вторсырья. Основные пункты приема находятся в Ленинградской области (Всеволожск:, Бернгардовка, Южный, Щеглово). Каждая площадка расположена вблизи крупных транспортных артерий и имеет удобные подъездные пути. Сдать макулатуру здесь можно в любой рабочий день с 8 утра до 18 вечера.
+                    .article__section.text-wrapper(data-anchor-aim="test")
+                        .article__section-title Цены на приём макулатуры
+                        +price-table()(class="price-table_theme_green")
+                    .article__section.text-wrapper
+                        .article__section-title Что нужно сделать, чтобы сдать макулатуру?
+                        ol.fw-500
+                            li
+                                strong.strong Накопить и отсортировать макулатуру по типу (газеты, бумага, книги, картон и т.д.)
+                                p Достаточно собрать от 100 кг бумаги, чтобы мы организовали бесплатный вывоз из любого района Санкт-Петербурга. Если количество бумажного вторсырья превысит 300 кг, мы на месте произведем оплату в соответствии с действующим прайс-листом (платим до 12 рублей за килограмм). На основной производственной базе во Всеволожске мы принимаем макулатуру от 1 килограмма., каждый из которых обладает набором качественных характеристик.
+                                p На этапе сортировки важно отделить отходы гофрокартона от более дорогих отходов печатной продукции. Еще одна задача сортировки бумажного вторсырья — устранение посторонних материалов и включений (полиэтилена, металлических скоб, пластика и т.п.) Вся работа производится вручную и требует предельной аккуратности.
+                            li
+                                strong.strong!= "Связаться с нашим менеджером по телефону <a href='tel:+78129301148'>+7 (812) 930-11-48</a> или заказать "
+                                    button.border-link.bo.border-link_theme_green(type="button" data-popup="#export-popup") обратный звонок
+                                p Cообщить приблизительный объем и вид вторсырья. Мы оформим заявку и подберем наиболее удобное время выезда мобильного приемного пункта по вашему адресу.
+                            li
+                                strong.strong Получить оплату
+                                p Сразу после взвешивания макулатуры на высокоточных весах мы выплатим денежное вознаграждение за сданное вторсырье.
+                    .article__section.text-wrapper
+                        .article__section-title Есть вопросы?
+                        p Куда можно сдавать макулатуру на постоянной основе? Компания Синай наладила тесные партнерские отношения с сотнями торговых и производственных предприятий, расположенных в разных частях Петербурга и Лен. области. Будем рады видеть и вас среди наших постоянных клиентов. Возможно заключение Договора на регулярный вывоз макулатуры по удобному для вас графику.
+                        .article__inline-form
+                            .inline-form
+                                .inline-form__content
+                                    .form__row
+                                        .form__field
+                                            input.input.input_theme_dark(type="text" placeholder="Имя")
+                                        .form__field
+                                            input.input.input_theme_dark(type="tel" placeholder="Телефон*" inputmode="numeric")
+                                    .form__row
+                                        .form__field
+                                            input.input.input_theme_dark(type="text" placeholder="Вопрос")
+                                    .form__footer.form__footer_align_right.form__footer_flex_inline
+                                        button.btn.btn_size_lg.btn_theme_dark.form__submit(type="submit")
+                                            .btn__text Отправить
+                                        .form__agreement
+                                            | Отправляя форму, Вы соглашаетесь с
+                                            a(href="/agreement/") обработкой персональных данных
+                                .inline-form__description!= "Оставьте контактные <br> данные и мы ответим <br> на ваш вопрос"
+                    .article__section.text-wrapper
+                        .article__section-title Блок с цитатой и маркерами
+                        strong.strong Накопить и отсортировать макулатуру по типу (газеты, бумага, книги, картон и т.д.)
+                        p Каждый из нас понимает очевидную вещь: социально-экономическое развитие предполагает независимые способы реализации новых предложений. А также действия представителей оппозиции призывают нас к новым свершениям, которые, в свою очередь, должны быть функционально разнесены на независимые элементы.
+                        p Приятно, граждане, наблюдать, как реплицированные с зарубежных источников, современные исследования могут быть своевременно верифицированы.
+                        .article__quote
+                            .quote
+                                p Тысячи тонн ценного вторсырья по-прежнему отправляются на свалки и полигоны.
+                                p Наша общая задача — переломить сложившуюся ситуацию...
+                        p Являясь всего лишь частью общей картины, тщательные исследования конкурентов призывают нас к новым свершениям, которые, в свою очередь, должны быть подвергнуты целой серии независимых исследований.
+                        p А также действия представителей оппозиции, инициированные исключительно синтетически, призваны к ответу. Вот вам яркий пример современных тенденций - современная методология разработки играет важную роль в формировании укрепления моральных ценностей.
+                        ul
+                            li Макулатура
+                            li Картон
+                            li Полиэтилен
+                        p Принимая во внимание показатели успешности, постоянное информационно-пропагандистское обеспечение нашей деятельности требует анализа укрепления моральных ценностей.
+                    .article__section.text-wrapper
+                        .article__section-title Почему Вам следует сдать макулатуру в компанию “Синай”
+                        .advantages__list
+                            .advantages__item
+                                .advantages-item.advantages-item_flex_row
+                                    .advantages-item__icon
+                                        img.advantages-item__icon-img(src="images/content/svg/advantages-delivery.svg")
+                                    .advantages-item__content
+                                        .advantages-item__title Доставка
+                                        .advantages-item__text!= "Вам не обязательно привлекать <br> свой персонал и транспорт"
+                            .advantages__item
+                                .advantages-item.advantages-item_flex_row
+                                    .advantages-item__icon
+                                        img.advantages-item__icon-img(src="images/content/svg/advantages-weight.svg")
+                                    .advantages-item__content
+                                        .advantages-item__title От 1 кг
+                                        .advantages-item__text!= "Принимаем макулатуру от 1 кг., <br> вывозим бесплатно 100 кг."
+                            .advantages__item
+                                .advantages-item.advantages-item_flex_row
+                                    .advantages-item__icon
+                                        img.advantages-item__icon-img(src="images/content/svg/advantages-accuracy.svg")
+                                    .advantages-item__content
+                                        .advantages-item__title Точность
+                                        .advantages-item__text!= "Взвешивание с минимальной <br> погрешностью"
+                            .advantages__item
+                                .advantages-item.advantages-item_flex_row
+                                    .advantages-item__icon
+                                        img.advantages-item__icon-img(src="images/content/svg/advantages-control.svg")
+                                    .advantages-item__content
+                                        .advantages-item__title Контроль
+                                        .advantages-item__text!= "Прозрачный механизм работы <br> и контроль на любом этапе"
+                .article__footer
+                    .article__footer-section
+                        .article__footer-description Оценить статью:
+                        .rating-choose
+                            each item in Array(5)
+                                +svg('star')(class="rating-choose__star")
+                    .article__footer-section
+                        .article__footer-description Поделиться:
+                        .share.js-share-buttons
+
+    .article-page__areas-map
+        include ../includes/areas-map

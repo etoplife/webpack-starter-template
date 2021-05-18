@@ -50,6 +50,15 @@
         background: $color-dark;
       }
     }
+
+    &_transparent-dark {
+      color: $color-gray;
+      background: transparent;
+
+      &::before {
+        border: 1px solid $color-gray;
+      }
+    }
   }
 
   &_size {

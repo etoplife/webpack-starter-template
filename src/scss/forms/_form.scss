@@ -3,6 +3,7 @@
 @import 'dropdown';
 
 .form {
+  $self: &;
 
   &__row {
     display: flex;
@@ -40,10 +41,23 @@
   &__footer {
 
     &_align_right {
+      justify-content: flex-end;
       text-align: right;
 
       @include mobile {
         text-align: center;
+      }
+    }
+
+    &_flex_inline {
+
+      @include mobileMin {
+        display: flex;
+
+        #{$self}__agreement {
+          order: -1;
+          margin-right: 18px;
+        }
       }
     }
   }
