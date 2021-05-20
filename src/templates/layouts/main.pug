@@ -244,11 +244,12 @@ body
                             a.breadcrumbs__link(href="javascript:void(0)")
                                 span= breadcrumb
 
-    if (h1)
-        .container
-            h1.h1= h1
+    main.app
+        if (h1)
+            .container
+                h1.h1= h1
+        block content
 
-    block content
     .footer
         .container
             .footer__row

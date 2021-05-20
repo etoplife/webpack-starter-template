@@ -1,0 +1,59 @@
+.about-page {
+  &__preview {
+    margin: 0 0 50px;
+  }
+
+  &__params {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 80px -15px 120px;
+  }
+
+  &__params-prolog {
+    flex: 0 0 50%;
+    padding: 0 15px;
+
+    @include adaptive {
+      flex: 0 0 100%;
+    }
+  }
+
+  &__params-title {
+    margin: 0 0 6px;
+  }
+
+  &__params-item {
+    flex: 0 0 25%;
+    padding: 46px 15px 0;
+
+    @include adaptive {
+      flex: 0 0 50%;
+    }
+  }
+
+  &__params-item-name {
+    color: $color-dark;
+    font-size: 30px;
+    font-weight: 500;
+    margin: 0 0 5px;
+  }
+
+  &__params-item-text {
+    font-size: 14px;
+  }
+}
+
+.about-advantages {
+
+  &__row {
+    display: flex;
+  }
+
+  &__prolog {
+
+    @include desktop {
+      flex: 0 0 520px;
+    }
+  }
+}

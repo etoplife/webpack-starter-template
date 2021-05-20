@@ -1,0 +1,43 @@
+.diploma {
+  $self: &;
+  display: flex;
+  align-items: center;
+
+  &__img {
+    flex: 0 0 50%;
+  }
+
+  &__content {
+    position: relative;
+    padding: 22px 0 22px 30px;
+    background: $color-mediumgreen;
+
+    &::before {
+      z-index: -1;
+      content: "";
+      position: absolute;
+      width: 100vw;
+      height: 100%;
+      top: 0;
+      background: $color-mediumgreen;
+    }
+
+    #{$self}_direction_forward & {
+      left: 0;
+    }
+
+    #{$self}_direction_reverse & {
+      right: 0;
+    }
+  }
+
+  &__title {
+    font-size: 22px;
+    margin: 0 0 10px;
+  }
+
+  &__text {
+    font-size: 14px;
+    font-weight: 300;
+  }
+}

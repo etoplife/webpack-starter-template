@@ -64,23 +64,7 @@ block content
                         .article__section-title Есть вопросы?
                         p Куда можно сдавать макулатуру на постоянной основе? Компания Синай наладила тесные партнерские отношения с сотнями торговых и производственных предприятий, расположенных в разных частях Петербурга и Лен. области. Будем рады видеть и вас среди наших постоянных клиентов. Возможно заключение Договора на регулярный вывоз макулатуры по удобному для вас графику.
                         .article__inline-form
-                            .inline-form
-                                .inline-form__content
-                                    .form__row
-                                        .form__field
-                                            input.input.input_theme_dark(type="text" placeholder="Имя")
-                                        .form__field
-                                            input.input.input_theme_dark(type="tel" placeholder="Телефон*" inputmode="numeric")
-                                    .form__row
-                                        .form__field
-                                            input.input.input_theme_dark(type="text" placeholder="Вопрос")
-                                    .form__footer.form__footer_align_right.form__footer_flex_inline
-                                        button.btn.btn_size_lg.btn_theme_dark.form__submit(type="submit")
-                                            .btn__text Отправить
-                                        .form__agreement
-                                            | Отправляя форму, Вы соглашаетесь с
-                                            a(href="/agreement/") обработкой персональных данных
-                                .inline-form__description!= "Оставьте контактные <br> данные и мы ответим <br> на ваш вопрос"
+                            include ../includes/inline-form
                     .article__section.text-wrapper
                         .article__section-title Блок с цитатой и маркерами
                         strong.strong Накопить и отсортировать макулатуру по типу (газеты, бумага, книги, картон и т.д.)

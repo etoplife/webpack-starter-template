@@ -1,0 +1,144 @@
+extends ../layouts/main
+
+block variables
+    - const h1 = 'О компании';
+    - const breadcrumbs = [h1];
+
+block content
+    .about-page
+        .container
+            .about-page__preview
+                img.about-page__img(src="images/content/about-page-banner.jpg")
+            .about-page__preview-text ООО «Синай» существует на российском рынке вторичного сырья с 1992 года. Основным видом деятельности организации является закупка макулатуры. Производственную площадку компания открыла в  Ленинградской области городе Всеволожске.
+            .about-page__params
+                .about-page__params-prolog
+                    .border-decoration.border-decoration_position_left.border-decoration_theme_dark
+                        h2.h2.about-page__params-title Позиция
+                        .text-wrapper Синай имея социально-ответсвенную позицию в вопросах охраны окружающей среды, ставит своей главной задачей создать лучшие условия для клиента, чтобы сдача макулатуры была более доступна и выгодна.
+                .about-page__params-item
+                    .about-page__params-item-name более 25 лет
+                    .about-page__params-item-text Принимаем и продаем макулатуру в Санкт-Петербурге.
+                .about-page__params-item
+                    .about-page__params-item-name более 25 тонн
+                    .about-page__params-item-text В год объем заготавливаемой макулатуры
+        include ../includes/about
+        .about-advantages.left-green-angle-section
+            .container.left-green-angle-section__container
+                .about-advantages__row.left-green-angle-section__row
+                    .about-advantages__content
+                        .left-green-angle-section__content
+                            .advantages__list
+                                .advantages__item
+                                    .advantages-item
+                                        .advantages-item__icon
+                                            img.advantages-item__icon-img(src="images/content/svg/advantages-delivery.svg")
+                                        .advantages-item__content
+                                            .advantages-item__title Доставка
+                                            .advantages-item__text Вам не обязательно привлекать свой персонал и транспорт
+                                .advantages__item
+                                    .advantages-item
+                                        .advantages-item__icon
+                                            img.advantages-item__icon-img(src="images/content/svg/advantages-weight.svg")
+                                        .advantages-item__content
+                                            .advantages-item__title От 1 кг
+                                            .advantages-item__text Принимаем макулатуру от 1 кг., вывозим бесплатно 100 кг.
+                                .advantages__item
+                                    .advantages-item
+                                        .advantages-item__icon
+                                            img.advantages-item__icon-img(src="images/content/svg/advantages-accuracy.svg")
+                                        .advantages-item__content
+                                            .advantages-item__title Точность
+                                            .advantages-item__text Взвешивание с минимальной погрешностью
+                                .advantages__item
+                                    .advantages-item
+                                        .advantages-item__icon
+                                            img.advantages-item__icon-img(src="images/content/svg/advantages-control.svg")
+                                        .advantages-item__content
+                                            .advantages-item__title Контроль
+                                            .advantages-item__text Прозрачный механизм работы и контроль на любом этапе
+                    .about-advantages__prolog.left-green-angle-section__prolog
+                        .border-decoration.border-decoration_position_right.border-decoration_theme_dark
+                            h2.h2 Деятельность
+                            .text-wrapper С 1992 года компания росла и развивалась за счет средств из собственного бюджета. Макулатура закупалась из Европы и перерабатывалась на отечественных целлюлозно - бумажных комбинатах. Затем поставки из Европы были прекращены. «Синай» переходит на рынок своего региона.
+        .section
+            .container
+                .text-wrapper
+                    p Основным потребителем заготавливаемого вторичного сырья является целлюлозно-бумажный комбинат в г. Светогорске ООО «ЭсСиЭй Хайджин Продактс Раша» г. Светогорск (торговая марка ZEWA).
+                    p Развитие идет небольшими, но уверенными темпами, завоевывая доверие своих клиентов. За это время «Синай» открывает несколько приемных пунктов макулатуры в городе Всеволожске Ленинградской области, также начинает работать с мобильными базами приема макулатуры в Санкт-Петербурге. В 1999 году членами учредительного собрания принимается решение о выходе на новый уровень. И в мае 2000 года «Синай» получает Лицензию на транспортировку, вывоз, сбор, размещение опасных отходов производства.
+                    p Внастоящее время профессионализм и гибкость в работе обеспечили компании место среди лидеров по сбору и переработке вторсырья в Санкт-Петербурге и Ленинградской области. Основным направлением деятельности компании является заготовка макулатура, а также конфиденциальное уничтожение архивов организаций.
+                    p Мы также работаем с такими материалами как полиэтилен.
+        .left-dark-angle-section
+            .left-dark-angle-section__prolog
+                .left-dark-angle-section__prolog-body
+                    .js-container
+                        .border-decoration.border-decoration_theme_light.border-decoration_position_left
+                            .h2.h2_theme_light Объемы и оборудование
+                            .text-wrapper На производственной площадке №1 используется оборудование PRESONA LP-40. За последние 5 лет плодотворной работы объем заготавливаемой макулатуры вырос более чем на 40 %, и сейчас составляет 25 000 тонн в год. В связи с этим для обеспечения качества сортировки и киповки сырья в феврале 2011 года «Синай» открывает новую площадку с более мощным производственным оборудованием PRESONA LP- 50-EH2.
+            .left-dark-angle-section__content
+                .js-slider.slider.slider_option_disabled-indicate.slider_margin_default.slider_theme_default(
+                    data-dots="1"
+                    data-autowidth="1"
+                    )
+                    each item in Array(5)
+                        .item
+                            img(src="images/content/equipment-img.jpg")
+
+        -
+            const orderList = [
+                {
+                    name: 'Сбор',
+                    text: 'Покупаем макулатуру любых марок по лучшим ценам на рынке. На постоянной основе закупаем пластиковую тару, пакеты, бутылки, пленку и другие отходы полиэтилена.',
+                },
+                {
+                    name: 'Сортировка',
+                    text: 'Полуавтоматическая сортировка бумаги и картона – на линиях производится разделение на цветное и черно-белое, матовое и глянцевое вторсырье, а остальная сортировка выполняется непосредственно рабочими перерабатывающей линии.',
+                },
+                {
+                    name: 'Измельчение',
+                    text: 'Механическое измельчение макулатуры до заданных размеров для облегчения последующего роспуска.',
+                },
+                {
+                    name: 'Роспуск',
+                    text: 'Прохождение измельченного вторсырья через гидроразбавители для разложения частиц бумаги на волокна и удаления из материалов любых примесей.',
+                },
+                {
+                    name: 'Термомеханическая обработка',
+                    text: 'Данный этап необходим в случае, если вторсырье содержало клеевой слой (журналы, брошюры), битум (упаковочная бумага для стройматериалов), а также парафин. Суть процесса заключается в механической переработке сырья в порошок с одновременным термическим воздействием.',
+                },
+                {
+                    name: 'Дороспуск',
+                    text: 'Требуется для получения однородной массы. После роспуска или термомеханической обработки в материале помимо волокон остаются также пучки и не полностью измельченные частицы бумажного полотна. Благодаря механическому воздействию на специальных размалывающих мельницах получают однородную массу.',
+                },
+                {
+                    name: 'Очистка массы',
+                    text: 'Перед непосредственным использованием переработанного сырья необходима финишная очистка массы от мелких вкраплений и узелков пучков, волокон.',
+                },
+            ];
+
+        .section
+            .container
+                h2.h2 Как происходит переработка макулатуры
+                ol.styled-order-list
+                    each item in orderList
+                        li.styled-order-list__item
+                            .border-decoration.border-decoration_position_left.border-decoration_theme_dark
+                                .styled-order-list__item-name= item.name
+                                .styled-order-list__item-text= item.text
+
+        .section
+            .container
+                h2.h2 Новшество
+                .row.align-items-center
+                    .col-xl-6
+                        .text-wrapper
+                            p В середине 2009 года в связи с дефицитом высоких сортов бумаги на рынке вторичного сырья Санкт-Петербурга в отделе заготовки «Синай» создал особое направление деятельности: работа с архивными документами организаций. Это направление обеспечило прирост объема заготавливаемой макулатуры, что позволило улучшить экономическое состояние организаций (оптимизировать расходы), а также выйти на новый уровень обеспечения контроля экологической обстановки в городе. Работая в этом направлении, в августе 2010 года «Синай» запускает программу по сбору макулатуры из офисов от 100 кг, выдавая сдающим грамоту по защите окружающей среды. Тем самым поддерживает в людях чувство небезразличия и ответственности в борьбе за экологически чистое будущее.
+                            p Синай ведет активную посредническую политику, тем самым помогая регионам контролировать экологическую обстановку своего района, города, региона.
+                    .col-xl-6
+                        .diploma.diploma_direction_forward
+                            img.diploma__img.lazy-image(data-src="images/content/diploma.jpg")
+                            .diploma__content
+                                .diploma__title Каждому клиенту компании "Синай" мы вручаем грамоту
+                                .diploma__text В знак доказательства о том, что вам и вашей компании не все равно на окружающую природу. Ведь каждый сданный килограмм макулатуры помогает сохранить деревья от вырубки. Кроме того, вас ожидают и другие приятные подарки: плакаты и фирменные ручки.
+
+        include ../includes/areas-map
+

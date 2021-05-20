@@ -1,0 +1,16 @@
+.vertical-item {
+  &__title {
+    color: $color-dark;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 8px;
+
+    @include mobile {
+      font-size: 16px;
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+  }
+}

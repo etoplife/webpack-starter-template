@@ -1,0 +1,21 @@
+.about
+    .about__preview-wrapper
+        .about__preview
+            .about__video(data-fancybox data-src="https://youtu.be/TP11t_JEWRE")
+                img.about__video-placeholder(src="images/content/about-video-placeholder.jpg")
+                +svg('play-button')(class="about__video-play-button")
+            .about__preview-body
+                .about__preview-text
+                    .about__quote.js-container
+                        p!= "Тысячи тонн ценного вторсырья по&#8209;прежнему отправляются на свалки и полигоны."
+                        p Наша общая задача — переломить сложившуюся ситуацию...
+    .about__content
+        .about__content-title.js-container!= "О компании <br> ООО “Синай”"
+        .about__main-row
+            +svg('mountain')(class="about__mountain-decoration" viewBox="0 0 610 291")
+            .js-container
+                .about__content-subtitle!= "на рынке вторсырья <br> с 1992 года"
+        .about__content-text.text-wrapper
+            .js-container
+                p Более четверти века мы развиваем отрасль переработки мусора в Санкт-Петербурге, делая ее ориентированной на сознательное общество.
+                p Ежегодно мы отправляем на переработку 25 тысяч тонн бумажных отходов, и это далеко не предел. Мы и дальше будем принимать все усилия, чтобы сделать отрасль переработки отходов производства и потребления цивилизованной.

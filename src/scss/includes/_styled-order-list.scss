@@ -1,0 +1,54 @@
+.styled-order-list {
+  display: flex;
+  flex-wrap: wrap;
+  $counter: styled-order-list;
+  counter-reset: $counter;
+  list-style: none;
+  margin: -15px;
+
+  @include adaptive {
+    margin: 0;
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    flex: 0 0 50%;
+    padding: 15px;
+    counter-increment: $counter;
+
+    @include adaptive {
+      flex: 0 0 100%;
+      padding: 15px 0;
+    }
+
+    @include mobile {
+      padding: 10px 0;
+    }
+
+    &::before {
+      content: counter($counter);
+      flex: 0 0 85px;
+      text-align: center;
+      color: rgba($color-green, 0.2);
+      font-size: 80px;
+      margin: -0.68ch 0 0 -0.58ch;
+    }
+  }
+
+  &__item-name {
+    color: $color-dark;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 8px;
+
+    @include mobile {
+      font-size: 16px;
+    }
+  }
+
+  &__item-text {
+    font-size: 16px;
+    font-weight: 300;
+  }
+}

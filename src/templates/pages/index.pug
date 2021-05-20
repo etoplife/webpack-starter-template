@@ -75,14 +75,14 @@ block content
                     | и выгодным для наших клиентов. <br>
                     | Вместе мы не дали тысячам тонн бумаги оказаться на свалке.
 
-    .advantages
-        .advantages__prolog
-            .advantages__prolog-body
+    .advantages.left-dark-angle-section
+        .left-dark-angle-section__prolog
+            .left-dark-angle-section__prolog-body
                 .js-container
                     .border-decoration.border-decoration_position_left.border-decoration_theme_light
                         h2.h2.h2_theme_light!= "Огромный опыт <br> на рынке вторсырья"
                         .text-wrapper.advantages__text Более четверти века мы развиваемся, чтобы повысить уровень сервиса, сделать сотрудничество максимально открытым и комфортным.
-        .advantages__content
+        .advantages__content.left-dark-angle-section__content
             .js-container
                 .advantages__list
                     .advantages__item
@@ -117,7 +117,8 @@ block content
     .inner-section.prices
         .container
             .prices__row
-                +price-table()
+                .prices__table
+                    +price-table()
                 .prices__preview.border-decoration.border-decoration_position_right.border-decoration_theme_dark
                     h2.h2!= "Цены на прием <br> макулатуры"
                     .text-wrapper.prices__text Держим руку на пульсе рынка вторсырья, поэтому всегда предлагаем своим клиентам справедливое вознаграждение. При больших объемах готовы обсуждать цены индивидуально.
@@ -175,29 +176,28 @@ block content
                             | Отправляя форму, Вы соглашаетесь с
                             a(href="/agreement/") обработкой персональных данных
 
-    .additional-services
-        .container.additional-services__container
-            .additional-services__row
-                .additional-services__content-wrapper
-                    .additional-services__content
-                        .additional-services__list
-                            .additional-services__item
-                                a.additional-service(href="javascript:void(0)")
-                                    .additional-service__title Продажа макулатуры
-                                    .additional-service__text Всегда в продаже готовая к переработке кипованная макулатура. Сортировка по ГОСТу. Оформление всех документов.
-                            .additional-services__item
-                                a.additional-service(href="javascript:void(0)")
-                                    .additional-service__title Продажа вторсырья
-                                    .additional-service__text Предлагаем сортированные, упакованные и готовые к переработке различные сорта макулатуры и полимерных материалов.
-                            .additional-services__item
-                                a.additional-service(href="javascript:void(0)")
-                                    .additional-service__title Прием полиэтилена
-                                    .additional-service__text На постоянной основе закупаем пластиковую тару, пакеты, бутылки, пленку и другие отходы полиэтилена
-                            .additional-services__item
-                                a.additional-service(href="javascript:void(0)")
-                                    .additional-service__title Хранение документов
-                                    .additional-service__text Принимаем документы на архивное хранение с последующим уничтожением. Гарантируем конфиденциальность
-                .additional-services__prolog
+    .additional-services.left-green-angle-section
+        .container.left-green-angle-section__container
+            .additional-services__row.left-green-angle-section__row
+                .left-green-angle-section__content
+                    .additional-services__list
+                        .additional-services__item
+                            a.additional-service(href="javascript:void(0)")
+                                .additional-service__title Продажа макулатуры
+                                .additional-service__text Всегда в продаже готовая к переработке кипованная макулатура. Сортировка по ГОСТу. Оформление всех документов.
+                        .additional-services__item
+                            a.additional-service(href="javascript:void(0)")
+                                .additional-service__title Продажа вторсырья
+                                .additional-service__text Предлагаем сортированные, упакованные и готовые к переработке различные сорта макулатуры и полимерных материалов.
+                        .additional-services__item
+                            a.additional-service(href="javascript:void(0)")
+                                .additional-service__title Прием полиэтилена
+                                .additional-service__text На постоянной основе закупаем пластиковую тару, пакеты, бутылки, пленку и другие отходы полиэтилена
+                        .additional-services__item
+                            a.additional-service(href="javascript:void(0)")
+                                .additional-service__title Хранение документов
+                                .additional-service__text Принимаем документы на архивное хранение с последующим уничтожением. Гарантируем конфиденциальность
+                .left-green-angle-section__prolog
                     .border-decoration.border-decoration_position_right.border-decoration_theme_dark
                         h2.h2 Дополнительные услуги
                         .text-wrapper Располагаем собственным автопарком и бригадой грузчиков. Все хлопоты, связанные с погрузкой и доставкой, возьмем на себя
@@ -251,26 +251,5 @@ block content
                                     img.work-scheme__item-icon(src="images/content/payment.svg")
                                     .work-scheme__item-text Оплата удобным способом, сразу после взвешивания
 
-    .about
-        .about__preview-wrapper
-            .about__preview
-                .about__video(data-fancybox data-src="https://youtu.be/TP11t_JEWRE")
-                    img.about__video-placeholder(src="images/content/about-video-placeholder.jpg")
-                    +svg('play-button')(class="about__video-play-button")
-                .about__preview-body
-                    .about__preview-text
-                        .about__quote.js-container
-                            p!= "Тысячи тонн ценного вторсырья по&#8209;прежнему отправляются на свалки и полигоны."
-                            p Наша общая задача — переломить сложившуюся ситуацию...
-        .about__content
-            .about__content-title.js-container!= "О компании <br> ООО “Синай”"
-            .about__main-row
-                +svg('mountain')(class="about__mountain-decoration" viewBox="0 0 610 291")
-                .js-container
-                    .about__content-subtitle!= "на рынке вторсырья <br> с 1992 года"
-            .about__content-text.text-wrapper
-                .js-container
-                    p Более четверти века мы развиваем отрасль переработки мусора в Санкт-Петербурге, делая ее ориентированной на сознательное общество.
-                    p Ежегодно мы отправляем на переработку 25 тысяч тонн бумажных отходов, и это далеко не предел. Мы и дальше будем принимать все усилия, чтобы сделать отрасль переработки отходов производства и потребления цивилизованной.
-
+    include ../includes/about
     include ../includes/areas-map

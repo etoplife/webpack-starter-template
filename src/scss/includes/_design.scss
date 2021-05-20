@@ -1,0 +1,174 @@
+.left-green-angle-section {
+  position: relative;
+  background: #fff url('../images/content/additional-services-bg.svg') no-repeat 100% 100%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 69vw;
+    height: 100%;
+    background: $color-lightgreen;
+    transform: skewX(-7deg);
+
+    @include adaptive {
+      content: none;
+    }
+  }
+
+  &__container {
+    @include adaptive {
+      padding: 0;
+    }
+  }
+
+  &__row {
+    display: flex;
+    align-items: flex-start;
+
+    @include adaptive {
+      flex-flow: column nowrap;
+    }
+  }
+
+  &__content {
+    z-index: 1;
+    position: relative;
+    padding: 152px 100px 120px 0;
+
+    @include adaptive {
+      padding: 40px 0 0;
+      background: $color-lightgreen;
+
+      @include containerPaddings;
+    }
+  }
+
+  &__prolog {
+    flex: 0 0 370px;
+    text-align: right;
+    padding: 132px 0 0;
+
+    @include adaptive {
+      flex: 1 1 auto;
+      max-width: 470px;
+      order: -1;
+      padding: 90px 0 45px;
+      margin-left: auto;
+
+      @include containerPaddings;
+    }
+  }
+}
+
+.left-dark-angle-section {
+  display: flex;
+
+  @include adaptive {
+    display: block;
+  }
+
+  &__prolog {
+    flex: 0 0 45%;
+    position: relative;
+
+    @include adaptive {
+      width: 79%;
+    }
+
+    @include mobile {
+      width: 100%;
+      background: $color-dark;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: $color-darkgray;
+      transform: skewX(-7deg);
+
+      @include mobile {
+        content: none;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 210px;
+      height: 100%;
+      background: $color-dark;
+      transform: skewX(-7deg);
+
+      @include mobile {
+        content: none;
+      }
+    }
+  }
+
+  &__prolog-body {
+    height: 100%;
+    z-index: 1;
+    position: relative;
+    color: #fff;
+    padding: 120px 85px 120px 0;
+
+    @include adaptive {
+      padding: 91px 0 31px 15px;
+    }
+
+    @include mobile {
+      padding: 50px 10px 30px;
+    }
+
+    &::before {
+      content: "";
+      background: $color-darkgray;
+      position: absolute;
+      top: 0;
+      right: calc(100% - 50px);
+      width: 100vw;
+      height: 100%;
+      transform: skewX(-7deg);
+
+      @include mobile {
+        content: none;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('../images/content/advantages-bg.svg') no-repeat 0 100%;
+
+      @include adaptive {
+        content: none;
+      }
+    }
+  }
+
+  &__content {
+    flex: 0 0 55%;
+    background: $color-lightgreen;
+    padding: 110px 0 110px 90px;
+    overflow: hidden;
+
+    @include adaptive {
+      padding-top: 37px;
+      padding-bottom: 0;
+
+      @include containerPaddings;
+    }
+  }
+}

@@ -37,4 +37,26 @@
       }
     }
   }
+
+  &_margin_default {
+    .slick-list {
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+
+    .slick-slide {
+      padding: 0 15px;
+    }
+  }
+
+  &_option_disabled-indicate {
+    .slick-slide {
+      transition: 0.3s linear;
+
+      &:not(.slick-active) {
+        filter: grayscale(1);
+        opacity: 0.2;
+      }
+    }
+  }
 }

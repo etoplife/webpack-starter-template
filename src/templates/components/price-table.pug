@@ -8,21 +8,20 @@ mixin price-table()
             img: 'images/content/price-table-item.jpg',
         }));
 
-    .prices__table&attributes(attributes)
-        table.price-table.js-price-table(data-source=prices)
-            thead.price-table__header
-                tr
+    table.price-table.js-price-table(data-source=prices)&attributes(attributes)
+        thead.price-table__header
+            tr
+                td
+                td Марка (MC)
+                td Описание
+                td Цена, ₽
+        tbody.price-table__body
+            each item in prices
+                tr.price-table__row
+                    td.price-table__img-wrapper
+                        img.price-table__img(src=item.img)
+                    td.price-table__name= item.name
+                    td.price-table__text= item.text
                     td
-                    td Марка (MC)
-                    td Описание
-                    td Цена, ₽
-            tbody.price-table__body
-                each item in prices
-                    tr.price-table__row
-                        td.price-table__img-wrapper
-                            img.price-table__img(src=item.img)
-                        td.price-table__name= item.name
-                        td.price-table__text= item.text
-                        td
-                            span.price-table__description= `${item.pricePreposition} `
-                            span.price-table__value= item.price.toLocaleString('ru-RU')
+                        span.price-table__description= `${item.pricePreposition} `
+                        span.price-table__value= item.price.toLocaleString('ru-RU')

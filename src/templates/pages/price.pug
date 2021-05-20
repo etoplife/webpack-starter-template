@@ -1,0 +1,93 @@
+extends ../layouts/main
+include ../components/price-table
+
+block variables
+    - const h1 = 'Цены';
+    - const breadcrumbs = [h1];
+
+block content
+    - const tabs = ['Макулатура', 'Полиэтилен', 'Уничтожение документов'];
+    .container
+        .text-wrapper.mb-3
+            p Стоимость макулатуры и другого вторсырья зависит от состояния сдаваемого материала и количества. Однако, у конкурентов за одну и ту же партию вам предложат разную сумму. Наша ценовая политика ориентирована и на крупных поставщиков, и простых граждан, которым небезразлична экологическая обстановка в Санкт-Петербурге и Ленинградской области.
+        .price-switch.js-tabs
+            .row
+                .col-xl-2
+                    .price-switch__tabs
+                        each item in tabs
+                            .price-switch__tab.js-tabs-switch= item
+                .col-xl-10
+                    .mb-3.mb-md-4
+                        .price-switch__table
+                            each item in Array(tabs.length)
+                                .js-tabs-content
+                                    +price-table()
+                    include ../includes/inline-form
+
+    .section
+        .left-dark-angle-section
+            .left-dark-angle-section__prolog
+                .left-dark-angle-section__prolog-body
+                    .js-container
+                        .border-decoration.border-decoration_theme_light.border-decoration_position_left
+                            .h2.h2_theme_light От чего зависит стоимость макулатуры
+                            .text-wrapper Цена приема макулатуры в СПб и ЛО зависит от нескольких факторов
+            .left-dark-angle-section__content
+                .js-container
+                    .advantages__list
+                        .advantages__item
+                            .advantages-item
+                                .advantages-item__icon
+                                    img.advantages-item__icon-img(src="images/content/svg/advantages-delivery.svg")
+                                .advantages-item__content
+                                    .advantages-item__title способ доставки
+                                    .advantages-item__text Нашим транспортом или самостоятельно
+                        .advantages__item
+                            .advantages-item
+                                .advantages-item__icon
+                                    img.advantages-item__icon-img(src="images/content/svg/advantages-package.svg")
+                                .advantages-item__content
+                                    .advantages-item__title тип упаковки
+                                    .advantages-item__text Может быть кипованная или навалом
+                        .advantages__item
+                            .advantages-item
+                                .advantages-item__icon
+                                    img.advantages-item__icon-img(src="images/content/svg/advantages-accuracy.svg")
+                                .advantages-item__content
+                                    .advantages-item__title количество
+                                    .advantages-item__text Чем больше вес - тем выше цена
+                        .advantages__item
+                            .advantages-item
+                                .advantages-item__icon
+                                    img.advantages-item__icon-img(src="images/content/svg/advantages-quality.svg")
+                                .advantages-item__content
+                                    .advantages-item__title качество
+                                    .advantages-item__text Описание
+    .section
+        .container
+            .text-wrapper Мы принимаем все виды вторсырья — макулатуру, полиэтилен, стрейч-пленку, пластиковую тару, ПЭТ-бутылки. И по каждой позиции мы стремимся предложить лучшую цену. Если наши конкуренты платят за макулатуру в среднем 3-4 рубля за килограмм, мы платим 6-10. Если другие компании берут с клиента деньги за уничтожение документов, то мы за это платим вознаграждение. Мы стараемся создать для вас такие условия, чтобы наше сотрудничество было постоянным.
+    .section
+        .container
+            h2.h2 Рекомендации по сдаче макулатуры
+            .row
+                .col-md-6.mb-2.mb-md-3
+                    .vertical-item
+                        .border-decoration.border-decoration_theme_dark.border-decoration_position_left
+                            .vertical-item__title Сортировка
+                            .vertical-item__text Требуется отсортировать макулатуру по маркам, картон по видам и убрать посторонние предметы (скрепки, обложки, файлики и т.п.).
+                .col-md-6.mb-2.mb-md-3
+                    .vertical-item
+                        .border-decoration.border-decoration_theme_dark.border-decoration_position_left
+                            .vertical-item__title Транспорт
+                            .vertical-item__text Самостоятельная доставка – выгоднее. При вывозе вторсырья объемом менее 500 кг, учитываются затраты на транспорт.
+                .col-md-6.mb-2
+                    .vertical-item
+                        .border-decoration.border-decoration_theme_dark.border-decoration_position_left
+                            .vertical-item__title Тип упаковки
+                            .vertical-item__text За прессованную в кипы макулатуру или картонные отходы цена за кг будет выше, чем за сдачу бумаги навалом.
+                .col-md-6
+                    .vertical-item
+                        .border-decoration.border-decoration_theme_dark.border-decoration_position_left
+                            .vertical-item__title Объём
+                            .vertical-item__text Чем больше объем сдаваемых вторичных отходов, тем выше цена за 1 кг.
+    include ../includes/areas-map

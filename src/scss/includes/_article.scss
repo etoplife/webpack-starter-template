@@ -212,19 +212,22 @@
 
 .rating-choose {
   display: flex;
+  flex-flow: row-reverse;
+  margin: 0 -5px;
 
   &__star {
-    width: 13px;
-    height: 13px;
+    $current: &;
+    width: 23px;
+    height: 23px;
     fill: $color-lightgray;
-    margin-right: 10px;
+    padding: 0 5px;
     cursor: pointer;
 
-    &:last-child {
-      margin-right: 0;
+    &:hover {
+      fill: $color-green;
     }
 
-    &:hover {
+    &:hover ~ & {
       fill: $color-green;
     }
   }

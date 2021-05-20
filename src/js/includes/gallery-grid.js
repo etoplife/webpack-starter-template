@@ -19,6 +19,3 @@ $galleryGrid.each(function () {
     rows: 0,
   });
 });
-
-const $slider = $('.js-slider');
-$slider.toArray().forEach((item) => initSlider(item));

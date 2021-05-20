@@ -179,6 +179,15 @@
     color: $color-lightgray;
   }
 
+  &__value {
+    color: $color-dark;
+    font-weight: 500;
+  }
+
+  &__muted {
+    color: $color-gray;
+  }
+
   &__section {
     margin-bottom: 8px;
 
