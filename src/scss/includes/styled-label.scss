@@ -1,0 +1,30 @@
+.styled-label {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 2px solid rgba($color-gray, 0.1);
+  background: rgba($color-green, 0.1);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    bottom: 2px;
+    left: 2px;
+    border: 8px solid #fff;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    border: 1px solid rgba($color-gray, 0.1);
+  }
+}

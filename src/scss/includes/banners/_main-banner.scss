@@ -3,12 +3,12 @@
   overflow: hidden;
   background: url('../images/content/main-banner-bg.svg') no-repeat 0 100%;
 
-  @include adaptive {
-    background: none;
+  &:first-child {
+    margin-top: -20px;
   }
 
-  .header + & {
-    margin-top: -20px;
+  @include adaptive {
+    background: none;
   }
 
   &__background {

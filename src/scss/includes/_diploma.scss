@@ -3,14 +3,48 @@
   display: flex;
   align-items: center;
 
+  @include mobile {
+    display: block;
+  }
+
   &__img {
     flex: 0 0 50%;
+
+    @include adaptive {
+      flex: 1 1 auto;
+    }
+
+    @include mobile {
+      width: 100%;
+    }
+
+    @include mobileMin {
+      #{$self}_direction_forward & {
+        order: 0;
+      }
+
+      #{$self}_direction_reverse & {
+        order: 1;
+      }
+    }
   }
 
   &__content {
     position: relative;
-    padding: 22px 0 22px 30px;
+    padding: 22px 0;
     background: $color-mediumgreen;
+
+    @include mobileMin {
+      #{$self}_direction_forward & {
+        order: 1;
+        padding-left: 30px;
+      }
+
+      #{$self}_direction_reverse & {
+        order: 0;
+        padding-right: 30px;
+      }
+    }
 
     &::before {
       z-index: -1;
@@ -20,20 +54,24 @@
       height: 100%;
       top: 0;
       background: $color-mediumgreen;
-    }
 
-    #{$self}_direction_forward & {
-      left: 0;
-    }
+      #{$self}_direction_forward & {
+        left: 0;
+      }
 
-    #{$self}_direction_reverse & {
-      right: 0;
+      #{$self}_direction_reverse & {
+        right: 0;
+      }
     }
   }
 
   &__title {
     font-size: 22px;
     margin: 0 0 10px;
+
+    @include mobile {
+      font-size: 18px;
+    }
   }
 
   &__text {

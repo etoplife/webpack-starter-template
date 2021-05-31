@@ -226,5 +226,14 @@ strong {
 }
 
 .app {
+  padding: 20px 0 0;
   overflow: hidden;
+
+  @include desktop {
+    background: url('../images/content/main-banner-bg.svg') no-repeat 0 65px;
+  }
+}
+
+.full-absolute {
+  @include fullAbsolute;
 }

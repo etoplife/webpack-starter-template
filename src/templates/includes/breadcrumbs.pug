@@ -1,0 +1,8 @@
+.breadcrumbs
+    .breadcrumbs__item
+        a.breadcrumbs__link(href="javascript:void(0)") Главная
+    each breadcrumb in breadcrumbs
+        .breadcrumbs__item
+            +svg('empty-angle-right')(class="breadcrumbs__angle")
+            a.breadcrumbs__link(href="javascript:void(0)")
+                span= breadcrumb

@@ -1,0 +1,90 @@
+.vertical-tabs {
+  $self: &;
+  position: relative;
+
+  &__list {
+
+    @include adaptive {
+      display: flex;
+      flex-wrap: wrap;
+      margin: -5px -25px;
+    }
+  }
+
+  &__item {
+    font-size: 22px;
+    transition: color 0.3s linear;
+    margin-bottom: 25px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    @include adaptive {
+      padding: 5px 25px;
+      margin: 0;
+    }
+
+    @include mobile {
+      font-size: 18px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:hover,
+    &.active {
+      color: $color-green;
+    }
+  }
+
+  &__sublist {
+    display: none;
+    font-size: 18px;
+    font-weight: 300;
+    padding: 0 0 0 12px;
+    margin: 10px 0 0;
+
+    @include adaptive {
+      padding: 0;
+      margin: 0 -25px;
+    }
+
+    #{$self}__item.active & {
+      display: block;
+
+      @include adaptive {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+  }
+
+  &__subitem {
+    color: $color-gray;
+    transition: color 0.3s linear;
+    margin-bottom: 11px;
+
+    @include adaptive {
+      padding: 7px 25px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      vertical-align: middle;
+      background: $color-green;
+      margin: 0 7px 0 0;
+    }
+
+    &:hover,
+    &.active {
+      color: $color-dark;
+    }
+  }
+}

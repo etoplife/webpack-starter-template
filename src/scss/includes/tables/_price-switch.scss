@@ -1,37 +1,15 @@
 .price-switch {
+
   &__tabs {
     padding: 51px 0 0;
 
     @include adaptive {
-      display: flex;
-      flex-wrap: wrap;
       padding: 0;
-      margin: -5px -25px;
-    }
-  }
-
-  &__tab {
-    font-size: 22px;
-    transition: color 0.3s linear;
-    margin-bottom: 25px;
-    cursor: pointer;
-
-    @include adaptive {
-      padding: 5px 25px;
-      margin: 0;
+      margin: 0 0 30px;
     }
 
     @include mobile {
-      font-size: 18px;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    &:hover,
-    &.active {
-      color: $color-green;
+      margin: 0 0 20px;
     }
   }
 }

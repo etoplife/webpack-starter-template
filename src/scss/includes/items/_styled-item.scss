@@ -1,0 +1,51 @@
+.styled-item {
+  height: 100%;
+  padding: 20px 25px 30px;
+  border: 2px solid rgba($color-gray, 0.1);
+  transition: border 0.3s linear;
+
+  &:hover {
+    border: 2px solid rgba($color-green, 0.5);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    margin: 0 0 18px;
+  }
+
+  &__icon {
+    margin: 0 27px 0 0;
+
+    @include mobile {
+      max-width: 76px;
+      margin: 0 20px 0 0;
+    }
+  }
+
+  &__description {
+    flex: 0 500 auto;
+    font-size: 16px;
+    line-height: 1.55;
+
+    @include mobile {
+      font-size: 14px;
+    }
+  }
+
+  &__name {
+    color: $color-dark;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 0 0 4px;
+  }
+
+  &__text {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.55;
+    border-left: 3px solid #E9EBEF;
+    padding-left: 10px;
+  }
+}

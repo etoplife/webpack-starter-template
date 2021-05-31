@@ -42,13 +42,10 @@
 
   &__title {
     position: relative;
-    height: 26px;
-    line-height: 26px;
     @include card-title;
     background: transparent;
     transition: 0.3s linear;
     padding: 1px 8px 1px 0;
-    white-space: nowrap;
 
     @include mobile {
       font-size: 14px;
@@ -76,9 +73,8 @@
     &::after {
       content: "";
       position: absolute;
-      top: 50%;
+      top: 0.7ch;
       right: calc(100% + 6px);
-      transform: translateY(-50%);
       width: 0;
       height: 0;
       border-style: solid;

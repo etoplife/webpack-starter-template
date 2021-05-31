@@ -1,0 +1,43 @@
+.video-item {
+  width: 500px;
+  cursor: pointer;
+
+  &__picture {
+    position: relative;
+    @include relativeHeight(66);
+    margin: 0 0 15px;
+  }
+
+  &__img {
+    @include fullAbsolute;
+    object-fit: cover;
+  }
+
+  &__play-button {
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) skewX(-8deg);
+    border: 1px solid rgba(#fff, 0.4);
+    padding: 9px;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 106px;
+      height: 106px;
+      background: rgba(#fff, 0.3) url('../images/content/svg/video-play.svg') no-repeat 50% 50% / 15px 30px;
+
+      @include mobile {
+        width: 62px;
+        height: 62px;
+        background-size: 9px 16px;
+      }
+    }
+  }
+
+  &__name {
+    font-size: 16px;
+  }
+}

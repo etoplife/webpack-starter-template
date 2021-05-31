@@ -1,7 +1,7 @@
 import $ from 'jquery';
-import waitInteresting from '../utils/waitInteresting';
-import loadYandexMap from '../utils/loadYandexMap';
-import Dropdown from '../UI/dropdown';
+import waitInteresting from '../../utils/waitInteresting';
+import loadYandexMap from '../../utils/loadYandexMap';
+import Dropdown from '../../UI/dropdown';
 
 class AreasMap {
   constructor(el) {

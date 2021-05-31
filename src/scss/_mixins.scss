@@ -30,6 +30,10 @@ $breakpoints: (
   @each $size, $resolution in $breakpoints {
     @if $media == $size {
       @if ($minmax != "within") {
+        @if ($minmax == 'min') {
+          $resolution: $resolution + 1px;
+        }
+
         @media only screen and (#{$minmax}-width: $resolution) {
           @content;
         }
@@ -150,4 +154,20 @@ $breakpoints: (
     top: 50%;
     transform: translateY(-50%);
   }
+}
+
+@mixin relativeHeight($percent) {
+  &::before {
+    content: "";
+    display: block;
+    padding: #{$percent} + "%" 0 0;
+  }
+}
+
+@mixin fullAbsolute() {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }

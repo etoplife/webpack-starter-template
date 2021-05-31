@@ -1,0 +1,48 @@
+@mixin contactsIcon {
+  display: flex;
+
+  &::before {
+    margin-right: 8px;
+  }
+}
+
+.pin-icon {
+  @include contactsIcon;
+
+  &::before {
+    content: url('../images/content/svg/pin-icon.svg');
+    width: 9px;
+    height: 12px;
+  }
+}
+
+.tel-icon {
+  @include contactsIcon;
+
+  &::before {
+    content: url('../images/content/svg/tel-icon.svg');
+    width: 13px;
+    height: 13px;
+    margin-top: 2px;
+  }
+}
+
+.email-icon {
+  @include contactsIcon;
+
+  &::before {
+    content: url('../images/content/svg/email-icon.svg');
+    width: 13px;
+    height: 10px;
+  }
+}
+
+.clock-icon {
+  @include contactsIcon;
+
+  &::before {
+    content: url('../images/content/svg/clock-icon.svg');
+    width: 12px;
+    height: 12px;
+  }
+}

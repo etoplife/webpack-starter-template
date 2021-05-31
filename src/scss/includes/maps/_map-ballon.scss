@@ -1,0 +1,59 @@
+.map-balloon {
+  width: 100%;
+  max-width: 490px;
+  display: flex;
+  align-items: flex-start;
+  padding: 20px;
+  box-sizing: border-box;
+
+  &__header {
+    font-size: 16px;
+  }
+
+  &__header,
+  &__body {
+    color: $color-dark;
+    margin: 0 0 13px;
+  }
+
+  &__body,
+  &__footer {
+    font-size: 14px;
+  }
+
+  &__footer {
+    color: $color-gray;
+  }
+
+  &__picture {
+    flex: 0 0 145px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 0 0 10px;
+
+    &::before {
+      content: "";
+      display: block;
+      padding: 76% 0 0;
+    }
+  }
+
+  a {
+
+    &:hover {
+      color: $color-green;
+    }
+  }
+}
+
+[class$="balloon__content"] {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+[class$="balloon__close-button"] {
+  width: 10px !important;
+  height: 10px !important;
+  padding: 7px !important;
+  background-size: 38% 38% !important;
+}

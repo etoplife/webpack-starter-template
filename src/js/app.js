@@ -1,10 +1,12 @@
 import '../scss/app.scss';
-import './includes/areasMap';
+import './includes/maps/areasMap';
+import './includes/maps/SwitchMap';
 import './includes/container';
 import './includes/menu';
 import './includes/main-banner';
 import './utils/svgSprite';
-import './includes/price-table';
+import './includes/tables/price-table';
+import './includes/tables/service-price-table';
 import './includes/footer';
 import './includes/popup';
 import './includes/select';

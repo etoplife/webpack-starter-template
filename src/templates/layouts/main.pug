@@ -1,6 +1,74 @@
 include ../mixins
 
 -
+    const receptions = [
+        {
+            name: 'Всеволжск',
+            items: [
+                {
+                    coordinates: [59.993568, 30.643205],
+                    name: 'Центральная 8',
+                    imgHref: '/images/content/map-ballon-img.jpg',
+                    header: '<a href="tel:+78129613538">+7 (812) 961-35-38</a>',
+                    body: '<a href="mailto:info@sinay-paper.ru">info@sinay-paper.ru</a>',
+                    footer: 'Всеволожский район, Всеволожск, микрорайон Южный, улица Доктора Сотникова, 25',
+                },
+                {
+                    coordinates: [59.988982, 30.655818],
+                    name: 'Колтушское 19',
+                    imgHref: '/images/content/map-ballon-img.jpg',
+                    header: '<a href="tel:+78129613538">+7 (812) 961-35-38</a>',
+                    body: '<a href="mailto:info@sinay-paper.ru">info@sinay-paper.ru</a>',
+                    footer: 'Всеволожский район, Всеволожск, микрорайон Южный, улица Доктора Сотникова, 25',
+                },
+            ],
+        },
+        {
+            name: 'Южный',
+            items: [
+                {
+                    coordinates: [60.039899, 30.642282],
+                    name: 'Колтушское 19',
+                    imgHref: '/images/content/map-ballon-img.jpg',
+                    header: '<a href="tel:+78129613538">+7 (812) 961-35-38</a>',
+                    body: '<a href="mailto:info@sinay-paper.ru">info@sinay-paper.ru</a>',
+                    footer: 'Всеволожский район, Всеволожск, микрорайон Южный, улица Доктора Сотникова, 25',
+                },
+                {
+                    coordinates: [60.039899, 30.632282],
+                    name: 'Колтушское 19',
+                    imgHref: '/images/content/map-ballon-img.jpg',
+                    header: '<a href="tel:+78129613538">+7 (812) 961-35-38</a>',
+                    body: '<a href="mailto:info@sinay-paper.ru">info@sinay-paper.ru</a>',
+                    footer: 'Всеволожский район, Всеволожск, микрорайон Южный, улица Доктора Сотникова, 25',
+                },
+                {
+                    coordinates: [59.984283, 30.641346],
+                    name: 'Сотникова 13',
+                    imgHref: '/images/content/map-ballon-img.jpg',
+                    header: '<a href="tel:+78129613538">+7 (812) 961-35-38</a>',
+                    body: '<a href="mailto:info@sinay-paper.ru">info@sinay-paper.ru</a>',
+                    footer: 'Всеволожский район, Всеволожск, микрорайон Южный, улица Доктора Сотникова, 25',
+                },
+            ],
+        },
+        {
+            name: 'Щеглово',
+            items: [
+                {
+                    coordinates: [59.757312, 30.061124],
+                    name: 'Взлетная 12',
+                    imgHref: '/images/content/map-ballon-img.jpg',
+                    header: '<a href="tel:+78129613538">+7 (812) 961-35-38</a>',
+                    body: '<a href="mailto:info@sinay-paper.ru">info@sinay-paper.ru</a>',
+                    footer: 'Всеволожский район, Всеволожск, микрорайон Южный, улица Доктора Сотникова, 25',
+                },
+            ],
+        }
+    ];
+
+
+-
     const menuChildren = [
         {
             name: 'Шредирование',
@@ -185,7 +253,7 @@ body
                     ul.socials.menu__socials.d-none.d-xl-block
                         li.socials__item
                             a.socials__link(href="javascript:void(0)")
-                                +svg('socials-vkontakte')
+                                include ../../images/content/svg/socials-vk.svg
                     .menu__contacts.d-none.d-md-flex
                         a.menu__tel(href="tel:+78129613538") +7 (812) 961-35-38
                         button.border-link.border-link_theme_gray(type="button" data-popup="#export-popup") Заказать звонок
@@ -232,19 +300,13 @@ body
             .burger.header__burger.js-menu-toggle
                 .burger__wrapper
                     .burger__bar
-    if (breadcrumbs)
-        .page__breadcrumbs
-            .container
-                .breadcrumbs
-                    .breadcrumbs__item
-                        a.breadcrumbs__link(href="javascript:void(0)") Главная
-                    each breadcrumb in breadcrumbs
-                        .breadcrumbs__item
-                            +svg('empty-angle-right')(class="breadcrumbs__angle")
-                            a.breadcrumbs__link(href="javascript:void(0)")
-                                span= breadcrumb
 
     main.app
+        if (breadcrumbs)
+            .page__breadcrumbs
+                .container
+                    include ../includes/breadcrumbs
+
         if (h1)
             .container
                 h1.h1= h1

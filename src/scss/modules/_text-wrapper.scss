@@ -40,6 +40,14 @@
     padding: 0 0 0 10px;
     margin-bottom: 20px;
 
+    &.columns-2 {
+
+      @include desktop {
+        column-count: 2;
+        column-gap: 30px;
+      }
+    }
+
     &:last-child {
       margin-bottom: 0;
     }

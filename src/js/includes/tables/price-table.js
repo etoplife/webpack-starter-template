@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import device from './device';
+import device from '../device';
 
 if (device === 'mobile') {
   const $priceTable = $('.js-price-table');

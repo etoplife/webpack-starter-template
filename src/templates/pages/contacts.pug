@@ -1,0 +1,96 @@
+extends ../layouts/main
+
+block variables
+    - const h1 = 'Контакты';
+    - const breadcrumbs = [h1];
+
+block content
+    -
+        const contacts = [
+            {
+                coordinates: [60.003214, 30.639603],
+                name: 'Всеволожск, ул. Гоголя, д. 1',
+                imgHref: '/images/content/map-ballon-img.jpg',
+                header: '<a href="tel:+78129613538">+7 (812) 961-35-38</a>',
+                body: '<a href="mailto:info@sinay-paper.ru">info@sinay-paper.ru</a>',
+                footer: '188641, Россия, Ленинградская область, г. Всеволожск, ул. Гоголя, д. 1',
+            },
+        ];
+
+    -
+        const offices = [
+            {
+                coordinates: [59.978291, 30.352025],
+                name: 'Литовская, д.10, офис 3307',
+                imgHref: '/images/content/map-ballon-img.jpg',
+                header: '<a href="tel:+78129613538">+7 (812) 961-35-38</a>',
+                body: '<a href="mailto:info@sinay-paper.ru">info@sinay-paper.ru</a>',
+                footer: '194100, Россия, г. Санкт-Петербург, ул. Литовская, д.10, офис 3307',
+            },
+        ];
+    .default-page
+        .contacts-page
+            .container
+                .contacts-page__header
+                    .contacts-page__list
+                        .contacts-page__item
+                            address.contacts-page__address.pin-icon!= "188641, Россия, Ленинградская область, <br>г. Всеволожск, ул. Гоголя, д. 1"
+                        .contacts-page__item
+                            a.tel-icon(href="tel:+78129613538") +7 (812) 961-35-38
+                            .contacts-page__callback Заказать звонок
+                        .contacts-page__item
+                            a.email-icon(href="mailto:info@sinay-paper.ru") info@sinay-paper.ru
+                        .contacts-page__item
+                            .clock-icon!= "Пн-Пт: с 08:00 до 18:00 <br> Сб-Вс: выходной"
+            .contacts-page__map
+                .full-absolute.js-contacts-map(data-items=JSON.stringify(contacts))
+            .container
+                .contacts-page__form
+                    include ../includes/inline-form
+                .contacts-page__footer
+                    .row
+                        .col-xl-6.mb-3.mb-md-4.mb-xl-0.contacts-page__office-address
+                            .h4 Адрес офиса
+                            .contacts-page__office-address-text.pin-icon!= "194100, Россия, г. Санкт-Петербург,<br> ул. Литовская, д.10, офис 3307"
+                            .contacts-page__office-address-map
+                                .full-absolute.js-contacts-map(data-items=JSON.stringify(contacts))
+                        .contacts-page__requisites.col-xl-6
+                            .h4 Реквизиты ООО "Синай"
+                            ul.contacts-page__requisites-list
+                                li.contacts-page__requisites-item
+                                    .contacts-page__requisites-item-description Юридический адрес
+                                    .contacts-page__requisites-item-value 188643 ЛО г.Всеволожск ул.Гоголя д.1
+                                li.contacts-page__requisites-item
+                                    .contacts-page__requisites-item-description Фактический адрес
+                                    .contacts-page__requisites-item-value 188643 ЛО г.Всеволожск ул.Гоголя д.1
+                                li.contacts-page__requisites-item
+                                    .contacts-page__requisites-item-description!= "Р/с <br> в ПАО «СИАБ» г.Санкт-Петербург"
+                                    .contacts-page__requisites-item-value 40702810908000061937
+                                li.contacts-page__requisites-item
+                                    .contacts-page__requisites-item-description К/с
+                                    .contacts-page__requisites-item-value 30101810600000000757
+                                li.contacts-page__requisites-item
+                                    .contacts-page__requisites-item-description БИК
+                                    .contacts-page__requisites-item-value 044030757
+                                li.contacts-page__requisites-item
+                                    .contacts-page__requisites-item-description ИНН
+                                    .contacts-page__requisites-item-value 4703067616
+                                li.contacts-page__requisites-item
+                                    .contacts-page__requisites-item-description КПП
+                                    .contacts-page__requisites-item-value 470301001
+                                li.contacts-page__requisites-item
+                                    .contacts-page__requisites-item-description ОКПО
+                                    .contacts-page__requisites-item-value 11187823
+                                li.contacts-page__requisites-item
+                                    .contacts-page__requisites-item-description ОКВЭД
+                                    .contacts-page__requisites-item-value 37.20.5 60.24
+                                li.contacts-page__requisites-item
+                                    .contacts-page__requisites-item-description ОГРН
+                                    .contacts-page__requisites-item-value 1034700563050
+                            .contacts-page__requisites-footer
+                                div.contacts-page__requisites-footer-item Генеральный директор Юрчук Александр Лукич
+                                .tel-icon.contacts-page__requisites-footer-item
+                                    .contacts-page__phones
+                                        a(href="tel:+78123465463") +7 (812) 346-54-63
+                                        span!= ",&nbsp;"
+                                        a(href="tel:+78129613538") +7 (812) 961-35-38

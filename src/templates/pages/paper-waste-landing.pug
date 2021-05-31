@@ -1,0 +1,186 @@
+extends ../layouts/simple
+include ../components/price-table
+
+block variables
+    - const h1 = 'Прием макулатуры';
+    - const breadcrumbs = [h1];
+
+block content
+    .section-banner
+        .section-banner__row
+            .section-banner__content
+                .js-container.section-banner__container
+                    .section-banner__content-column
+                        .section-banner__breadcrumbs.d-none.d-xl-block.mb-2
+                            include ../includes/breadcrumbs
+                        .section-banner__title-decoration
+                            .container.section-banner__title-container
+                                .section-banner__title Прием макулатуры
+                        .section-banner__text
+                            .section-banner__text-value Бесплатный вывоз от 100 кг.
+                            .section-banner__text-description заплатим за вывоз от 300 кг.
+                        .section-banner__order-button.d-xl-none
+                            button.btn.btn_size_xl.btn_theme_dark(type="button" data-popup="#section-banner-form")
+                                .btn__text Рассчитать стоимость
+                        form.section-banner__form#section-banner-form(action="#" method="post")
+                            legend.section-banner__form-title Оставьте заявку на расчет стоимости макулатуры
+                            .form__row
+                                .form__field
+                                    select.select.select_theme_dark.js-select
+                                        each item, i in Array(5)
+                                            if (i === 0)
+                                                option(value="")= `Тип макулатуры:`
+                                            else
+                                                option(value=i)= `Тип макулатуры ${i}`
+                                .form__field.form__field_size_sm
+                                    input.input.input_theme_dark(type="number" placeholder="Вес (кг)" inputmode="numeric")
+                                .form__field
+                                    select.select.select_theme_dark.js-select
+                                        each item, i in Array(5)
+                                            if (i === 0)
+                                                option(value="")= `Траспорт:`
+                                            else
+                                                option(value=i)= `Транспорт ${i}`
+                            .form__row
+                                .form__field
+                                    input.input.input_theme_dark(type="text" placeholder="Имя")
+                                .form__field
+                                    input.input.input_theme_dark(type="tel" placeholder="Телефон*" inputmode="numeric")
+                            .form__footer.form__footer_align_right.form__footer_flex_inline
+                                button.btn.btn_size_lg.btn_theme_dark.form__submit(type="submit")
+                                    .btn__text Отправить
+                                .form__agreement
+                                    | Отправляя форму, Вы соглашаетесь с
+                                    a(href="/agreement/") обработкой персональных данных
+            .section-banner__picture
+                img.section-banner__img(src="images/content/paper-waste-banner.jpg")
+    .container
+        .section
+            .text-wrapper
+                p Синай – предприятие, которое вот уже более 25 лет помогает клиентам избавиться от бумажных и полиэтиленовых отходов. Нашему опыту и профессионализму доверяют тысячи людей, среди которых – частные лица, компании, государственные организации.
+                p В настоящее время компания располагает собственной производственной площадкой в городе Всеволожске, оснащенной всем необходимым оборудованием для сортировки, упаковки, хранения и отгрузки макулатуры и некоторых видов пластика, а также для уничтожения документов.
+        .section
+            h2.h2 Виды принимаемой макулатуры
+            .row
+                .col-md-6.col-xl-3.mb-1.mb-md-2
+                    .angle-item(style="background-image: url('../images/content/type-books.jpg');")
+                        .angle-item__content
+                            .angle-item__title Книги
+                .col-md-6.col-xl-3.mb-1.mb-md-2
+                    .angle-item(style="background-image: url('../images/content/type-paper.jpg');")
+                        .angle-item__content
+                            .angle-item__title Бумага
+                .col-md-6.col-xl-3.mb-1.mb-md-0
+                    .angle-item(style="background-image: url('../images/content/type-magazine.jpg');")
+                        .angle-item__content
+                            .angle-item__title Газеты
+                .col-md-6.col-xl-3
+                    .angle-item(style="background-image: url('../images/content/type-paperboard.jpg');")
+                        .angle-item__content
+                            .angle-item__title Картон
+        .section
+            h2.h2 За сколько мы купим Вашу макулатуру?
+            .row.mb-2.mb-xl-3
+                .col-xl-9
+                    .text-wrapper Наша компания старается сделать так, чтобы сдать макулатуру в Санкт-Петербурге было не только удобно, но и выгодно. Конечно, цена зависит от качества бумаги или картона, но в любом случае она будет одной из самых высоких в Ленинградской области. За покупку отдельных марок макулатуры мы платим до 12 тысяч рублей за тонну. Причем если масса бумаги более тонны, цена на нее в случае вывоза нашими силами будет такой же, как если бы вы привезли ее самостоятельно.
+                .col-xl-3
+                    .styled-label Памятка по сдаче макулатуры
+            +price-table()
+    .advantages.left-dark-angle-section
+        .left-dark-angle-section__prolog
+            .left-dark-angle-section__prolog-body
+                .js-container
+                    .border-decoration.border-decoration_position_left.border-decoration_theme_light
+                        h2.h2.h2_theme_light!= "Чем мы отличаемсяот других?"
+                        .text-wrapper.advantages__text Приемом вторсырья занимаются многие, почему же стоит обратиться именно к нам? Возможно, другие тоже предоставляют некоторые из наших услуг, но мало где встречается такой комплексный подход, как в компании «Синай».
+        .advantages__content.left-dark-angle-section__content
+            .js-container
+                .advantages__list
+                    .advantages__item
+                        .advantages-item
+                            .advantages-item__icon
+                                img.advantages-item__icon-img(src="images/content/svg/advantages-delivery.svg")
+                            .advantages-item__content
+                                .advantages-item__title Доставка
+                                .advantages-item__text Вам не обязательно привлекать свой персонал и транспорт
+                    .advantages__item
+                        .advantages-item
+                            .advantages-item__icon
+                                img.advantages-item__icon-img(src="images/content/svg/advantages-weight.svg")
+                            .advantages-item__content
+                                .advantages-item__title От 1 кг
+                                .advantages-item__text Принимаем макулатуру от 1 кг., вывозим бесплатно 100 кг.
+                    .advantages__item
+                        .advantages-item
+                            .advantages-item__icon
+                                img.advantages-item__icon-img(src="images/content/svg/advantages-accuracy.svg")
+                            .advantages-item__content
+                                .advantages-item__title Точность
+                                .advantages-item__text Взвешивание с минимальной погрешностью
+                    .advantages__item
+                        .advantages-item
+                            .advantages-item__icon
+                                img.advantages-item__icon-img(src="images/content/svg/advantages-control.svg")
+                            .advantages-item__content
+                                .advantages-item__title Контроль
+                                .advantages-item__text Прозрачный механизм работы и контроль на любом этапе
+                    .advantages__item
+                        .advantages-item
+                            .advantages-item__icon
+                                img.advantages-item__icon-img(src="images/content/svg/advantages-promotion.svg")
+                            .advantages-item__content
+                                .advantages-item__title Поощрение
+                                .advantages-item__text Грамоты и небольшие подарки за любой сданный объем
+                    .advantages__item
+                        .advantages-item
+                            .advantages-item__icon
+                                img.advantages-item__icon-img(src="images/content/svg/advantages-export.svg")
+                            .advantages-item__content
+                                .advantages-item__title Вывозим из офисов
+                                .advantages-item__text И квартир (бесплатная погрузка грузчиками)
+    include ../includes/reception-recommendations
+    .section
+        .container.mb-2.mb-md-3
+            h2.h2 Адреса пунктов приема вторсырья
+            .text-wrapper В Ленинградской области пункт приема макулатуры находится в городе Всеволожск. В Санкт-Петербурге и других городах действуют эко-пункты: небольшие точки сбора ненужной бумаги, где ее оставляют самостоятельно. Удобное расположение избавляет от необходимости транспортировки документов в удаленную часть города или района.
+        .map-switch.js-switch-map(data-categories=JSON.stringify(receptions))
+            .js-container
+                .map-switch__tabs.js-switch-map-tabs
+            .map-switch__el.js-switch-map-el
+    .section
+        .container
+            h2.h2 Грамота
+            .row
+                .col-xl-6.mb-3.mb-md-4.mb-xl-0
+                    .diploma.diploma_direction_reverse
+                        img.diploma__img.lazy-image(data-src="images/content/diploma.jpg")
+                        .diploma__content
+                            .diploma__title Каждому клиенту компании "Синай" мы вручаем грамоту
+                            .diploma__text В знак доказательства о том, что вам и вашей компании не все равно на окружающую природу. Ведь каждый сданный килограмм макулатуры помогает сохранить деревья от вырубки. Кроме того, вас ожидают и другие приятные подарки: плакаты и фирменные ручки.
+                .col-xl-6
+                    .inline-form
+                        .inline-form__content
+                            .form__row
+                                .form__field
+                                    select.select.select_theme_dark.js-select
+                                        each item, i in Array(5)
+                                            if (i === 0)
+                                                option(value="")= `Тип макулатуры:`
+                                            else
+                                                option(value=i)= `Тип макулатуры ${i}`
+                                .form__field.form__field_size_sm
+                                    input.input.input_theme_dark(type="text" placeholder="Вес (кг)")
+                            .form__row
+                                .form__field
+                                    input.input.input_theme_dark(type="text" placeholder="Имя")
+                                .form__field
+                                    input.input.input_theme_dark(type="tel" placeholder="Телефон*" inputmode="numeric")
+                            .form__footer.form__footer_align_right.form__footer_flex_inline
+                                button.btn.btn_size_lg.btn_theme_dark.form__submit(type="submit")
+                                    .btn__text Отправить
+                                .form__agreement
+                                    | Отправляя форму, Вы соглашаетесь с
+                                    a(href="/agreement/") обработкой персональных данных
+                        .inline-form__description!= "Оставьте контактные <br> данные и мы ответим <br> на ваш вопрос"
+    include ../includes/work-scheme
+    include ../includes/areas-map

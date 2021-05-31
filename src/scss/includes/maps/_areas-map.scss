@@ -86,10 +86,6 @@
     @include mobile {
       height: 94vw;
     }
-
-    [class$="ground-pane"] {
-      filter: grayscale(1);
-    }
   }
 
   &__footer {
@@ -144,4 +140,8 @@
       }
     }
   }
+}
+
+[class$="ground-pane"] {
+  filter: grayscale(1);
 }

@@ -14,8 +14,9 @@ block content
             .row
                 .col-xl-2
                     .price-switch__tabs
-                        each item in tabs
-                            .price-switch__tab.js-tabs-switch= item
+                        .vertical-tabs
+                            each item in tabs
+                                .vertical-tabs__item.js-tabs-switch= item
                 .col-xl-10
                     .mb-3.mb-md-4
                         .price-switch__table
@@ -66,28 +67,5 @@ block content
     .section
         .container
             .text-wrapper Мы принимаем все виды вторсырья — макулатуру, полиэтилен, стрейч-пленку, пластиковую тару, ПЭТ-бутылки. И по каждой позиции мы стремимся предложить лучшую цену. Если наши конкуренты платят за макулатуру в среднем 3-4 рубля за килограмм, мы платим 6-10. Если другие компании берут с клиента деньги за уничтожение документов, то мы за это платим вознаграждение. Мы стараемся создать для вас такие условия, чтобы наше сотрудничество было постоянным.
-    .section
-        .container
-            h2.h2 Рекомендации по сдаче макулатуры
-            .row
-                .col-md-6.mb-2.mb-md-3
-                    .vertical-item
-                        .border-decoration.border-decoration_theme_dark.border-decoration_position_left
-                            .vertical-item__title Сортировка
-                            .vertical-item__text Требуется отсортировать макулатуру по маркам, картон по видам и убрать посторонние предметы (скрепки, обложки, файлики и т.п.).
-                .col-md-6.mb-2.mb-md-3
-                    .vertical-item
-                        .border-decoration.border-decoration_theme_dark.border-decoration_position_left
-                            .vertical-item__title Транспорт
-                            .vertical-item__text Самостоятельная доставка – выгоднее. При вывозе вторсырья объемом менее 500 кг, учитываются затраты на транспорт.
-                .col-md-6.mb-2
-                    .vertical-item
-                        .border-decoration.border-decoration_theme_dark.border-decoration_position_left
-                            .vertical-item__title Тип упаковки
-                            .vertical-item__text За прессованную в кипы макулатуру или картонные отходы цена за кг будет выше, чем за сдачу бумаги навалом.
-                .col-md-6
-                    .vertical-item
-                        .border-decoration.border-decoration_theme_dark.border-decoration_position_left
-                            .vertical-item__title Объём
-                            .vertical-item__text Чем больше объем сдаваемых вторичных отходов, тем выше цена за 1 кг.
+    include ../includes/reception-recommendations
     include ../includes/areas-map

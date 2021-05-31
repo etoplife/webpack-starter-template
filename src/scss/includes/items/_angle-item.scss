@@ -1,0 +1,71 @@
+.angle-item {
+  $self: &;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+
+  @include relativeHeight(63);
+
+  &::before {
+    content: "";
+    background: $color-dark;
+    opacity: 0.8;
+    transition: opacity 0.3s linear;
+  }
+
+  &:hover::before {
+    opacity: 0.5;
+  }
+
+  &__content {
+    z-index: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: -15px;
+      display: block;
+      height: calc(100% + 30px);
+      transform: rotate(7deg);
+      background: $color-green;
+      transition: 0.3s linear;
+    }
+
+    &::before {
+      left: -4%;
+      width: 25px;
+      opacity: 0.5;
+
+      #{$self}:hover & {
+        width: 45px;
+        opacity: 1;
+      }
+    }
+
+    &::after {
+      left: calc(-4% + 35px);
+      width: 10px;
+      opacity: 0.3;
+
+      #{$self}:hover & {
+        left: calc(-4% + 55px);
+        opacity: 0.5;
+      }
+    }
+
+    @include fullAbsolute;
+  }
+
+  &__title {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 500;
+  }
+}

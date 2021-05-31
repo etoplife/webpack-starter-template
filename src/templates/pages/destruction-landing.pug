@@ -1,0 +1,223 @@
+extends ../layouts/simple
+include ../components/price-table
+
+block variables
+    - const h1 = 'Прием макулатуры';
+    - const breadcrumbs = [h1];
+
+block content
+    .default-page
+        .section-banner
+            .section-banner__row
+                .section-banner__content
+                    .js-container.section-banner__container
+                        .section-banner__content-column
+                            .section-banner__breadcrumbs.d-none.d-xl-block.mb-2
+                                include ../includes/breadcrumbs
+                            .section-banner__title-decoration
+                                .container.section-banner__title-container
+                                    .section-banner__title Уничтожение документов
+                            .section-banner__text
+                                .section-banner__text-value Бесплатный вывоз от 100 кг.
+                                .section-banner__text-description заплатим за вывоз от 300 кг.
+                            .section-banner__order-button.d-xl-none
+                                button.btn.btn_size_xl.btn_theme_dark(type="button" data-popup="#section-banner-form")
+                                    .btn__text Рассчитать стоимость
+                            .section-banner__form
+                                form#section-banner-form(action="#" method="post")
+                                    legend.section-banner__form-title Оставьте заявку на расчет стоимости макулатуры
+                                    .form__row
+                                        .form__field.form__field_size_sm
+                                            input.input.input_theme_dark(type="number" placeholder="Вес (кг)" inputmode="numeric")
+                                        .form__field
+                                            select.select.select_theme_dark.js-select
+                                                each item, i in Array(5)
+                                                    if (i === 0)
+                                                        option(value="")= `Траспорт:`
+                                                    else
+                                                        option(value=i)= `Транспорт ${i}`
+                                    .form__row
+                                        .form__field
+                                            input.input.input_theme_dark(type="text" placeholder="Имя")
+                                        .form__field
+                                            input.input.input_theme_dark(type="tel" placeholder="Телефон*" inputmode="numeric")
+                                    .form__footer.form__footer_align_right.form__footer_flex_inline
+                                        button.btn.btn_size_lg.btn_theme_dark.form__submit(type="submit")
+                                            .btn__text Отправить
+                                        .form__agreement
+                                            | Отправляя форму, Вы соглашаетесь с
+                                            a(href="/agreement/") обработкой персональных данных
+                .section-banner__picture
+                    img.section-banner__img(src="images/content/paper-waste-banner.jpg")
+        .section
+            .container
+                .text-wrapper
+                    p Согласно законодательству, документы любого предприятия или учреждения должны храниться в течение определенного срока. Ежегодно накапливаются сотни и тысячи килограммов таких бумаг, которые через некоторое время становятся ненужными. Их утилизация имеет некоторые особенности.
+                    p При уничтожении документов важнейшей задачей является сохранение конфиденциальности, особенно если они относятся к разряду секретных. Обеспечить нераспространение информации возможно только при ограничении доступа посторонним. Производственная площадка компании «Синай» расположена на собственной огороженной и охраняемой территории.
+        .section
+            .container
+                h2.h2 Способы уничтожения
+                .row
+                    .col-md-6.col-xl-4.mb-1.mb-md-2.mb-xl-0
+                        .styled-item
+                            .styled-item__header
+                                .styled-item__icon
+                                    img.styled-item__icon-img(src="images/content/svg/advantages-stack.svg")
+                                .styled-item__description Не имеют статуса секретных
+                            .styled-item__body
+                                .styled-item__name Кипование
+                                .styled-item__text Бумага прессуется в массивные брикеты под высоким давлением.
+                    .col-md-6.col-xl-4.mb-1.mb-md-2.mb-xl-0
+                        .styled-item
+                            .styled-item__header
+                                .styled-item__icon
+                                    img.styled-item__icon-img(src="images/content/svg/advantages-cut.svg")
+                                .styled-item__description Невысокий уровень секретности
+                            .styled-item__body
+                                .styled-item__name Шредирование
+                                .styled-item__text Измельчение листов бумаги на специальной установке с дальнейшим прессованием.
+                    .col-md-6.col-xl-4
+                        .styled-item
+                            .styled-item__header
+                                .styled-item__icon
+                                    img.styled-item__icon-img(src="images/content/svg/advantages-cooking.svg")
+                                .styled-item__description!= "Особо <br> секретные"
+                            .styled-item__body
+                                .styled-item__name Варка
+                                .styled-item__text Процесс полного разложения бумаги в растворе химических веществ. Восстановление содержимого невозможно.
+        .section
+            .container
+                h2.h2 Мы заплатим вам за уничтожение ваших документов!
+                .text-wrapper
+                    p Ваша выгода в процессе уничтожения документов – освобождение от залежей бумаги квадратных и кубических метров, отведенных для ее хранения. Причем, не безвозмездное.
+                    p Наш интерес заключается не только в солидных объемах архивных и нормативных документов. Документы по большей части печатаются на высококачественной бумаге, и именно ее свойство имеет для нас особое значение. Качественное сырье стоит дороже, и мы готовы платить соответственно.
+        .section
+            .container
+                h2.h2 Виды принимаемой макулатуры
+                .mb-3.mb-md-5
+                    .row
+                        .col-md-6.col-xl-3.mb-1.mb-md-2
+                            .angle-item(style="background-image: url('../images/content/type-archive.jpg');")
+                                .angle-item__content
+                                    .angle-item__title Архивные
+                        .col-md-6.col-xl-3.mb-1.mb-md-2
+                            .angle-item(style="background-image: url('../images/content/type-accountanting.jpg');")
+                                .angle-item__content
+                                    .angle-item__title Бухгалтерские
+                        .col-md-6.col-xl-3.mb-1.mb-md-0
+                            .angle-item(style="background-image: url('../images/content/type-hr.jpg');")
+                                .angle-item__content
+                                    .angle-item__title Кадровые
+                        .col-md-6.col-xl-3
+                            .angle-item(style="background-image: url('../images/content/type-secret.jpg');")
+                                .angle-item__content
+                                    .angle-item__title Секретные
+                .text-wrapper
+                    .h4 Мы так же уничтожаем:
+                    ul.columns-2
+                        li Газеты, журналы, напечатанные на газетной бумаге
+                        li Технологическую, конструкторскую документацию
+                        li Картонную продукцию
+                        li Цифровые носители и пластиковые карты
+                        li Налоговые и нормативные документы
+        .section
+            .container
+                h2.h2 Сколько мы вам заплатим?
+                .text-wrapper.mb-3
+                    p Офисные и большая часть остальных документов, благодаря качеству бумаги, относятся к достаточно дорогостоящим видам вторсырья. Наша компания за уничтожение ваших архивов платит 6 тысяч рублей за тонну. Если масса бумаг меньше тонны, цена килограмма составит 5 рублей. В любом случае вывоз архива производится бесплатно.
+                table.service-price-table
+                    thead
+                        tr
+                            td Вес, кг
+                            td Описание
+                            td!= "Цена, <span class='rouble'>₽</span>/кг"
+                    tbody
+                        tr
+                            td.service-price-table__strong От 100 до 500 (кроме картона)
+                            td.service-price-table__text Любой р-н Санкт-Петербурга
+                            td.service-price-table__strong 15
+                        tr
+                            td.service-price-table__strong От 500 до 1 000 (кроме картона)
+                            td.service-price-table__text Любой р-н Санкт-Петербурга
+                            td.service-price-table__strong 15
+                        tr
+                            td.service-price-table__strong От 1 000 до 18 000
+                            td.service-price-table__text Любой р-н СПб и его ближайшие пригороды
+                            td.service-price-table__strong 12
+                        tr
+                            td.service-price-table__strong От 18 000
+                            td.service-price-table__text Весь Северо-Западный регион РФ (др. регионы на рассмотрение)
+                            td.service-price-table__strong 10
+        .section
+            .container
+                .inline-form
+                    .inline-form__content
+                        .form__row
+                            .form__field.form__field_size_sm
+                                input.input.input_theme_dark(type="number" placeholder="Вес (кг)" inputmode="numeric")
+                            .form__field
+                                select.select.select_theme_dark.js-select
+                                    each item, i in Array(5)
+                                        if (i === 0)
+                                            option(value="")= `Траспорт:`
+                                        else
+                                            option(value=i)= `Транспорт ${i}`
+                        .form__row
+                            .form__field
+                                input.input.input_theme_dark(type="text" placeholder="Имя")
+                            .form__field
+                                input.input.input_theme_dark(type="tel" placeholder="Телефон*" inputmode="numeric")
+                        .form__footer.form__footer_align_right.form__footer_flex_inline
+                            button.btn.btn_size_lg.btn_theme_dark.form__submit(type="submit")
+                                .btn__text Отправить
+                            .form__agreement
+                                | Отправляя форму, Вы соглашаетесь с
+                                a(href="/agreement/") обработкой персональных данных
+                    .inline-form__description!= "Оставьте заявку на уничтожение <br> документов и наш менеджер <br> свяжется с Вами"
+        .left-green-angle-section
+            .container.left-green-angle-section__container
+                .row.left-green-angle-section__row
+                    .col-xl-8
+                        .left-green-angle-section__content
+                            .row
+                                .col-xl-6.mb-3.mb-md-0
+                                    a.additional-service(href="javascript:void(0)")
+                                        .additional-service__title Конфиденциальное уничтожение документов
+                                        .additional-service__text Позаботьтесь о правильном уничтожении документов, и вам не придется впоследствии сталкиваться с печальными последствиями утечки данных.
+                                .col-xl-6
+                                    a.additional-service(href="javascript:void(0)")
+                                        .additional-service__title Архивное хранение документов
+                                        .additional-service__text Мы имеем возможность разместить на нашей территории документы, у которых еще не истек срок хранения, но они уже не задействованы в работе.
+                    .col-xl-4.left-green-angle-section__prolog
+                        .border-decoration.border-decoration_position_right.border-decoration_theme_dark
+                            h2.h2 Дополнительные услуги
+                            .text-wrapper Описание!!! собственным автопарком и бригадой грузчиков. Все хлопоты, связанные с погрузкой и доставкой и не только
+        .section
+            .container
+                h2.h2 Какие документы предоставим
+                .text-wrapper
+                    p Наша компания предоставляет необходимые документы, фиксирующие факт уничтожения документов, а при необходимости, и ход процесса.
+                    .h4 Документы:
+                    ul.columns-2
+                        li Справка об уничтожении архива, в которой указаны следующие данные (название компании, местоположение архива, масса макулатуры (в тоннах), способ уничтожения, дата, время и место уничтожения)
+                        li Договор на покупку макулатуры (с указанием данных архива
+                        li Фото- и видеоотчет о процессе (по предварительной заявке)
+        .left-dark-angle-section
+            .left-dark-angle-section__prolog
+                .left-dark-angle-section__prolog-body
+                    .js-container
+                        .border-decoration.border-decoration_theme_light.border-decoration_position_left
+                            .h2.h2_theme_light Объемы и оборудование
+                            .text-wrapper На производственной площадке №1 используется оборудование PRESONA LP-40. За последние 5 лет плодотворной работы объем заготавливаемой макулатуры вырос более чем на 40 %, и сейчас составляет 25 000 тонн в год. В связи с этим для обеспечения качества сортировки и киповки сырья в феврале 2011 года «Синай» открывает новую площадку с более мощным производственным оборудованием PRESONA LP- 50-EH2.
+            .left-dark-angle-section__content
+                .js-slider.slider.slider_option_disabled-indicate.slider_margin_default.slider_theme_default(
+                    data-dots="1"
+                    data-autowidth="1"
+                    data-containerwidth="1"
+                )
+                    each item in Array(5)
+                        .video-item(data-fancybox data-src="https://www.youtube.com/watch?v=TP11t_JEWRE")
+                            .video-item__picture
+                                .video-item__play-button
+                                img.video-item__img(src="images/content/equipment-img.jpg")
+                            .video-item__name Шредирование документов

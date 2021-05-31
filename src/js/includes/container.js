@@ -18,3 +18,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   containerEls.forEach((el) => setContainerPaddings(el));
 });
+
+export default containerWidth;

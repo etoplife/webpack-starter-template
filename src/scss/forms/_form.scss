@@ -22,6 +22,10 @@
   &__field {
     flex: 1 1 1px;
 
+    &_size_sm {
+      flex: 0 1 100px;
+    }
+
     & + & {
       margin: 0 0 0 30px;
 
@@ -53,6 +57,10 @@
 
       @include mobileMin {
         display: flex;
+
+        .form__submit {
+          margin-bottom: 0;
+        }
 
         #{$self}__agreement {
           order: -1;

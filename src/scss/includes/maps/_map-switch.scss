@@ -1,0 +1,23 @@
+.map-switch {
+  display: flex;
+
+  @include adaptive {
+    display: block;
+  }
+
+  &__tabs {
+    width: 300px;
+
+    @include adaptive {
+      width: auto;
+      margin: 0 0 25px;
+
+      @include containerPaddings;
+    }
+  }
+
+  &__el {
+    flex: 1 1 auto;
+    min-height: 600px;
+  }
+}

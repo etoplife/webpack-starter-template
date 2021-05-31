@@ -1,0 +1,162 @@
+.contacts-page {
+
+  &__header {
+    margin: 0 0 30px;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 16px;
+
+    @include adaptive {
+      justify-content: flex-start;
+    }
+
+    a[href^="tel:"] {
+      font-size: 18px;
+    }
+  }
+
+  &__item {
+
+    @include adaptive {
+      &:nth-child(2n - 1) {
+        flex: 0 0 60%;
+      }
+
+      &:nth-child(n + 3) {
+        margin-top: 40px;
+      }
+    }
+
+    @include mobile {
+      &:nth-child(2n - 1) {
+        flex: 0 0 100%;
+      }
+
+      &:nth-child(n + 2) {
+        margin-top: 30px;
+      }
+    }
+  }
+
+  &__address {
+
+    @include mobile {
+      br {
+        display: none;
+      }
+    }
+  }
+
+  &__callback {
+    font-size: 14px;
+    color: $color-gray;
+    padding: 0 0 0 21px;
+    text-decoration: underline;
+  }
+
+  &__map {
+    position: relative;
+    height: 600px;
+
+    @include adaptive {
+      height: auto;
+
+      @include relativeHeight(78);
+    }
+  }
+
+  &__form {
+    margin: 80px 0;
+  }
+
+  &__office-address {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  &__office-address-text {
+    color: $color-dark;
+    margin: 0 0 15px;
+  }
+
+  &__office-address-map {
+    flex: 1 1 auto;
+    position: relative;
+
+    @include adaptive {
+      @include relativeHeight(48);
+    }
+  }
+
+  &__requisites {
+    font-size: 16px;
+
+    @include mobile {
+      font-size: 14px;
+    }
+  }
+
+  &__requisites-list {
+    margin: 0 0 25px;
+  }
+
+  &__requisites-item {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 9px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &::after {
+      order: 1;
+      content: "";
+      min-width: 50px;
+      flex: 1 1 auto;
+      border-bottom: 1px dashed #CDD1DF;
+      margin: 0 10px 6px;
+    }
+  }
+
+  &__requisites-item-description {
+    order: 0;
+  }
+
+  &__requisites-item-value {
+    order: 2;
+    color: $color-dark;
+  }
+
+  &__requisites-footer {
+    color: $color-dark;
+  }
+
+  &__requisites-footer-item {
+    margin-bottom: 15px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__phones {
+    @include mobile {
+      a {
+        display: inline-block;
+      }
+
+      a:nth-child(n + 2) {
+        display: block;
+      }
+    }
+  }
+
+  a[href^="tel:"] {
+    color: $color-dark;
+  }
+}
