@@ -111,6 +111,16 @@ $breakpoints: (
   }
 }
 
+@mixin negativeContainerMargins() {
+  margin-right: #{$containerXlPadding * -1};
+  margin-left: #{$containerXlPadding * -1};
+
+  @include mobile {
+    margin-right: #{$containerSmPadding * -1};
+    margin-left: #{$containerSmPadding * -1};
+  }
+}
+
 @mixin customScroll() {
   &::-webkit-scrollbar {
     width: 4px;

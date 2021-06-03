@@ -14,8 +14,7 @@
     display: flex;
     align-items: flex-start;
     flex: 0 0 50%;
-    padding: 15px;
-    counter-increment: $counter;
+    padding: 20px 15px;
 
     @include adaptive {
       flex: 0 0 100%;
@@ -27,12 +26,24 @@
     }
 
     &::before {
-      content: counter($counter);
-      flex: 0 0 85px;
+      content: "";
+      display: block;
+      flex: 0 0 66px;
+      height: 60px;
       text-align: center;
       color: rgba($color-green, 0.2);
-      font-size: 80px;
-      margin: -0.68ch 0 0 -0.58ch;
+      margin: 0 20px 0 0;
+
+      @include mobile {
+        flex: 0 0 26px;
+        margin: 0 12px 0 0;
+      }
+    }
+
+    @for $i from 1 through 7 {
+      &:nth-child(#{$i})::before {
+        background: url('../images/content/svg/#{$i}.svg') no-repeat 50% 0 / contain;
+      }
     }
   }
 
@@ -50,5 +61,25 @@
   &__item-text {
     font-size: 16px;
     font-weight: 300;
+  }
+
+  &__text {
+    font-size: 22px;
+    letter-spacing: 0.04em;
+    flex: 0 0 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 0 120px;
+
+    @include adaptive {
+      flex: 0 0 100%;
+      padding: 0 0 0 105px;
+    }
+
+    @include mobile {
+      font-size: 18px;
+      padding: 0;
+    }
   }
 }

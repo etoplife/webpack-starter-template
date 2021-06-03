@@ -31,7 +31,7 @@ class ContactsMap {
     this.map = new window.ymaps.Map(this.el, {
       center: [0, 0],
       zoom: 13,
-      controls: ['zoomControl'],
+      controls: device === 'mobile' ? [] : ['zoomControl'],
     });
 
     this.items.forEach((item) => {
@@ -77,6 +77,8 @@ class ContactsMap {
 
   open(item) {
     const { placemark } = this.itemsHash.find((data) => data.item === item);
+    this.map.setCenter(placemark.geometry.getCoordinates());
+    this.map.setZoom(14);
     placemark.balloon.open();
   }
 

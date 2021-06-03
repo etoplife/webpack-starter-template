@@ -21,15 +21,18 @@
         }
 
         &.slick-active > button {
+          width: 8px;
+          height: 8px;
           background: $color-green;
         }
       }
 
       button {
-        width: 8px;
-        height: 8px;
+        width: 6px;
+        height: 6px;
         border-radius: 50%;
         background: #CDD1DF;
+        padding: 0;
 
         &::before {
           content: none;

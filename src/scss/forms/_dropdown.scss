@@ -17,6 +17,7 @@
     border-bottom: 1px solid;
     border-radius: 0;
     font-size: 16px;
+    line-height: initial;
     padding: 0;
     cursor: pointer !important;
     transition: 0.3s linear;
@@ -69,6 +70,7 @@
   }
 
   &.select_theme_light {
+    input[type="select-one"],
     input[type="select-one"]::placeholder {
       color: #B2B6C3 !important;
     }
@@ -117,6 +119,11 @@
   }
 
   &.select_theme_dark {
+    input[type="select-one"],
+    input[type="select-one"]::placeholder {
+      color: $color-gray;
+    }
+
     .selectize-input {
       color: $color-dark;
       border-color: $color-lightgray;
@@ -137,7 +144,7 @@
       }
 
       &.full .item {
-        color: $color-darkgray;
+        color: $color-dark;
       }
 
       &.input-active {

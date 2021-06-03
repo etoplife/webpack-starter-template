@@ -28,18 +28,18 @@ class SwitchMap {
       const itemClassName = 'vertical-tabs__item';
       const $category = $(`<li class="${itemClassName}">${name}</li>`);
 
-      $category.click(function () {
+      $category.on('click select.vertical-tabs', function () {
         $list.find(`.${itemClassName}`).removeClass('active');
         $(this).addClass('active');
       });
 
-      if (items && device !== 'mobile') {
+      if (items) {
         const $subList = $('<ul class="vertical-tabs__sublist"></ul>');
 
         items.forEach((item) => {
           const $item = $(`<li class="vertical-tabs__subitem">${item.name}</li>`);
 
-          $item.click(() => this.setActive(item));
+          $item.on('click', () => this.setActive(item));
 
           this.itemsHash.push({
             item,
@@ -50,14 +50,16 @@ class SwitchMap {
         });
 
         if (device !== 'desktop') {
-          $category.click(() => {
-            $category.css('padding-bottom', $subList.height());
+          const onSelect = function () {
+            $list.css('padding-bottom', $subList.height());
             $subList.css({
               position: 'absolute',
               bottom: 0,
               left: 0,
             });
-          });
+          };
+
+          $category.on('click select.vertical-tabs', onSelect);
         }
 
         $category.append($subList);
@@ -71,8 +73,15 @@ class SwitchMap {
 
   setActive(item) {
     this.itemsHash.forEach((data) => {
+      const { $item } = data;
       const isActive = data.item === item;
-      data.$item.toggleClass('active', isActive);
+
+      if (isActive) {
+        $item.addClass('active');
+        $item.trigger('select.vertical-tabs');
+      } else {
+        $item.removeClass('active');
+      }
     });
     this.map.open(item);
   }
@@ -80,10 +89,7 @@ class SwitchMap {
   async init() {
     this.map = await this.initMap();
     this.initTabs();
-
-    if (device !== 'mobile') {
-      this.map.onOpen((item) => this.setActive(item));
-    }
+    this.map.onOpen((item) => this.setActive(item));
   }
 }
 

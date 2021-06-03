@@ -1,6 +1,7 @@
 .contacts-page {
 
   &__header {
+    color: $color-dark;
     margin: 0 0 30px;
   }
 
@@ -53,9 +54,7 @@
 
   &__callback {
     font-size: 14px;
-    color: $color-gray;
-    padding: 0 0 0 21px;
-    text-decoration: underline;
+    margin: 0 0 0 21px;
   }
 
   &__map {
@@ -69,8 +68,12 @@
     }
   }
 
-  &__form {
+  &__inline-form {
     margin: 80px 0;
+
+    @include mobile {
+      margin: 30px 0 50px;
+    }
   }
 
   &__office-address {
@@ -96,7 +99,7 @@
     font-size: 16px;
 
     @include mobile {
-      font-size: 14px;
+      font-size: 13px;
     }
   }
 
@@ -120,6 +123,10 @@
       flex: 1 1 auto;
       border-bottom: 1px dashed #CDD1DF;
       margin: 0 10px 6px;
+
+      @include mobile {
+        min-width: 30px;
+      }
     }
   }
 
@@ -130,6 +137,12 @@
   &__requisites-item-value {
     order: 2;
     color: $color-dark;
+
+    @include mobileMin {
+      br {
+        display: none;
+      }
+    }
   }
 
   &__requisites-footer {

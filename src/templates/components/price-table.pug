@@ -14,7 +14,7 @@ mixin price-table()
                 td
                 td Марка (MC)
                 td Описание
-                td Цена, ₽
+                td!= "Цена, <span class='rouble'>o</span>/кг"
         tbody.price-table__body
             each item in prices
                 tr.price-table__row

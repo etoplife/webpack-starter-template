@@ -37,7 +37,7 @@ block content
                             address.contacts-page__address.pin-icon!= "188641, Россия, Ленинградская область, <br>г. Всеволожск, ул. Гоголя, д. 1"
                         .contacts-page__item
                             a.tel-icon(href="tel:+78129613538") +7 (812) 961-35-38
-                            .contacts-page__callback Заказать звонок
+                            button.border-link.border-link_size_sm.border-link_theme_gray.contacts-page__callback(type="button" data-popup="#export-popup") Заказать звонок
                         .contacts-page__item
                             a.email-icon(href="mailto:info@sinay-paper.ru") info@sinay-paper.ru
                         .contacts-page__item
@@ -45,7 +45,7 @@ block content
             .contacts-page__map
                 .full-absolute.js-contacts-map(data-items=JSON.stringify(contacts))
             .container
-                .contacts-page__form
+                .contacts-page__inline-form
                     include ../includes/inline-form
                 .contacts-page__footer
                     .row
@@ -59,10 +59,10 @@ block content
                             ul.contacts-page__requisites-list
                                 li.contacts-page__requisites-item
                                     .contacts-page__requisites-item-description Юридический адрес
-                                    .contacts-page__requisites-item-value 188643 ЛО г.Всеволожск ул.Гоголя д.1
+                                    .contacts-page__requisites-item-value!= "188643 ЛО <br> г.Всеволожск <br> ул.Гоголя д.1"
                                 li.contacts-page__requisites-item
                                     .contacts-page__requisites-item-description Фактический адрес
-                                    .contacts-page__requisites-item-value 188643 ЛО г.Всеволожск ул.Гоголя д.1
+                                    .contacts-page__requisites-item-value!= "188643 ЛО <br> г.Всеволожск <br> ул.Гоголя д.1"
                                 li.contacts-page__requisites-item
                                     .contacts-page__requisites-item-description!= "Р/с <br> в ПАО «СИАБ» г.Санкт-Петербург"
                                     .contacts-page__requisites-item-value 40702810908000061937

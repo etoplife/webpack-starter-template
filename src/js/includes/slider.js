@@ -32,6 +32,7 @@ const initSlider = (el, options = {}) => {
     slidesToScroll: items,
     lazyLoad: 'ondemand',
     variableWidth,
+    draggable: true,
   };
 
   const resultOptions = {

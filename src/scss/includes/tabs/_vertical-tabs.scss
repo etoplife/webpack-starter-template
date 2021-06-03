@@ -31,9 +31,12 @@
       margin-bottom: 0;
     }
 
-    &:hover,
-    &.active {
+    &:hover {
       color: $color-green;
+    }
+
+    &.active {
+      color: $color-dark;
     }
   }
 
@@ -47,6 +50,11 @@
     @include adaptive {
       padding: 0;
       margin: 0 -25px;
+    }
+
+    @include mobile {
+      font-size: 14px;
+      margin: 0 -12px;
     }
 
     #{$self}__item.active & {
@@ -66,6 +74,11 @@
 
     @include adaptive {
       padding: 7px 25px;
+      margin-bottom: 0;
+    }
+
+    @include mobile {
+      padding: 4px 12px;
     }
 
     &:last-child {

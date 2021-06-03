@@ -37,8 +37,8 @@ if (device === 'mobile') {
     const $table = $(table);
     const items = $(table).data('source');
     const $descriptions = $table.find('thead td');
-    const nameDescription = $descriptions.eq(1).text();
-    const priceDescription = $descriptions.eq(3).text();
+    const nameDescription = $descriptions.eq(1).html();
+    const priceDescription = $descriptions.eq(3).html();
 
     table.outerHTML = items
       .map((item) => `<div class="price-table__item">${getTransformedItem(item, nameDescription, priceDescription)}</div>`)

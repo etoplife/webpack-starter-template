@@ -17,7 +17,21 @@
   }
 
   &__el {
+    @include fullAbsolute;
+  }
+
+  &__el-wrapper {
+    position: relative;
     flex: 1 1 auto;
-    min-height: 600px;
+    height: 600px;
+
+    @include adaptive {
+      height: auto;
+      @include relativeHeight(82);
+    }
+
+    @include mobile {
+      @include relativeHeight(116);
+    }
   }
 }

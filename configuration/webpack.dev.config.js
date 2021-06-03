@@ -32,7 +32,4 @@ module.exports = merge(webpackConfiguration, {
     poll: 300,
     ignored: /node_modules/,
   },
-
-  /* Additional plugins configuration */
-  plugins: [],
 });

@@ -6,7 +6,15 @@
   align-items: center;
   text-align: center;
   border: 2px solid rgba($color-gray, 0.1);
-  background: rgba($color-green, 0.1);
+  padding: 31px 0;
+
+  &:hover {
+    color: $color-green;
+  }
+
+  @include mobile {
+    padding: 26px 0;
+  }
 
   &::before {
     content: "";
@@ -25,6 +33,7 @@
     right: 10px;
     bottom: 10px;
     left: 10px;
+    background: rgba($color-green, 0.1);
     border: 1px solid rgba($color-gray, 0.1);
   }
 }

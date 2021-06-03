@@ -40,9 +40,11 @@
       transition: 0.3s linear;
     }
 
-    &:hover::after {
-      color: rgba(#fff, 1);
-      background: rgba($color-dark, 0.7);
+    @include desktop {
+      &:hover::after {
+        color: rgba(#fff, 1);
+        background: rgba($color-dark, 0.7);
+      }
     }
 
     @include tablet {

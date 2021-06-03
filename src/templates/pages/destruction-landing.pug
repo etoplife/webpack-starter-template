@@ -33,7 +33,7 @@ block content
                                             select.select.select_theme_dark.js-select
                                                 each item, i in Array(5)
                                                     if (i === 0)
-                                                        option(value="")= `Траспорт:`
+                                                        option(value="")= `Траспорт`
                                                     else
                                                         option(value=i)= `Транспорт ${i}`
                                     .form__row
@@ -58,7 +58,7 @@ block content
             .container
                 h2.h2 Способы уничтожения
                 .row
-                    .col-md-6.col-xl-4.mb-1.mb-md-2.mb-xl-0
+                    a.col-md-6.col-xl-4.mb-1.mb-md-2.mb-xl-0(href="javascript:void(0)")
                         .styled-item
                             .styled-item__header
                                 .styled-item__icon
@@ -67,7 +67,7 @@ block content
                             .styled-item__body
                                 .styled-item__name Кипование
                                 .styled-item__text Бумага прессуется в массивные брикеты под высоким давлением.
-                    .col-md-6.col-xl-4.mb-1.mb-md-2.mb-xl-0
+                    a.col-md-6.col-xl-4.mb-1.mb-md-2.mb-xl-0(href="javascript:void(0)")
                         .styled-item
                             .styled-item__header
                                 .styled-item__icon
@@ -76,7 +76,7 @@ block content
                             .styled-item__body
                                 .styled-item__name Шредирование
                                 .styled-item__text Измельчение листов бумаги на специальной установке с дальнейшим прессованием.
-                    .col-md-6.col-xl-4
+                    a.col-md-6.col-xl-4(href="javascript:void(0)")
                         .styled-item
                             .styled-item__header
                                 .styled-item__icon
@@ -113,7 +113,7 @@ block content
                                 .angle-item__content
                                     .angle-item__title Секретные
                 .text-wrapper
-                    .h4 Мы так же уничтожаем:
+                    .h5 Мы так же уничтожаем:
                     ul.columns-2
                         li Газеты, журналы, напечатанные на газетной бумаге
                         li Технологическую, конструкторскую документацию
@@ -130,7 +130,7 @@ block content
                         tr
                             td Вес, кг
                             td Описание
-                            td!= "Цена, <span class='rouble'>₽</span>/кг"
+                            td!= "Цена, <span class='rouble'>o</span>/кг"
                     tbody
                         tr
                             td.service-price-table__strong От 100 до 500 (кроме картона)
@@ -148,56 +148,56 @@ block content
                             td.service-price-table__strong От 18 000
                             td.service-price-table__text Весь Северо-Западный регион РФ (др. регионы на рассмотрение)
                             td.service-price-table__strong 10
-        .section
-            .container
-                .inline-form
-                    .inline-form__content
-                        .form__row
-                            .form__field.form__field_size_sm
-                                input.input.input_theme_dark(type="number" placeholder="Вес (кг)" inputmode="numeric")
-                            .form__field
-                                select.select.select_theme_dark.js-select
-                                    each item, i in Array(5)
-                                        if (i === 0)
-                                            option(value="")= `Траспорт:`
-                                        else
-                                            option(value=i)= `Транспорт ${i}`
-                        .form__row
-                            .form__field
-                                input.input.input_theme_dark(type="text" placeholder="Имя")
-                            .form__field
-                                input.input.input_theme_dark(type="tel" placeholder="Телефон*" inputmode="numeric")
-                        .form__footer.form__footer_align_right.form__footer_flex_inline
-                            button.btn.btn_size_lg.btn_theme_dark.form__submit(type="submit")
-                                .btn__text Отправить
-                            .form__agreement
-                                | Отправляя форму, Вы соглашаетесь с
-                                a(href="/agreement/") обработкой персональных данных
-                    .inline-form__description!= "Оставьте заявку на уничтожение <br> документов и наш менеджер <br> свяжется с Вами"
+                .inline-form-section
+                    .inline-form
+                        .inline-form__content
+                            .form__row
+                                .form__field.form__field_size_sm
+                                    input.input.input_theme_dark(type="number" placeholder="Вес (кг)" inputmode="numeric")
+                                .form__field
+                                    select.select.select_theme_dark.js-select
+                                        each item, i in Array(5)
+                                            if (i === 0)
+                                                option(value="")= `Траспорт`
+                                            else
+                                                option(value=i)= `Транспорт ${i}`
+                            .form__row
+                                .form__field
+                                    input.input.input_theme_dark(type="text" placeholder="Имя")
+                                .form__field
+                                    input.input.input_theme_dark(type="tel" placeholder="Телефон*" inputmode="numeric")
+                            .form__footer.form__footer_align_right.form__footer_flex_inline
+                                button.btn.btn_size_lg.btn_theme_dark.form__submit(type="submit")
+                                    .btn__text Отправить
+                                .form__agreement
+                                    | Отправляя форму, Вы соглашаетесь с
+                                    a(href="/agreement/") обработкой персональных данных
+                        .inline-form__description!= "Оставьте заявку на уничтожение <br> документов и наш менеджер <br> свяжется с Вами"
         .left-green-angle-section
             .container.left-green-angle-section__container
                 .row.left-green-angle-section__row
-                    .col-xl-8
+                    .col-xl-8.order-2.order-xl-1
                         .left-green-angle-section__content
                             .row
-                                .col-xl-6.mb-3.mb-md-0
+                                .col-md-6.mb-2.mb-md-0
                                     a.additional-service(href="javascript:void(0)")
                                         .additional-service__title Конфиденциальное уничтожение документов
                                         .additional-service__text Позаботьтесь о правильном уничтожении документов, и вам не придется впоследствии сталкиваться с печальными последствиями утечки данных.
-                                .col-xl-6
+                                .col-md-6
                                     a.additional-service(href="javascript:void(0)")
                                         .additional-service__title Архивное хранение документов
                                         .additional-service__text Мы имеем возможность разместить на нашей территории документы, у которых еще не истек срок хранения, но они уже не задействованы в работе.
-                    .col-xl-4.left-green-angle-section__prolog
-                        .border-decoration.border-decoration_position_right.border-decoration_theme_dark
-                            h2.h2 Дополнительные услуги
-                            .text-wrapper Описание!!! собственным автопарком и бригадой грузчиков. Все хлопоты, связанные с погрузкой и доставкой и не только
+                    .col-xl-4.order-1.order-xl-2
+                        .left-green-angle-section__prolog
+                            .border-decoration.border-decoration_position_right.border-decoration_theme_dark
+                                h2.h2 Дополнительные услуги
+                                .text-wrapper Описание!!! собственным автопарком и бригадой грузчиков. Все хлопоты, связанные с погрузкой и доставкой и не только
         .section
             .container
                 h2.h2 Какие документы предоставим
                 .text-wrapper
-                    p Наша компания предоставляет необходимые документы, фиксирующие факт уничтожения документов, а при необходимости, и ход процесса.
-                    .h4 Документы:
+                    p.mb-2 Наша компания предоставляет необходимые документы, фиксирующие факт уничтожения документов, а при необходимости, и ход процесса.
+                    .h5 Документы:
                     ul.columns-2
                         li Справка об уничтожении архива, в которой указаны следующие данные (название компании, местоположение архива, масса макулатуры (в тоннах), способ уничтожения, дата, время и место уничтожения)
                         li Договор на покупку макулатуры (с указанием данных архива

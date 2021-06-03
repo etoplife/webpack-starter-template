@@ -16,10 +16,9 @@ const switchTab = ($tabs, index) => {
   const $slider = $currentTab.find('.slick-slider');
   if ($slider.length) {
     $currentTab.css('opacity', 0);
-    $slider.slick('getSlick').destroy();
-    $slider.slick('getSlick').init();
     init();
-    setTimeout(() => $currentTab.css('opacity', 1), 100);
+    $slider.slick('setPosition');
+    $currentTab.css('opacity', 1);
   } else {
     init();
   }

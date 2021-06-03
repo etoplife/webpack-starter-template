@@ -3,7 +3,7 @@
   &__list {
     display: flex;
     flex-wrap: wrap;
-    margin: 7px -20px 13px;
+    margin: -7px -20px 13px;
     cursor: pointer;
     font-size: 16px;
 
@@ -17,9 +17,16 @@
     transition: color 0.3s linear;
     padding: 7px 20px;
 
-    &:hover,
-    &.active {
+    &:hover {
       color: $color-green;
     }
+
+    &.active {
+      color: $color-dark;
+    }
+  }
+
+  &__content {
+    transition: opacity 0.3s linear;
   }
 }
